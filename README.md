@@ -2,7 +2,7 @@
 
 **Technical Product Manager Who Codes** | 20+ years building embedded & IoT systems
 
-- 🔧 Currently: PM by day, coding by night
+- 🔧 Currently: Technical Product Manager and System Architect
 - 💻 Tech: C/C++, Python
 - 🎓 Pursuing: MSc in Cognitive Systems
 - 📍 Location: Berlin
