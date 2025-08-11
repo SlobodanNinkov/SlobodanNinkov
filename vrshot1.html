@@ -32,7 +32,7 @@
 <body>
     <div id="ui">
         <div>Score: <span id="score">0</span></div>
-        <div>Press trigger to shoot</div>
+        <div>Space Combat - Press trigger to shoot</div>
         <button id="enterVR" style="padding: 10px; font-size: 16px;">Enter VR</button>
     </div>
     <canvas id="canvas"></canvas>
@@ -55,9 +55,15 @@
                 // Create camera
                 this.camera = new BABYLON.UniversalCamera("camera", new BABYLON.Vector3(0, 1.6, 0), this.scene);
                 
-                // Create lighting
-                const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), this.scene);
-                light.intensity = 0.7;
+                // Create space lighting
+                const ambientLight = new BABYLON.HemisphericLight("ambient", new BABYLON.Vector3(0, 1, 0), this.scene);
+                ambientLight.intensity = 0.3;
+                ambientLight.diffuse = new BABYLON.Color3(0.8, 0.8, 1);
+                
+                // Add a directional light (like distant sun)
+                const sunLight = new BABYLON.DirectionalLight("sun", new BABYLON.Vector3(-1, -0.5, -1), this.scene);
+                sunLight.intensity = 0.5;
+                sunLight.diffuse = new BABYLON.Color3(1, 0.9, 0.7);
                 
                 // Create environment
                 this.createEnvironment();
@@ -81,19 +87,118 @@
             }
 
             createEnvironment() {
-                // Create ground
-                const ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 50, height: 50}, this.scene);
-                const groundMaterial = new BABYLON.StandardMaterial("groundMat", this.scene);
-                groundMaterial.diffuseColor = new BABYLON.Color3(0.2, 0.4, 0.2);
-                ground.material = groundMaterial;
-                ground.position.y = -2;
-                
-                // Create sky
-                const skybox = BABYLON.MeshBuilder.CreateSphere("skyBox", {diameter: 100}, this.scene);
+                // Create space skybox with stars
+                const skybox = BABYLON.MeshBuilder.CreateSphere("skyBox", {diameter: 200}, this.scene);
                 const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", this.scene);
                 skyboxMaterial.backFaceCulling = false;
-                skyboxMaterial.diffuseColor = new BABYLON.Color3(0.1, 0.2, 0.4);
+                skyboxMaterial.diffuseColor = new BABYLON.Color3(0.02, 0.02, 0.05);
+                skyboxMaterial.emissiveColor = new BABYLON.Color3(0.02, 0.02, 0.05);
                 skybox.material = skyboxMaterial;
+                
+                // Create star field
+                this.createStarField();
+                
+                // Add some distant planets/nebulae
+                this.createSpaceObjects();
+            }
+            
+            createStarField() {
+                const starCount = 2000;
+                const positions = [];
+                const colors = [];
+                
+                for (let i = 0; i < starCount; i++) {
+                    // Random position on sphere
+                    const theta = Math.random() * Math.PI * 2;
+                    const phi = Math.random() * Math.PI;
+                    const radius = 90 + Math.random() * 10;
+                    
+                    const x = radius * Math.sin(phi) * Math.cos(theta);
+                    const y = radius * Math.cos(phi);
+                    const z = radius * Math.sin(phi) * Math.sin(theta);
+                    
+                    positions.push(x, y, z);
+                    
+                    // Random star colors (white, blue, yellow, red)
+                    const starType = Math.random();
+                    if (starType < 0.7) {
+                        colors.push(1, 1, 1, 1); // White
+                    } else if (starType < 0.85) {
+                        colors.push(0.8, 0.8, 1, 1); // Blue
+                    } else if (starType < 0.95) {
+                        colors.push(1, 1, 0.6, 1); // Yellow
+                    } else {
+                        colors.push(1, 0.6, 0.4, 1); // Red
+                    }
+                }
+                
+                // Create point cloud for stars
+                const stars = new BABYLON.PointsCloudSystem("stars", 5, this.scene);
+                stars.addPoints(starCount);
+                
+                const starMaterial = new BABYLON.StandardMaterial("starMaterial", this.scene);
+                starMaterial.emissiveColor = new BABYLON.Color3(1, 1, 1);
+                starMaterial.pointSize = 3;
+                
+                stars.mesh.material = starMaterial;
+                
+                // Set positions
+                stars.initParticles = function() {
+                    for (let p = 0; p < this.nbParticles; p++) {
+                        const particle = this.particles[p];
+                        const i = p * 3;
+                        particle.position.x = positions[i];
+                        particle.position.y = positions[i + 1];
+                        particle.position.z = positions[i + 2];
+                    }
+                };
+                
+                stars.initParticles();
+                stars.setParticles();
+            }
+            
+            createSpaceObjects() {
+                // Create distant planets
+                for (let i = 0; i < 3; i++) {
+                    const planet = BABYLON.MeshBuilder.CreateSphere("planet" + i, {diameter: 8 + Math.random() * 5}, this.scene);
+                    
+                    // Position far away
+                    const angle = (i / 3) * Math.PI * 2;
+                    planet.position = new BABYLON.Vector3(
+                        Math.cos(angle) * 60,
+                        Math.random() * 20 - 10,
+                        Math.sin(angle) * 60
+                    );
+                    
+                    const planetMaterial = new BABYLON.StandardMaterial("planetMat" + i, this.scene);
+                    const colors = [
+                        new BABYLON.Color3(0.8, 0.4, 0.2), // Mars-like
+                        new BABYLON.Color3(0.3, 0.3, 0.8), // Neptune-like
+                        new BABYLON.Color3(0.6, 0.6, 0.4)  // Desert planet
+                    ];
+                    planetMaterial.diffuseColor = colors[i];
+                    planetMaterial.emissiveColor = colors[i].scale(0.1);
+                    planet.material = planetMaterial;
+                }
+                
+                // Create nebula-like clouds
+                for (let i = 0; i < 5; i++) {
+                    const cloud = BABYLON.MeshBuilder.CreateSphere("cloud" + i, {diameter: 15 + Math.random() * 10}, this.scene);
+                    cloud.position = new BABYLON.Vector3(
+                        (Math.random() - 0.5) * 150,
+                        (Math.random() - 0.5) * 80,
+                        (Math.random() - 0.5) * 150
+                    );
+                    
+                    const cloudMaterial = new BABYLON.StandardMaterial("cloudMat" + i, this.scene);
+                    cloudMaterial.alpha = 0.1;
+                    cloudMaterial.emissiveColor = new BABYLON.Color3(
+                        Math.random() * 0.5 + 0.2,
+                        Math.random() * 0.3 + 0.1,
+                        Math.random() * 0.8 + 0.2
+                    );
+                    cloud.material = cloudMaterial;
+                }
             }
 
             async setupWebXR() {
@@ -141,27 +246,29 @@
             createBox() {
                 const box = BABYLON.MeshBuilder.CreateBox("box", {size: 0.5}, this.scene);
                 
-                // Random position
+                // Random position in 3D space
                 box.position = new BABYLON.Vector3(
+                    Math.random() * 40 - 20,
                     Math.random() * 20 - 10,
-                    Math.random() * 8 + 2,
-                    Math.random() * 20 - 10
+                    Math.random() * 40 - 20
                 );
                 
-                // Random velocity
+                // Random velocity in all directions
                 box.velocity = new BABYLON.Vector3(
-                    (Math.random() - 0.5) * 0.1,
-                    (Math.random() - 0.5) * 0.05,
-                    (Math.random() - 0.5) * 0.1
+                    (Math.random() - 0.5) * 0.15,
+                    (Math.random() - 0.5) * 0.15,
+                    (Math.random() - 0.5) * 0.15
                 );
                 
-                // Material
+                // Material with emissive glow for space
                 const material = new BABYLON.StandardMaterial("boxMat", this.scene);
-                material.diffuseColor = new BABYLON.Color3(
+                const baseColor = new BABYLON.Color3(
                     Math.random(),
                     Math.random(),
                     Math.random()
                 );
+                material.diffuseColor = baseColor;
+                material.emissiveColor = baseColor.scale(0.2); // Slight glow
                 box.material = material;
                 
                 // Store creation time for despawning
@@ -189,7 +296,8 @@
                 bullet.velocity = direction.scale(0.5);
                 
                 const bulletMaterial = new BABYLON.StandardMaterial("bulletMat", this.scene);
-                bulletMaterial.emissiveColor = new BABYLON.Color3(1, 1, 0);
+                bulletMaterial.emissiveColor = new BABYLON.Color3(0, 1, 1); // Cyan glow
+                bulletMaterial.diffuseColor = new BABYLON.Color3(0, 1, 1);
                 bullet.material = bulletMaterial;
                 
                 bullet.createdTime = Date.now();
@@ -243,14 +351,14 @@
                     box.rotation.x += deltaTime;
                     box.rotation.y += deltaTime * 0.7;
                     
-                    // Boundary check and bounce
-                    if (Math.abs(box.position.x) > 15) {
+                    // Boundary check and bounce (larger space boundaries)
+                    if (Math.abs(box.position.x) > 25) {
                         box.velocity.x *= -1;
                     }
-                    if (box.position.y > 10 || box.position.y < 0) {
+                    if (Math.abs(box.position.y) > 20) {
                         box.velocity.y *= -1;
                     }
-                    if (Math.abs(box.position.z) > 15) {
+                    if (Math.abs(box.position.z) > 25) {
                         box.velocity.z *= -1;
                     }
                     
