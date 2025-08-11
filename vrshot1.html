@@ -103,58 +103,40 @@
             }
             
             createStarField() {
-                const starCount = 2000;
-                const positions = [];
-                const colors = [];
+                const starCount = 1000;
                 
+                // Create individual star spheres for better compatibility
                 for (let i = 0; i < starCount; i++) {
                     // Random position on sphere
                     const theta = Math.random() * Math.PI * 2;
                     const phi = Math.random() * Math.PI;
-                    const radius = 90 + Math.random() * 10;
+                    const radius = 85 + Math.random() * 10;
                     
                     const x = radius * Math.sin(phi) * Math.cos(theta);
                     const y = radius * Math.cos(phi);
                     const z = radius * Math.sin(phi) * Math.sin(theta);
                     
-                    positions.push(x, y, z);
+                    // Create small star sphere
+                    const star = BABYLON.MeshBuilder.CreateSphere("star" + i, {diameter: 0.1 + Math.random() * 0.1}, this.scene);
+                    star.position = new BABYLON.Vector3(x, y, z);
                     
-                    // Random star colors (white, blue, yellow, red)
+                    // Star material with emissive glow
+                    const starMaterial = new BABYLON.StandardMaterial("starMat" + i, this.scene);
+                    
+                    // Random star colors
                     const starType = Math.random();
                     if (starType < 0.7) {
-                        colors.push(1, 1, 1, 1); // White
+                        starMaterial.emissiveColor = new BABYLON.Color3(1, 1, 1); // White
                     } else if (starType < 0.85) {
-                        colors.push(0.8, 0.8, 1, 1); // Blue
+                        starMaterial.emissiveColor = new BABYLON.Color3(0.8, 0.8, 1); // Blue
                     } else if (starType < 0.95) {
-                        colors.push(1, 1, 0.6, 1); // Yellow
+                        starMaterial.emissiveColor = new BABYLON.Color3(1, 1, 0.6); // Yellow
                     } else {
-                        colors.push(1, 0.6, 0.4, 1); // Red
+                        starMaterial.emissiveColor = new BABYLON.Color3(1, 0.6, 0.4); // Red
                     }
+                    
+                    star.material = starMaterial;
                 }
-                
-                // Create point cloud for stars
-                const stars = new BABYLON.PointsCloudSystem("stars", 5, this.scene);
-                stars.addPoints(starCount);
-                
-                const starMaterial = new BABYLON.StandardMaterial("starMaterial", this.scene);
-                starMaterial.emissiveColor = new BABYLON.Color3(1, 1, 1);
-                starMaterial.pointSize = 3;
-                
-                stars.mesh.material = starMaterial;
-                
-                // Set positions
-                stars.initParticles = function() {
-                    for (let p = 0; p < this.nbParticles; p++) {
-                        const particle = this.particles[p];
-                        const i = p * 3;
-                        particle.position.x = positions[i];
-                        particle.position.y = positions[i + 1];
-                        particle.position.z = positions[i + 2];
-                    }
-                };
-                
-                stars.initParticles();
-                stars.setParticles();
             }
             
             createSpaceObjects() {
