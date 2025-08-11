@@ -1,372 +1,285 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>VR Box Shooter</title>
-    <style>
-        html, body {
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background: #000;
-        }
-        #canvas {
-            width: 100%;
-            height: 100%;
-            touch-action: none;
-        }
-        #ui {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            color: white;
-            font-family: Arial;
-            z-index: 100;
-        }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babylonjs/6.0.0/babylon.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babylonjs/6.0.0/babylonjs.loaders.min.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A‑Frame Space Shooter – Quest 3</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <!-- Optional: text component polyfill for crisp HUD text on Quest -->
+  <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+  <style>
+    html, body { margin: 0; height: 100%; background: #000; }
+  </style>
 </head>
 <body>
-    <div id="ui">
-        <div>Score: <span id="score">0</span></div>
-        <div>Space Combat - Press trigger to shoot</div>
-        <button id="enterVR" style="padding: 10px; font-size: 16px;">Enter VR</button>
-    </div>
-    <canvas id="canvas"></canvas>
+  <a-scene renderer="colorManagement: true; antialias: true"
+           background="color: #000"
+           vr-mode-ui="enabled: true"
+           webxr="optionalFeatures: local-floor, bounded-floor, hand-tracking">
 
+    <!-- Lighting / sky -->
+    <a-entity light="type: ambient; intensity: 0.5"></a-entity>
+    <a-entity light="type: directional; intensity: 0.7" position="1 1 0"></a-entity>
+    <a-sky color="#02030f"></a-sky>
+
+    <!-- Stars backdrop -->
+    <a-entity id="starfield" starfield></a-entity>
+
+    <!-- Player rig: camera + hands -->
+    <a-entity id="rig" position="0 1.6 0" player-move>
+      <a-entity id="camera" camera look-controls></a-entity>
+      <a-entity id="rightHand" oculus-touch-controls="hand: right" shooter raycaster="objects: .enemy; showLine: false"></a-entity>
+      <a-entity id="leftHand"  oculus-touch-controls="hand: left"></a-entity>
+    </a-entity>
+
+    <!-- HUD (attached to camera) -->
+    <a-entity id="hud" position="0 0 -1.2" rotation="0 0 0" 
+              text="value: Score: 0 | HP: 100; align: center; color: #00e5ff; width: 2"
+              geometry="primitive: plane; height: 0.12; width: 0.9"
+              material="color: #000; opacity: 0.35"
+              parent-to="#camera"></a-entity>
+
+    <!-- Spawner + game manager -->
+    <a-entity id="game" enemy-spawner="interval: 1600" game-manager></a-entity>
+
+    <!-- Simple boundary grid for orientation -->
+    <a-entity position="0 0 -4" grid></a-entity>
+
+    <!-- ===== Components ===== -->
     <script>
-        class VRShootingGame {
-            constructor() {
-                this.canvas = document.getElementById('canvas');
-                this.score = 0;
-                this.boxes = [];
-                this.bullets = [];
-                this.init();
-            }
+      // Parent an entity to a target (useful for HUD following camera)
+      AFRAME.registerComponent('parent-to', {
+        schema: {default: ''},
+        init() { const t = document.querySelector(this.data); if (t) t.appendChild(this.el); }
+      });
 
-            async init() {
-                // Create engine and scene
-                this.engine = new BABYLON.Engine(this.canvas, true);
-                this.scene = new BABYLON.Scene(this.engine);
-                
-                // Create camera
-                this.camera = new BABYLON.UniversalCamera("camera", new BABYLON.Vector3(0, 1.6, 0), this.scene);
-                
-                // Create space lighting
-                const ambientLight = new BABYLON.HemisphericLight("ambient", new BABYLON.Vector3(0, 1, 0), this.scene);
-                ambientLight.intensity = 0.3;
-                ambientLight.diffuse = new BABYLON.Color3(0.8, 0.8, 1);
-                
-                // Add a directional light (like distant sun)
-                const sunLight = new BABYLON.DirectionalLight("sun", new BABYLON.Vector3(-1, -0.5, -1), this.scene);
-                sunLight.intensity = 0.5;
-                sunLight.diffuse = new BABYLON.Color3(1, 0.9, 0.7);
-                
-                // Create environment
-                this.createEnvironment();
-                
-                // Setup WebXR
-                await this.setupWebXR();
-                
-                // Create initial boxes
-                this.createBoxes(10);
-                
-                // Start render loop
-                this.engine.runRenderLoop(() => {
-                    this.update();
-                    this.scene.render();
-                });
-                
-                // Handle resize
-                window.addEventListener('resize', () => {
-                    this.engine.resize();
-                });
-            }
-
-            createEnvironment() {
-                // Create space skybox with stars
-                const skybox = BABYLON.MeshBuilder.CreateSphere("skyBox", {diameter: 200}, this.scene);
-                const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", this.scene);
-                skyboxMaterial.backFaceCulling = false;
-                skyboxMaterial.diffuseColor = new BABYLON.Color3(0.02, 0.02, 0.05);
-                skyboxMaterial.emissiveColor = new BABYLON.Color3(0.02, 0.02, 0.05);
-                skybox.material = skyboxMaterial;
-                
-                // Create star field
-                this.createStarField();
-                
-                // Add some distant planets/nebulae
-                this.createSpaceObjects();
-            }
-            
-            createStarField() {
-                const starCount = 1000;
-                
-                // Create individual star spheres for better compatibility
-                for (let i = 0; i < starCount; i++) {
-                    // Random position on sphere
-                    const theta = Math.random() * Math.PI * 2;
-                    const phi = Math.random() * Math.PI;
-                    const radius = 85 + Math.random() * 10;
-                    
-                    const x = radius * Math.sin(phi) * Math.cos(theta);
-                    const y = radius * Math.cos(phi);
-                    const z = radius * Math.sin(phi) * Math.sin(theta);
-                    
-                    // Create small star sphere
-                    const star = BABYLON.MeshBuilder.CreateSphere("star" + i, {diameter: 0.1 + Math.random() * 0.1}, this.scene);
-                    star.position = new BABYLON.Vector3(x, y, z);
-                    
-                    // Star material with emissive glow
-                    const starMaterial = new BABYLON.StandardMaterial("starMat" + i, this.scene);
-                    
-                    // Random star colors
-                    const starType = Math.random();
-                    if (starType < 0.7) {
-                        starMaterial.emissiveColor = new BABYLON.Color3(1, 1, 1); // White
-                    } else if (starType < 0.85) {
-                        starMaterial.emissiveColor = new BABYLON.Color3(0.8, 0.8, 1); // Blue
-                    } else if (starType < 0.95) {
-                        starMaterial.emissiveColor = new BABYLON.Color3(1, 1, 0.6); // Yellow
-                    } else {
-                        starMaterial.emissiveColor = new BABYLON.Color3(1, 0.6, 0.4); // Red
-                    }
-                    
-                    star.material = starMaterial;
-                }
-            }
-            
-            createSpaceObjects() {
-                // Create distant planets
-                for (let i = 0; i < 3; i++) {
-                    const planet = BABYLON.MeshBuilder.CreateSphere("planet" + i, {diameter: 8 + Math.random() * 5}, this.scene);
-                    
-                    // Position far away
-                    const angle = (i / 3) * Math.PI * 2;
-                    planet.position = new BABYLON.Vector3(
-                        Math.cos(angle) * 60,
-                        Math.random() * 20 - 10,
-                        Math.sin(angle) * 60
-                    );
-                    
-                    const planetMaterial = new BABYLON.StandardMaterial("planetMat" + i, this.scene);
-                    const colors = [
-                        new BABYLON.Color3(0.8, 0.4, 0.2), // Mars-like
-                        new BABYLON.Color3(0.3, 0.3, 0.8), // Neptune-like
-                        new BABYLON.Color3(0.6, 0.6, 0.4)  // Desert planet
-                    ];
-                    planetMaterial.diffuseColor = colors[i];
-                    planetMaterial.emissiveColor = colors[i].scale(0.1);
-                    planet.material = planetMaterial;
-                }
-                
-                // Create nebula-like clouds
-                for (let i = 0; i < 5; i++) {
-                    const cloud = BABYLON.MeshBuilder.CreateSphere("cloud" + i, {diameter: 15 + Math.random() * 10}, this.scene);
-                    cloud.position = new BABYLON.Vector3(
-                        (Math.random() - 0.5) * 150,
-                        (Math.random() - 0.5) * 80,
-                        (Math.random() - 0.5) * 150
-                    );
-                    
-                    const cloudMaterial = new BABYLON.StandardMaterial("cloudMat" + i, this.scene);
-                    cloudMaterial.alpha = 0.1;
-                    cloudMaterial.emissiveColor = new BABYLON.Color3(
-                        Math.random() * 0.5 + 0.2,
-                        Math.random() * 0.3 + 0.1,
-                        Math.random() * 0.8 + 0.2
-                    );
-                    cloud.material = cloudMaterial;
-                }
-            }
-
-            async setupWebXR() {
-                try {
-                    // Create WebXR experience helper
-                    this.xrHelper = await this.scene.createDefaultXRExperienceAsync({
-                        floorMeshes: []
-                    });
-                    
-                    // Setup controller input
-                    this.xrHelper.input.onControllerAddedObservable.add((controller) => {
-                        controller.onMotionControllerInitObservable.add((motionController) => {
-                            // Get trigger component
-                            const trigger = motionController.getComponent("xr-standard-trigger");
-                            if (trigger) {
-                                trigger.onButtonStateChangedObservable.add(() => {
-                                    if (trigger.pressed) {
-                                        this.shoot(controller);
-                                    }
-                                });
-                            }
-                        });
-                    });
-                    
-                    // VR button
-                    document.getElementById('enterVR').onclick = () => {
-                        this.xrHelper.baseExperience.enterXRAsync("immersive-vr", "local-floor");
-                    };
-                    
-                } catch (e) {
-                    console.log("WebXR not supported:", e);
-                    // Fallback for non-VR devices
-                    this.canvas.addEventListener('click', () => {
-                        this.shoot(null);
-                    });
-                }
-            }
-
-            createBoxes(count) {
-                for (let i = 0; i < count; i++) {
-                    this.createBox();
-                }
-            }
-
-            createBox() {
-                const box = BABYLON.MeshBuilder.CreateBox("box", {size: 0.5}, this.scene);
-                
-                // Random position in 3D space
-                box.position = new BABYLON.Vector3(
-                    Math.random() * 40 - 20,
-                    Math.random() * 20 - 10,
-                    Math.random() * 40 - 20
-                );
-                
-                // Random velocity in all directions
-                box.velocity = new BABYLON.Vector3(
-                    (Math.random() - 0.5) * 0.15,
-                    (Math.random() - 0.5) * 0.15,
-                    (Math.random() - 0.5) * 0.15
-                );
-                
-                // Material with emissive glow for space
-                const material = new BABYLON.StandardMaterial("boxMat", this.scene);
-                const baseColor = new BABYLON.Color3(
-                    Math.random(),
-                    Math.random(),
-                    Math.random()
-                );
-                material.diffuseColor = baseColor;
-                material.emissiveColor = baseColor.scale(0.2); // Slight glow
-                box.material = material;
-                
-                // Store creation time for despawning
-                box.createdTime = Date.now();
-                
-                this.boxes.push(box);
-            }
-
-            shoot(controller) {
-                let origin, direction;
-                
-                if (controller && controller.pointer) {
-                    // VR controller shooting
-                    origin = controller.pointer.absolutePosition.clone();
-                    direction = controller.pointer.forward.clone();
-                } else {
-                    // Desktop fallback - shoot from camera
-                    origin = this.camera.position.clone();
-                    direction = this.camera.getDirection(BABYLON.Vector3.Forward());
-                }
-                
-                // Create bullet
-                const bullet = BABYLON.MeshBuilder.CreateSphere("bullet", {diameter: 0.1}, this.scene);
-                bullet.position = origin.clone();
-                bullet.velocity = direction.scale(0.5);
-                
-                const bulletMaterial = new BABYLON.StandardMaterial("bulletMat", this.scene);
-                bulletMaterial.emissiveColor = new BABYLON.Color3(0, 1, 1); // Cyan glow
-                bulletMaterial.diffuseColor = new BABYLON.Color3(0, 1, 1);
-                bullet.material = bulletMaterial;
-                
-                bullet.createdTime = Date.now();
-                this.bullets.push(bullet);
-                
-                // Check for hits
-                this.checkCollisions(origin, direction);
-            }
-
-            checkCollisions(origin, direction) {
-                const ray = new BABYLON.Ray(origin, direction);
-                const hit = this.scene.pickWithRay(ray, (mesh) => {
-                    return this.boxes.includes(mesh);
-                });
-                
-                if (hit && hit.pickedMesh) {
-                    this.destroyBox(hit.pickedMesh);
-                    this.updateScore(10);
-                }
-            }
-
-            destroyBox(box) {
-                // Remove from scene and array
-                box.dispose();
-                const index = this.boxes.indexOf(box);
-                if (index > -1) {
-                    this.boxes.splice(index, 1);
-                }
-                
-                // Create new box to maintain count
-                this.createBox();
-            }
-
-            updateScore(points) {
-                this.score += points;
-                document.getElementById('score').textContent = this.score;
-            }
-
-            update() {
-                const deltaTime = this.engine.getDeltaTime() / 1000;
-                const currentTime = Date.now();
-                
-                // Update boxes
-                for (let i = this.boxes.length - 1; i >= 0; i--) {
-                    const box = this.boxes[i];
-                    
-                    // Move box
-                    box.position.addInPlace(box.velocity);
-                    
-                    // Rotate box
-                    box.rotation.x += deltaTime;
-                    box.rotation.y += deltaTime * 0.7;
-                    
-                    // Boundary check and bounce (larger space boundaries)
-                    if (Math.abs(box.position.x) > 25) {
-                        box.velocity.x *= -1;
-                    }
-                    if (Math.abs(box.position.y) > 20) {
-                        box.velocity.y *= -1;
-                    }
-                    if (Math.abs(box.position.z) > 25) {
-                        box.velocity.z *= -1;
-                    }
-                    
-                    // Respawn old boxes
-                    if (currentTime - box.createdTime > 30000) {
-                        this.destroyBox(box);
-                    }
-                }
-                
-                // Update bullets
-                for (let i = this.bullets.length - 1; i >= 0; i--) {
-                    const bullet = this.bullets[i];
-                    
-                    bullet.position.addInPlace(bullet.velocity);
-                    
-                    // Remove old bullets
-                    if (currentTime - bullet.createdTime > 3000) {
-                        bullet.dispose();
-                        this.bullets.splice(i, 1);
-                    }
-                }
-            }
+      // Minimal starfield
+      AFRAME.registerComponent('starfield', {
+        init() {
+          const stars = new THREE.Group();
+          const geo = new THREE.SphereGeometry(0.02, 6, 6);
+          const mat = new THREE.MeshBasicMaterial({color: 0xffffff});
+          for (let i = 0; i < 1500; i++) {
+            const m = new THREE.Mesh(geo, mat);
+            const r = 60 + Math.random()*60;
+            const theta = Math.random()*Math.PI*2;
+            const phi = Math.acos(2*Math.random()-1);
+            m.position.set(
+              r*Math.sin(phi)*Math.cos(theta),
+              r*Math.sin(phi)*Math.sin(theta),
+              r*Math.cos(phi)
+            );
+            stars.add(m);
+          }
+          this.el.setObject3D('mesh', stars);
         }
+      });
 
-        // Start the game
-        new VRShootingGame();
+      // Simple ground grid for orientation
+      AFRAME.registerComponent('grid', {
+        init() {
+          const size = 20, div = 20;
+          const grid = new THREE.GridHelper(size, div, 0x113355, 0x112233);
+          grid.position.y = -1.6;
+          this.el.setObject3D('mesh', grid);
+        }
+      });
+
+      // Player thumbstick locomotion (left stick). Forward/back + strafe.
+      AFRAME.registerComponent('player-move', {
+        schema: {speed: {default: 2.0}},
+        init() {
+          this.rig = this.el; // rig entity
+          this.left = document.querySelector('#leftHand');
+          this.dir = new THREE.Vector3();
+          this.tmp = new THREE.Vector3();
+          this.camera = document.querySelector('#camera');
+          this.axis = [0,0];
+          if (this.left) {
+            this.left.addEventListener('axismove', e => {
+              // e.detail.axis = [x, y, x2, y2] for Oculus; we take first stick
+              this.axis = [e.detail.axis[0], e.detail.axis[1]];
+            });
+          }
+        },
+        tick(time, dt) {
+          const s = (dt/1000) * this.data.speed; // meters per second
+          if (!this.camera || (Math.abs(this.axis[0]) < 0.05 && Math.abs(this.axis[1]) < 0.05)) return;
+          // Move relative to camera forward/right (Y-up)
+          const camObj = this.camera.object3D;
+          camObj.getWorldDirection(this.dir); // forward
+          this.dir.y = 0; this.dir.normalize();
+          const right = this.tmp.set(this.dir.z, 0, -this.dir.x); // perpendicular on XZ
+          const move = this.tmp.set(0,0,0)
+            .addScaledVector(this.dir, -this.axis[1] * s)
+            .addScaledVector(right, this.axis[0] * s);
+          this.rig.object3D.position.add(move);
+        }
+      });
+
+      // Shooter component (right trigger fires)
+      AFRAME.registerComponent('shooter', {
+        init() {
+          this.cooldown = 0;
+          this.el.addEventListener('triggerdown', () => this.tryShoot());
+          // Also map A button as alternative
+          this.el.addEventListener('abuttondown', () => this.tryShoot());
+        },
+        tick(time, dt){ if (this.cooldown > 0) this.cooldown -= dt; },
+        tryShoot() {
+          if (this.cooldown > 0) return;
+          this.cooldown = 120; // ms
+          const hand = this.el.object3D;
+          const bullet = document.createElement('a-entity');
+          bullet.setAttribute('geometry', 'primitive: sphere; radius: 0.03');
+          bullet.setAttribute('material', 'color: #00ffcc; emissive: #00ffcc; emissiveIntensity: 0.9');
+          bullet.setAttribute('bullet', 'speed: 20; lifetime: 1500');
+          // position & direction
+          const pos = new THREE.Vector3();
+          const dir = new THREE.Vector3();
+          hand.getWorldPosition(pos);
+          hand.getWorldDirection(dir);
+          pos.addScaledVector(dir, 0.15); // start a bit in front of hand
+          bullet.object3D.position.copy(pos);
+          bullet.object3D.quaternion.copy(hand.getWorldQuaternion(new THREE.Quaternion()));
+          bullet.setAttribute('velocity-forward', 'speed: 20');
+          this.el.sceneEl.appendChild(bullet);
+          // muzzle flash
+          const flash = document.createElement('a-entity');
+          flash.setAttribute('geometry', 'primitive: sphere; radius: 0.05');
+          flash.setAttribute('material', 'color: #88fff6; opacity: 0.7');
+          flash.object3D.position.copy(pos);
+          this.el.sceneEl.appendChild(flash);
+          setTimeout(()=>flash.remove(), 60);
+        }
+      });
+
+      // Move forward in the object's -Z each tick (uses current world orientation)
+      AFRAME.registerComponent('velocity-forward', {
+        schema: {speed: {default: 10}},
+        tick(time, dt) {
+          const s = (dt/1000) * this.data.speed;
+          const dir = new THREE.Vector3();
+          this.el.object3D.getWorldDirection(dir);
+          this.el.object3D.position.addScaledVector(dir, s);
+        }
+      });
+
+      // Bullet lifetime + enemy collision
+      AFRAME.registerComponent('bullet', {
+        schema: {lifetime: {default: 1200}, speed: {default: 20}},
+        init(){ this.age = 0; },
+        tick(time, dt){
+          this.age += dt;
+          if (this.age > this.data.lifetime) { this.el.remove(); return; }
+          // Collision with enemies (distance check)
+          const enemies = document.querySelectorAll('.enemy');
+          const bp = this.el.object3D.position;
+          for (let i=0; i<enemies.length; i++){
+            const ep = enemies[i].object3D.position;
+            if (bp.distanceTo(ep) < 0.3){
+              enemies[i].emit('hit');
+              this.el.remove();
+              break;
+            }
+          }
+        }
+      });
+
+      // Enemy behavior
+      AFRAME.registerComponent('enemy', {
+        schema: {speed: {default: 1.2}, hp: {default: 1}},
+        init(){
+          this.rig = document.querySelector('#rig').object3D;
+          this.dir = new THREE.Vector3();
+          this.dead = false;
+          this.onHit = () => {
+            if (this.dead) return;
+            this.data.hp -= 1;
+            if (this.data.hp <= 0) {
+              this.dead = true;
+              // explosion
+              const boom = document.createElement('a-entity');
+              boom.setAttribute('geometry', 'primitive: sphere; radius: 0.4');
+              boom.setAttribute('material', 'color: #ffda6b; emissive: #ff8800; emissiveIntensity: 1; opacity: 0.8');
+              boom.object3D.position.copy(this.el.object3D.position);
+              this.el.sceneEl.appendChild(boom);
+              setTimeout(()=>boom.remove(), 120);
+              this.el.remove();
+              document.querySelector('#game').components['game-manager'].addScore(10);
+            }
+          }
+          this.el.addEventListener('hit', this.onHit);
+        },
+        remove(){ this.el.removeEventListener('hit', this.onHit); },
+        tick(time, dt){
+          if (this.dead) return;
+          const s = (dt/1000) * this.data.speed;
+          const p = this.el.object3D.position;
+          const target = this.rig.position;
+          this.dir.copy(target).sub(p).setY(0).normalize();
+          p.addScaledVector(this.dir, s);
+          // If too close -> damage player and remove
+          if (p.distanceTo(target) < 0.6){
+            document.querySelector('#game').components['game-manager'].damage(10);
+            this.el.remove();
+          }
+        }
+      });
+
+      // Enemy spawner
+      AFRAME.registerComponent('enemy-spawner', {
+        schema: {interval: {default: 1500}},
+        init(){ this.t = 0; },
+        tick(time, dt){
+          this.t += dt;
+          if (this.t >= this.data.interval){
+            this.t = 0;
+            const e = document.createElement('a-entity');
+            e.setAttribute('class', 'enemy');
+            e.setAttribute('geometry', 'primitive: icosahedron; radius: 0.25; detail: 1');
+            e.setAttribute('material', 'color: #ff476f; metalness: 0.1; roughness: 0.4; emissive: #ff2a4f; emissiveIntensity: 0.3');
+            e.setAttribute('enemy', 'speed: ' + (0.8 + Math.random()*1.2));
+            // Spawn in a ring around player (3.5–7m) at random angle
+            const rig = document.querySelector('#rig').object3D.position;
+            const r = 3.5 + Math.random()*3.5;
+            const a = Math.random()*Math.PI*2;
+            e.object3D.position.set(rig.x + Math.cos(a)*r, rig.y, rig.z + Math.sin(a)*r);
+            this.el.sceneEl.appendChild(e);
+          }
+        }
+      });
+
+      // Game manager: score + health + HUD updates + restart
+      AFRAME.registerComponent('game-manager', {
+        init(){
+          this.score = 0; this.hp = 100;
+          this.hud = document.querySelector('#hud');
+          this.updateHUD();
+        },
+        addScore(n){ this.score += n; this.updateHUD(); },
+        damage(n){
+          this.hp = Math.max(0, this.hp - n);
+          this.updateHUD();
+          if (this.hp === 0) this.gameOver();
+        },
+        updateHUD(){
+          this.hud.setAttribute('text', 'value', `Score: ${this.score} | HP: ${this.hp}`);
+        },
+        gameOver(){
+          // Clear remaining enemies
+          document.querySelectorAll('.enemy').forEach(e=>e.remove());
+          const msg = document.createElement('a-entity');
+          msg.setAttribute('position', '0 0 -1.6');
+          msg.setAttribute('text', 'value: GAME OVER – Press A or trigger to restart; align: center; color: #ff476f; width: 2.4');
+          msg.setAttribute('parent-to', '#camera');
+          this.hud.parentElement.appendChild(msg);
+          const restart = () => { msg.remove(); this.score = 0; this.hp = 100; this.updateHUD(); };
+          document.querySelector('#rightHand').addEventListener('abuttondown', restart, {once: true});
+          document.querySelector('#rightHand').addEventListener('triggerdown', restart, {once: true});
+        }
+      });
     </script>
+  </a-scene>
 </body>
 </html>
