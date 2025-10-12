@@ -2,12 +2,12 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "639cdec789eee1e08076d7a625506a34"
+        "md5": "2da4fdf5edb0b480a113784f9361f3c7"
     },
     {
         "path": "about.html",
         "type": "file",
-        "md5": "52d28fe7e8eb1de685b0f2fe0a110c9a"
+        "md5": "c2ac1c48b713e6f45602ad9af225e0df"
     },
     {
         "path": "assets",
@@ -87,52 +87,32 @@
     {
         "path": "/authors/ns/index.html",
         "type": "file",
-        "md5": "21dfb5c6337ae13c6a3d0bec219b77d3"
+        "md5": "d480ddd8392bc1c06da09e27282359fa"
     },
     {
         "path": "blog.html",
         "type": "file",
-        "md5": "32c8b921b70513a17a717b113f0efe4e"
-    },
-    {
-        "path": "feed.json",
-        "type": "file",
-        "md5": "40b271301f2d7ca3b3af429878dea0a5"
-    },
-    {
-        "path": "feed.xml",
-        "type": "file",
-        "md5": "47711e2576725723a9ed9c7e25aae2fe"
+        "md5": "f04a4a0ac53b3501687284ad9213e75d"
     },
     {
         "path": "home-page.html",
         "type": "file",
-        "md5": "762ff98dee8666c4c8f8ab479bd9d7bb"
+        "md5": "1f3c13f2188ca563f9b6d55761983e7e"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "c411f79ff6454bc593e3101035f89c1f"
+        "md5": "c70a729ddfb4dc3bd264cf27c41a6789"
     },
     {
         "path": "projects.html",
         "type": "file",
-        "md5": "fa024d5cf49dba85c163260a38fe7605"
+        "md5": "2fdaa8fa19ed487cff5c37cbdebc0b78"
     },
     {
         "path": "robots.txt",
         "type": "file",
-        "md5": "02e357463abfde1d8d8e09e9e76475e8"
-    },
-    {
-        "path": "sitemap.xml",
-        "type": "file",
-        "md5": "0a6b0fb02b288cc1ba0a41b8fabce2e0"
-    },
-    {
-        "path": "sitemap.xsl",
-        "type": "file",
-        "md5": "03c2f9a7fdcc46ff05c435907614a0b8"
+        "md5": "b6216d61c03e6ce0c9aea6ca7808f7ca"
     },
     {
         "path": "tags",
@@ -142,6 +122,6 @@
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "aa0abb31a07bc082bdd097902af663b5"
+        "md5": "3035d300d91e82ba32bee4cafbd7cc78"
     }
 ]
