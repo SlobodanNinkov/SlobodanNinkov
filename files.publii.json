@@ -87,7 +87,7 @@
     {
         "path": "/authors/ns/index.html",
         "type": "file",
-        "md5": "b01d94895f84983336d1a5f392131d2e"
+        "md5": "882452e0422ec110b99d8f5e418808b5"
     },
     {
         "path": "authors/ns/page",
@@ -102,7 +102,7 @@
     {
         "path": "/authors/ns/page/2/index.html",
         "type": "file",
-        "md5": "28636f3a66c2eb0020716c767e3dc1e6"
+        "md5": "4394394880bfce703b714b1427e4b806"
     },
     {
         "path": "blog.html",
@@ -137,7 +137,7 @@
     {
         "path": "few-lessons-from-a-failed-startup.html",
         "type": "file",
-        "md5": "4b139a405fbfdef745fe1135f84940e8"
+        "md5": "c0cf0a46d97558e3eda8baafdd609573"
     },
     {
         "path": "home-page.html",
@@ -147,12 +147,12 @@
     {
         "path": "index.html",
         "type": "file",
-        "md5": "ffd318511d2862289b381f3686418ec0"
+        "md5": "c5873baace441e24fd8e38b303d53851"
     },
     {
         "path": "insight-into-military-intelligence-mindset-from-an-outsider.html",
         "type": "file",
-        "md5": "d139523521e82bd0ce6fa001347e7ee6"
+        "md5": "73371ea8a71394903a1d4117261eb30b"
     },
     {
         "path": "iot-device-field-testing.html",
@@ -277,7 +277,7 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "009f53cfab5fa8a47d88f47462351b3a"
+        "md5": "4d55612de02735518928d52a8c26b59f"
     },
     {
         "path": "projects.html",
@@ -312,7 +312,7 @@
     {
         "path": "/tags/blogpost/index.html",
         "type": "file",
-        "md5": "706db4ad4d760e135dca63492ea0076f"
+        "md5": "c8d4755fb507084e6f71246cdb79e335"
     },
     {
         "path": "tags/data",
@@ -322,7 +322,7 @@
     {
         "path": "/tags/data/index.html",
         "type": "file",
-        "md5": "2a735d24bac5c17c74151a952b7d21fa"
+        "md5": "3c0bea872b5ca492fa5a590317d32380"
     },
     {
         "path": "/tags/index.html",
@@ -337,7 +337,7 @@
     {
         "path": "/tags/rf-and-cellular/index.html",
         "type": "file",
-        "md5": "5d0c7302172f7bfb9b7e9df2f64cb820"
+        "md5": "29ffc416423bb927d50c2af700746316"
     },
     {
         "path": "tags/zeitgeist",
@@ -347,11 +347,11 @@
     {
         "path": "/tags/zeitgeist/index.html",
         "type": "file",
-        "md5": "43b2e8cc3cfefa7a4b668118e4d96c18"
+        "md5": "eba3c2edb4783c2c8ce0b30d4ef0ed72"
     },
     {
         "path": "the-crucial-role-of-ai-in-strategic-decision-making-learning-from-history.html",
         "type": "file",
-        "md5": "3f1c38766195da034deabbf28044c3a3"
+        "md5": "c6092d329a9279c891930ff7490f0258"
     }
 ]
