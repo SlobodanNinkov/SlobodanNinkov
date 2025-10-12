@@ -87,7 +87,7 @@
     {
         "path": "/authors/ns/index.html",
         "type": "file",
-        "md5": "956d11af8b1012a84fee93553ebbb15f"
+        "md5": "b01d94895f84983336d1a5f392131d2e"
     },
     {
         "path": "authors/ns/page",
@@ -102,7 +102,7 @@
     {
         "path": "/authors/ns/page/2/index.html",
         "type": "file",
-        "md5": "956da0fcebdfeefd965d3b5906c434e6"
+        "md5": "28636f3a66c2eb0020716c767e3dc1e6"
     },
     {
         "path": "blog.html",
@@ -112,7 +112,7 @@
     {
         "path": "dragonos-r371-cellular-experiments.html",
         "type": "file",
-        "md5": "88eae4e7c83acbe78251d72d7e8a9229"
+        "md5": "00fa05ad79cec22ac27648100ce543ba"
     },
     {
         "path": "drone-flight-simulator.html",
@@ -127,17 +127,17 @@
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "f6625034c944738647d747cf53c39dfd"
+        "md5": "9631b1c4fe66589386faef8275f804bf"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "6c6b89cfb67b51bf1dd2b763a2b54675"
+        "md5": "1520273ef340d2ad8b2eda5c85294463"
     },
     {
         "path": "few-lessons-from-a-failed-startup.html",
         "type": "file",
-        "md5": "752ee46680fb38fb48fccf7d78cd6ae8"
+        "md5": "4b139a405fbfdef745fe1135f84940e8"
     },
     {
         "path": "home-page.html",
@@ -147,12 +147,17 @@
     {
         "path": "index.html",
         "type": "file",
-        "md5": "f433d68e0e16120d361d8520ebc6b655"
+        "md5": "ffd318511d2862289b381f3686418ec0"
     },
     {
         "path": "insight-into-military-intelligence-mindset-from-an-outsider.html",
         "type": "file",
         "md5": "d139523521e82bd0ce6fa001347e7ee6"
+    },
+    {
+        "path": "iot-device-field-testing.html",
+        "type": "file",
+        "md5": "89349d47e95eeba901bdf6d87ba91725"
     },
     {
         "path": "mastering-the-game-the-art-of-deception-and-control.html",
@@ -272,7 +277,7 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "c3ead91d7d6ba0bbb4076d3b835e3579"
+        "md5": "009f53cfab5fa8a47d88f47462351b3a"
     },
     {
         "path": "projects.html",
@@ -287,7 +292,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "f74dc38800720c75c742fdb4804fc4ea"
+        "md5": "c6db37da384791226a46de2275208269"
     },
     {
         "path": "sitemap.xsl",
@@ -322,7 +327,7 @@
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "f33b856ee7eacb10b0611ed801be7c07"
+        "md5": "e50dbf2d823e0ea9a798e6749b956d06"
     },
     {
         "path": "tags/rf-and-cellular",
@@ -332,7 +337,7 @@
     {
         "path": "/tags/rf-and-cellular/index.html",
         "type": "file",
-        "md5": "a074f146f8c93e1f62b526c21d6ba9ee"
+        "md5": "5d0c7302172f7bfb9b7e9df2f64cb820"
     },
     {
         "path": "tags/zeitgeist",
