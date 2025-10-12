@@ -87,7 +87,7 @@
     {
         "path": "/authors/ns/index.html",
         "type": "file",
-        "md5": "882452e0422ec110b99d8f5e418808b5"
+        "md5": "4e9ea10551d507f7aaecc79b8de50e98"
     },
     {
         "path": "authors/ns/page",
@@ -102,12 +102,17 @@
     {
         "path": "/authors/ns/page/2/index.html",
         "type": "file",
-        "md5": "4394394880bfce703b714b1427e4b806"
+        "md5": "3d2ecd04c58438ef868da12c95e1174a"
     },
     {
         "path": "blog.html",
         "type": "file",
         "md5": "b4f6e2d6c6094e0de891169206f9a71e"
+    },
+    {
+        "path": "data-handling-anti-patterns.html",
+        "type": "file",
+        "md5": "ee3cb5e15b30d5c93bb08c81592d5d88"
     },
     {
         "path": "dragonos-r371-cellular-experiments.html",
@@ -127,12 +132,12 @@
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "9631b1c4fe66589386faef8275f804bf"
+        "md5": "cd73ed5dbe68fa5576c4a28756692b94"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "1520273ef340d2ad8b2eda5c85294463"
+        "md5": "84cd9fce915a9cebc46caafc752c7361"
     },
     {
         "path": "few-lessons-from-a-failed-startup.html",
@@ -147,7 +152,7 @@
     {
         "path": "index.html",
         "type": "file",
-        "md5": "c5873baace441e24fd8e38b303d53851"
+        "md5": "ba6974d7742357d2dacb2a045456f276"
     },
     {
         "path": "insight-into-military-intelligence-mindset-from-an-outsider.html",
@@ -157,7 +162,7 @@
     {
         "path": "iot-device-field-testing.html",
         "type": "file",
-        "md5": "89349d47e95eeba901bdf6d87ba91725"
+        "md5": "5ce369b6d9853a8d7c4f98742a652652"
     },
     {
         "path": "mastering-the-game-the-art-of-deception-and-control.html",
@@ -277,7 +282,7 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "4d55612de02735518928d52a8c26b59f"
+        "md5": "3dc00c187717b9b5b2df9702db7bd4cc"
     },
     {
         "path": "projects.html",
@@ -292,7 +297,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "c6db37da384791226a46de2275208269"
+        "md5": "8fa0a4ed4467db6abb1264bb36a23362"
     },
     {
         "path": "sitemap.xsl",
@@ -322,12 +327,12 @@
     {
         "path": "/tags/data/index.html",
         "type": "file",
-        "md5": "3c0bea872b5ca492fa5a590317d32380"
+        "md5": "302584246865272d66d24b1059fdd313"
     },
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "e50dbf2d823e0ea9a798e6749b956d06"
+        "md5": "a9525c968a69c6c7856147a65737d7d9"
     },
     {
         "path": "tags/rf-and-cellular",

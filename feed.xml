@@ -3,12 +3,73 @@
     <title>Ninkov Slobodan</title>
     <link href="https://ninkovslobodan.com/feed.xml" rel="self" />
     <link href="https://ninkovslobodan.com" />
-    <updated>2025-10-12T20:47:25+02:00</updated>
+    <updated>2025-10-12T21:11:09+02:00</updated>
     <author>
         <name>NS</name>
     </author>
     <id>https://ninkovslobodan.com</id>
 
+    <entry>
+        <title>Data handling anti-patterns</title>
+        <author>
+            <name>NS</name>
+        </author>
+        <link href="https://ninkovslobodan.com/data-handling-anti-patterns.html"/>
+        <id>https://ninkovslobodan.com/data-handling-anti-patterns.html</id>
+            <category term="Data"/>
+
+        <updated>2025-10-12T21:11:09+02:00</updated>
+            <summary>
+                <![CDATA[
+                    Synchronous paths Avoid performing heavy computations in synchronous HTTP request/response flows (except when serving simple web pages). Offload processing to asynchronous workers via queues or streams. Small validations or trivial lookups are acceptable if bounded by strict timeouts and circuit breakers. Workload isolation Do not&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <ol class="wp-block-list">
+<li>
+<h4>Synchronous paths</h4>
+<ul class="list-disc">
+<li class="ml-4">Avoid performing heavy computations in synchronous HTTP request/response flows (except when serving simple web pages). Offload processing to asynchronous workers via queues or streams. Small validations or trivial lookups are acceptable if bounded by strict timeouts and circuit breakers.</li>
+</ul>
+<h4>Workload isolation</h4>
+<ul class="list-disc">
+<li class="ml-4">Do not mix frontend (user-facing) workers with sensor ingestion/processing workers. Use separate compute pools, autoscaling policies, and queues to prevent noisy‑neighbor and head‑of‑line blocking.</li>
+</ul>
+<h4>Caching for responsiveness</h4>
+<ul class="list-disc">
+<li class="ml-4">Use in-memory or distributed caches (e.g., Redis, Memcached) to prepare or cache response data and hot aggregates. Define clear TTLs, invalidation strategies, and backfill mechanisms.</li>
+</ul>
+<h4>Command and telemetry separation</h4>
+<ul class="list-disc">
+<li class="ml-4">Separate data, telemetry and command/control channels for devices. Make both directions explicit and reliable (ACKs, QoS, retries, device shadow/state sync).</li>
+</ul>
+<h4>Data serialization</h4>
+<ul class="list-disc">
+<li class="ml-4">Prefer compact binary formats over text for device links and internal services (e.g., Protocol Buffers, FlatBuffers, CBOR). Use human-readable formats, such as JSON, at external API boundaries where appropriate.</li>
+</ul>
+<h4>Network stack reuse</h4>
+<ul class="list-disc">
+<li class="ml-4">Do not implement custom TCP/IP listeners. Use established brokers/gateways and extend them with plugins/handlers (e.g., MQTT brokers such as EMQX, Mosquitto, HiveMQ; NATS; Kafka; CoAP servers).</li>
+</ul>
+<h4>Operational vs analytical separation</h4>
+<ul class="list-disc">
+<li class="ml-4">Keep transactional/operational stores separate from analytical stores. Ingest to OLTP/time-series databases; replicate or stream-transform to OLAP warehouses/lakes for analytics.</li>
+</ul>
+<h4>Failure capture and forensics</h4>
+<ul class="list-disc">
+<li class="ml-4">Route unparseable or invalid packets to a dead-letter queue or error log, preserving the original payload and error metadata for post-analysis. Apply rate limits and protect sensitive data.</li>
+</ul>
+<h4>Reuse without coupling</h4>
+<ul class="list-disc">
+<li class="ml-4">Reuse shared libraries and interfaces without creating hard coupling between services. Maintain clear, versioned contracts (APIs, schemas) so components remain independently deployable.</li>
+</ul>
+</li>
+</ol>
+<p>Or you can "know better" and spend 2 years hitting each problem in production, only to experience all of the above anti-patterns firsthand.<br>If you are a product manager and your developers are unaware of the issues above, good luck. You can call me if you need a shoulder to cry on.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>IoT device field testing</title>
         <author>
