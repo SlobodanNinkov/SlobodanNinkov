@@ -10,6 +10,11 @@
         "md5": "99a88117ed496fa4717724a144faf8a3"
     },
     {
+        "path": "ai-showdown-battle-for-earth.html",
+        "type": "file",
+        "md5": "f4845dc2794fb29a3093ef8b101d0ff5"
+    },
+    {
         "path": "assets",
         "type": "directory",
         "md5": false
@@ -87,7 +92,7 @@
     {
         "path": "/authors/ns/index.html",
         "type": "file",
-        "md5": "4e9ea10551d507f7aaecc79b8de50e98"
+        "md5": "53d722b62a25be380346b0f0600ee87f"
     },
     {
         "path": "authors/ns/page",
@@ -102,7 +107,17 @@
     {
         "path": "/authors/ns/page/2/index.html",
         "type": "file",
-        "md5": "3d2ecd04c58438ef868da12c95e1174a"
+        "md5": "e0946a52bc036723131195a66b088841"
+    },
+    {
+        "path": "authors/ns/page/3",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/authors/ns/page/3/index.html",
+        "type": "file",
+        "md5": "c90dd94f49336c13a268486ebb54b318"
     },
     {
         "path": "blog.html",
@@ -112,7 +127,12 @@
     {
         "path": "data-handling-anti-patterns.html",
         "type": "file",
-        "md5": "ee3cb5e15b30d5c93bb08c81592d5d88"
+        "md5": "c5242f2426bd6d8f5485113183839f92"
+    },
+    {
+        "path": "dopamine-overload.html",
+        "type": "file",
+        "md5": "3f61f60fb785aa57f11db3825d6a678a"
     },
     {
         "path": "dragonos-r371-cellular-experiments.html",
@@ -132,12 +152,12 @@
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "cd73ed5dbe68fa5576c4a28756692b94"
+        "md5": "7d7fb8dc1be4f2edd1a89c69d5ef17e1"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "84cd9fce915a9cebc46caafc752c7361"
+        "md5": "4cff40d92e4eedfb754771ae13939674"
     },
     {
         "path": "few-lessons-from-a-failed-startup.html",
@@ -152,7 +172,7 @@
     {
         "path": "index.html",
         "type": "file",
-        "md5": "ba6974d7742357d2dacb2a045456f276"
+        "md5": "241f3670b87d1b66fed6c70ad80fcdb7"
     },
     {
         "path": "insight-into-military-intelligence-mindset-from-an-outsider.html",
@@ -282,7 +302,17 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "3dc00c187717b9b5b2df9702db7bd4cc"
+        "md5": "7cf1ecb08a535d91719c9917e5232513"
+    },
+    {
+        "path": "page/3",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/page/3/index.html",
+        "type": "file",
+        "md5": "70c5e6f5eff6c6a8fc9c02c39af85453"
     },
     {
         "path": "projects.html",
@@ -297,7 +327,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "8fa0a4ed4467db6abb1264bb36a23362"
+        "md5": "029a1048476d24d735cacaa6a014197b"
     },
     {
         "path": "sitemap.xsl",
@@ -332,7 +362,7 @@
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "a9525c968a69c6c7856147a65737d7d9"
+        "md5": "3b603b6f82972b32da306dc86fbac0ad"
     },
     {
         "path": "tags/rf-and-cellular",
@@ -352,7 +382,22 @@
     {
         "path": "/tags/zeitgeist/index.html",
         "type": "file",
-        "md5": "eba3c2edb4783c2c8ce0b30d4ef0ed72"
+        "md5": "32f4ccf2fd89491364c2e967406e37af"
+    },
+    {
+        "path": "tags/zeitgeist/page",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "tags/zeitgeist/page/2",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/zeitgeist/page/2/index.html",
+        "type": "file",
+        "md5": "5a647678b65f1898ea224ac8489d1dff"
     },
     {
         "path": "the-crucial-role-of-ai-in-strategic-decision-making-learning-from-history.html",
