@@ -9,5 +9,18 @@
         "name": "NS"
     },
     "items": [
+        {
+            "id": "https://ninkovslobodan.com/drone-flight-simulator.html",
+            "url": "https://ninkovslobodan.com/drone-flight-simulator.html",
+            "title": "Drone Flight Simulator",
+            "content_html": "<figure class=\"post__video\"><iframe loading=\"lazy\" width=\"696\" height=\"390\" style=\"width: 696px; height: 390px;\" src=\"https://www.youtube-nocookie.com/embed/blhraZ6qPBw\" allowfullscreen=\"allowfullscreen\" data-mce-fragment=\"1\"></iframe></figure>\n<figure class=\"post__video\"><iframe loading=\"lazy\" width=\"696\" height=\"390\" style=\"width: 696px; height: 390px;\" src=\"https://www.youtube-nocookie.com/embed/t8GFPWmtO-U\" allowfullscreen=\"allowfullscreen\" data-mce-fragment=\"1\"></iframe></figure>\n<figure class=\"post__video\"><iframe loading=\"lazy\" width=\"697\" height=\"391\" style=\"width: 697px; height: 391px;\" src=\"https://www.youtube-nocookie.com/embed/MdAmSpFN5LE\" allowfullscreen=\"allowfullscreen\" data-mce-fragment=\"1\"></iframe></figure>\n<figure class=\"post__video\"><iframe loading=\"lazy\" width=\"696\" height=\"390\" style=\"width: 696px; height: 390px;\" src=\"https://www.youtube-nocookie.com/embed/1zXIkxkHkIo\" allowfullscreen=\"allowfullscreen\" data-mce-fragment=\"1\"></iframe></figure>",
+            "author": {
+                "name": "NS"
+            },
+            "tags": [
+            ],
+            "date_published": "2025-10-12T17:22:38+02:00",
+            "date_modified": "2025-10-12T18:52:34+02:00"
+        }
     ]
 }

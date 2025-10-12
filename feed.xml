@@ -3,10 +3,29 @@
     <title>Ninkov Slobodan</title>
     <link href="https://ninkovslobodan.com/feed.xml" rel="self" />
     <link href="https://ninkovslobodan.com" />
-    <updated>1970-01-01T01:00:00+01:00</updated>
+    <updated>2025-10-12T18:52:34+02:00</updated>
     <author>
         <name>NS</name>
     </author>
     <id>https://ninkovslobodan.com</id>
 
+    <entry>
+        <title>Drone Flight Simulator</title>
+        <author>
+            <name>NS</name>
+        </author>
+        <link href="https://ninkovslobodan.com/drone-flight-simulator.html"/>
+        <id>https://ninkovslobodan.com/drone-flight-simulator.html</id>
+
+        <updated>2025-10-12T17:22:38+02:00</updated>
+            <summary></summary>
+        <content type="html">
+            <![CDATA[
+                <figure class="post__video"><iframe loading="lazy" width="696" height="390" style="width: 696px; height: 390px;" src="https://www.youtube-nocookie.com/embed/blhraZ6qPBw" allowfullscreen="allowfullscreen" data-mce-fragment="1"></iframe></figure>
+<figure class="post__video"><iframe loading="lazy" width="696" height="390" style="width: 696px; height: 390px;" src="https://www.youtube-nocookie.com/embed/t8GFPWmtO-U" allowfullscreen="allowfullscreen" data-mce-fragment="1"></iframe></figure>
+<figure class="post__video"><iframe loading="lazy" width="697" height="391" style="width: 697px; height: 391px;" src="https://www.youtube-nocookie.com/embed/MdAmSpFN5LE" allowfullscreen="allowfullscreen" data-mce-fragment="1"></iframe></figure>
+<figure class="post__video"><iframe loading="lazy" width="696" height="390" style="width: 696px; height: 390px;" src="https://www.youtube-nocookie.com/embed/1zXIkxkHkIo" allowfullscreen="allowfullscreen" data-mce-fragment="1"></iframe></figure>
+            ]]>
+        </content>
+    </entry>
 </feed>
