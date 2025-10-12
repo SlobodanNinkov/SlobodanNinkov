@@ -2,12 +2,12 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "f208d9a413decd4b548a8e13d5e73fc5"
+        "md5": "43be14b466c989e451a2ea7a4a28a4a9"
     },
     {
         "path": "about.html",
         "type": "file",
-        "md5": "1bfe13bb2c57cfbdf02f903b62b1d5f7"
+        "md5": "99a88117ed496fa4717724a144faf8a3"
     },
     {
         "path": "assets",
@@ -87,37 +87,77 @@
     {
         "path": "/authors/ns/index.html",
         "type": "file",
-        "md5": "5fd3bdcdf59dea62ea15ee19c3d5b5f9"
+        "md5": "956d11af8b1012a84fee93553ebbb15f"
+    },
+    {
+        "path": "authors/ns/page",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "authors/ns/page/2",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/authors/ns/page/2/index.html",
+        "type": "file",
+        "md5": "956da0fcebdfeefd965d3b5906c434e6"
     },
     {
         "path": "blog.html",
         "type": "file",
-        "md5": "ae66dfd6ab656011fe44413abb4161be"
+        "md5": "b4f6e2d6c6094e0de891169206f9a71e"
+    },
+    {
+        "path": "dragonos-r371-cellular-experiments.html",
+        "type": "file",
+        "md5": "88eae4e7c83acbe78251d72d7e8a9229"
     },
     {
         "path": "drone-flight-simulator.html",
         "type": "file",
-        "md5": "f55982becc743ae45c5ef87b62df5a78"
+        "md5": "1bca0a24cbe77280dfafee3a524feb91"
+    },
+    {
+        "path": "evolution-of-the-information-system-2005-2012.html",
+        "type": "file",
+        "md5": "88811bb873a30073c1e0be582cecc8bd"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "cd2254da26f20dff09f47b388cfe11c2"
+        "md5": "f6625034c944738647d747cf53c39dfd"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "0217cde1eb405806d17a3e24546f3460"
+        "md5": "6c6b89cfb67b51bf1dd2b763a2b54675"
+    },
+    {
+        "path": "few-lessons-from-a-failed-startup.html",
+        "type": "file",
+        "md5": "752ee46680fb38fb48fccf7d78cd6ae8"
     },
     {
         "path": "home-page.html",
         "type": "file",
-        "md5": "ff98fa3cbee53973faf8c92c70f3630b"
+        "md5": "c96da181a4505b8ee2e19dfc372df983"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "ad49470eb3c8d7f09c3d35dd18afd319"
+        "md5": "f433d68e0e16120d361d8520ebc6b655"
+    },
+    {
+        "path": "insight-into-military-intelligence-mindset-from-an-outsider.html",
+        "type": "file",
+        "md5": "d139523521e82bd0ce6fa001347e7ee6"
+    },
+    {
+        "path": "mastering-the-game-the-art-of-deception-and-control.html",
+        "type": "file",
+        "md5": "80d2551d16a55204c6db571a62e07e5d"
     },
     {
         "path": "media",
@@ -175,9 +215,69 @@
         "md5": "a02586457dd28f26fb19d1efb4e1bcf6"
     },
     {
+        "path": "media/posts/12",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/12/image-2.png",
+        "type": "file",
+        "md5": "1ce014031ac777c74559bff6b2a9341f"
+    },
+    {
+        "path": "media/posts/12/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/12/responsive/image-2-2xl.png",
+        "type": "file",
+        "md5": "7cf4d12d700d35779cfea19628cf83a0"
+    },
+    {
+        "path": "/media/posts/12/responsive/image-2-lg.png",
+        "type": "file",
+        "md5": "7cf4d12d700d35779cfea19628cf83a0"
+    },
+    {
+        "path": "/media/posts/12/responsive/image-2-md.png",
+        "type": "file",
+        "md5": "7cf4d12d700d35779cfea19628cf83a0"
+    },
+    {
+        "path": "/media/posts/12/responsive/image-2-sm.png",
+        "type": "file",
+        "md5": "7cf4d12d700d35779cfea19628cf83a0"
+    },
+    {
+        "path": "/media/posts/12/responsive/image-2-xl.png",
+        "type": "file",
+        "md5": "7cf4d12d700d35779cfea19628cf83a0"
+    },
+    {
+        "path": "/media/posts/12/responsive/image-2-xs.png",
+        "type": "file",
+        "md5": "f1fbaa1d2678077eb03be7b302e2df90"
+    },
+    {
+        "path": "page",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "page/2",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/page/2/index.html",
+        "type": "file",
+        "md5": "c3ead91d7d6ba0bbb4076d3b835e3579"
+    },
+    {
         "path": "projects.html",
         "type": "file",
-        "md5": "0affa0ab2bb2fb536b0ec84dadc5bcdf"
+        "md5": "ce6c2f7147f45c2ab21d2ac9a4c33d5e"
     },
     {
         "path": "robots.txt",
@@ -187,7 +287,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "1cfabc2a3c00cbf15c10ca3ea8ee774e"
+        "md5": "f74dc38800720c75c742fdb4804fc4ea"
     },
     {
         "path": "sitemap.xsl",
@@ -200,8 +300,53 @@
         "md5": false
     },
     {
+        "path": "tags/blogpost",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/blogpost/index.html",
+        "type": "file",
+        "md5": "706db4ad4d760e135dca63492ea0076f"
+    },
+    {
+        "path": "tags/data",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/data/index.html",
+        "type": "file",
+        "md5": "2a735d24bac5c17c74151a952b7d21fa"
+    },
+    {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "5d23d2e402337721e51a7965af13b08e"
+        "md5": "f33b856ee7eacb10b0611ed801be7c07"
+    },
+    {
+        "path": "tags/rf-and-cellular",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/rf-and-cellular/index.html",
+        "type": "file",
+        "md5": "a074f146f8c93e1f62b526c21d6ba9ee"
+    },
+    {
+        "path": "tags/zeitgeist",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/zeitgeist/index.html",
+        "type": "file",
+        "md5": "43b2e8cc3cfefa7a4b668118e4d96c18"
+    },
+    {
+        "path": "the-crucial-role-of-ai-in-strategic-decision-making-learning-from-history.html",
+        "type": "file",
+        "md5": "3f1c38766195da034deabbf28044c3a3"
     }
 ]
