@@ -92,7 +92,7 @@
     {
         "path": "/authors/ns/index.html",
         "type": "file",
-        "md5": "6b6e2a71fa0c10dcea563aa28ac18675"
+        "md5": "08f96e85ca3dfc67d518a0afc5da80eb"
     },
     {
         "path": "authors/ns/page",
@@ -107,7 +107,7 @@
     {
         "path": "/authors/ns/page/2/index.html",
         "type": "file",
-        "md5": "86a5dbe5cc413eb49014ffb667f925d8"
+        "md5": "7e25bd8022043aa5739a2ca843cb7f0b"
     },
     {
         "path": "authors/ns/page/3",
@@ -117,7 +117,12 @@
     {
         "path": "/authors/ns/page/3/index.html",
         "type": "file",
-        "md5": "3278bbf046fb068a89a7b6ab8fe91794"
+        "md5": "2c5490452067b0497eb9b41f349cb7c4"
+    },
+    {
+        "path": "autonomous-swarm-drones.html",
+        "type": "file",
+        "md5": "652d5883155d3930af4c20f730d807b1"
     },
     {
         "path": "blog.html",
@@ -127,7 +132,7 @@
     {
         "path": "convergence-of-risc-v-neuromorphic-photonic-fpga-and-quantum-chips.html",
         "type": "file",
-        "md5": "35eefa9fa2cee041492c38e4bc3ff7a4"
+        "md5": "553fd3b50bc3d21b6e12b6657101d924"
     },
     {
         "path": "data-handling-anti-patterns.html",
@@ -157,12 +162,12 @@
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "b4c611d87f69d0a84a8ad0027e018663"
+        "md5": "eeeed778ecd778217e8f6d1395f26984"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "73ae304b98adfe6df578755b24e84f16"
+        "md5": "2ee8b0623d9dff03d8ce545769de33dc"
     },
     {
         "path": "few-lessons-from-a-failed-startup.html",
@@ -177,7 +182,7 @@
     {
         "path": "index.html",
         "type": "file",
-        "md5": "792b0977d621d7b169a3591462964f55"
+        "md5": "869483dc7800088b51c3783f2c896afe"
     },
     {
         "path": "insight-into-military-intelligence-mindset-from-an-outsider.html",
@@ -307,7 +312,7 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "d995a33ccd7c096ad4d8585323b9b288"
+        "md5": "aa570591f70430a9f8364372c6e2e093"
     },
     {
         "path": "page/3",
@@ -317,7 +322,7 @@
     {
         "path": "/page/3/index.html",
         "type": "file",
-        "md5": "0cf79b96527520902f02ff0f9035fd70"
+        "md5": "216e8b1ce15385cfcf7c38640cecaf55"
     },
     {
         "path": "projects.html",
@@ -332,7 +337,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "c9c85fd703c41669efe1353efcfda618"
+        "md5": "826d0f9c5aa63ac956ffb861fe72d009"
     },
     {
         "path": "sitemap.xsl",

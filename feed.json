@@ -10,6 +10,20 @@
     },
     "items": [
         {
+            "id": "https://ninkovslobodan.com/autonomous-swarm-drones.html",
+            "url": "https://ninkovslobodan.com/autonomous-swarm-drones.html",
+            "title": "Autonomous swarm drones",
+            "summary": "The only way short of nuclear caboom to break the stalemate of the current situation in the Ukraine-Russia war is to use autonomous swarms. Heterogeneous drone types have a complete picture of the situation and decide what to do in their local environment.",
+            "content_html": "<p>The only way short of nuclear caboom to break the stalemate of the current situation in the Ukraine-Russia war is to use autonomous swarms.</p>\n<p>Heterogeneous drone types have a complete picture of the situation and decide what to do in their local environment.</p>",
+            "author": {
+                "name": "NS"
+            },
+            "tags": [
+            ],
+            "date_published": "2025-10-13T18:07:22+02:00",
+            "date_modified": "2025-10-13T18:07:22+02:00"
+        },
+        {
             "id": "https://ninkovslobodan.com/convergence-of-risc-v-neuromorphic-photonic-fpga-and-quantum-chips.html",
             "url": "https://ninkovslobodan.com/convergence-of-risc-v-neuromorphic-photonic-fpga-and-quantum-chips.html",
             "title": "Convergence of RISC-V, neuromorphic, photonic, FPGA and quantum chips.",
@@ -23,7 +37,7 @@
                    "IoT"
             ],
             "date_published": "2025-10-13T17:58:22+02:00",
-            "date_modified": "2025-10-13T18:04:12+02:00"
+            "date_modified": "2025-10-13T18:09:40+02:00"
         },
         {
             "id": "https://ninkovslobodan.com/ai-showdown-battle-for-earth.html",
@@ -141,21 +155,6 @@
             ],
             "date_published": "2023-09-06T20:16:00+02:00",
             "date_modified": "2025-10-12T20:29:44+02:00"
-        },
-        {
-            "id": "https://ninkovslobodan.com/insight-into-military-intelligence-mindset-from-an-outsider.html",
-            "url": "https://ninkovslobodan.com/insight-into-military-intelligence-mindset-from-an-outsider.html",
-            "title": "Insight into military intelligence mindset from an outsider",
-            "summary": "Introduction In a fascinating exchange with an ex-military intelligence/sigint person, now a tech consultant during conference lunch, a treasure trove of insights was unveiled (mainly between the lines), offering a glimpse into the complex world of intelligence and security. The discussion not only underscored the&hellip;",
-            "content_html": "<p><strong>Introduction</strong></p>\n<p>In a fascinating exchange with an ex-military intelligence/sigint person, now a tech consultant during conference lunch, a treasure trove of insights was unveiled (mainly between the lines), offering a glimpse into the complex world of intelligence and security. The discussion not only underscored the subtleties of information gathering and analysis but also provided a broader perspective on how biases and personal incentives can shape the interpretation and dissemination of data. While the conversation touched upon political subjects, the true gem was the analytical mindset and approach to intelligence and information.</p>\n<p><img loading=\"lazy\" src=\"https://miro.medium.com/v2/resize:fit:600/1*ckR4wHyUDr097YVwL-_cNg.png\" alt=\"\" data-is-external-image=\"true\"></p>\n<p><strong>Key Insights</strong></p>\n<p><em>1. The Source and Context of Information</em></p>\n<p>The primary takeaway from the conversation was the importance of understanding the source and context of information. Identifying who provides the information and the circumstances surrounding its delivery is vital, as it lays the groundwork for any subsequent analysis and ensures that the intelligence is evaluated within the appropriate context. This is particularly visible in geopolitics, where understanding who provides the information and why can significantly impact its interpretation.</p>\n<p><em>2. Distinct Roles within Teams</em></p>\n<p>There is a clear distinction between intelligence and security teams within the military. While both are essential components of the defense and security framework, their functions and objectives differ significantly. This separation allows for the specialized handling of data and ensures that expertise is applied in the most effective manner.</p>\n<p><em>3. The Role of Analysts</em></p>\n<p>Analysts play a pivotal role in making sense of the information. They scrutinize who said what and contextualize this within the broader framework of known facts and historical data. Following a thorough analysis, reports are disseminated throughout relevant structures, highlighting key points that require attention.</p>\n<p><em>4. The Critical Importance of Motives and Causes</em></p>\n<p>Understanding the motive behind the information is as important as the information itself. Analysts must consider why something was said and the potential consequences of this information. This approach helps distinguish between mere data and actionable intelligence. Comprehending the intent of every player or agent in a situation is critical.</p>\n<p><em>5. Perception vs. Perspective</em></p>\n<p>The discussion emphasized the difference between perception and perspective. While perception refers to one’s interpretation of the current situation, perspective involves understanding it within a larger context, often influenced by incentives, personal history, and affiliations.</p>\n<p><em>6. Planning and Commander’s Intent</em></p>\n<p>In military strategy, planning based on the adversary’s capabilities rather than intentions is advisable. However, the core of any operation is the commander’s intent — the reason behind the operation — which must remain clear, even if the plans need to adapt to changing circumstances.</p>\n<p><em>7. The Four W’s of Information Handling</em></p>\n<p>When handling any piece of information, four key aspects must be considered equally:</p>\n<ul>\n<li>What is the message?</li>\n<li>Who is passing the message?</li>\n<li>What is their intent?</li>\n<li>Who benefits from the message?</li>\n</ul>\n<p>This framework helps analyze information objectively and ensures a logical approach to intelligence handling.</p>\n<p><em>8. Bias and Ideological Programming</em></p>\n<p>Bias was identified as a significant enemy of logical thinking. It’s crucial to separate data gathering from analysis to avoid biased interpretations. Additionally, ideological programming can create persistent biases, affecting perceived threats and opportunities.</p>\n<p><em>9. The Influence of Technology</em></p>\n<p>Platforms like Twitter represent advanced modes of control where messages can be highly personalized and targeted. This allows for more control and manipulation based on the recipients’ profiles and predispositions. In contrast, mass media messaging must be modified to suit the least common denominator, while social network media enables highly targeted messaging down to the level of weaponization.</p>\n<p><strong>Conclusion</strong></p>\n<p>This enlightening conversation with a retired military intelligence illuminated the intricate dynamics of information handling in security contexts. By understanding the source, context, and intent behind data, professionals can mitigate biases and make informed decisions about military operations, business strategies, and emerging technologies. These insights serve as a valuable guide for navigating the complex landscape of intelligence and decision-making in an ever-changing world.</p>\n<p><!-- notionvc: 8c3fb7e4-8eaf-41e7-b110-7f60ce0c0719 --></p>",
-            "author": {
-                "name": "NS"
-            },
-            "tags": [
-                   "Zeitgeist"
-            ],
-            "date_published": "2023-05-21T19:21:00+02:00",
-            "date_modified": "2025-10-12T20:33:17+02:00"
         }
     ]
 }
