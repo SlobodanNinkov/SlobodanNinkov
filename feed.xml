@@ -3,12 +3,95 @@
     <title>Ninkov Slobodan</title>
     <link href="https://ninkovslobodan.com/feed.xml" rel="self" />
     <link href="https://ninkovslobodan.com" />
-    <updated>2025-10-12T21:35:24+02:00</updated>
+    <updated>2025-10-13T18:04:12+02:00</updated>
     <author>
         <name>NS</name>
     </author>
     <id>https://ninkovslobodan.com</id>
 
+    <entry>
+        <title>Convergence of RISC-V, neuromorphic, photonic, FPGA and quantum chips.</title>
+        <author>
+            <name>NS</name>
+        </author>
+        <link href="https://ninkovslobodan.com/convergence-of-risc-v-neuromorphic-photonic-fpga-and-quantum-chips.html"/>
+        <id>https://ninkovslobodan.com/convergence-of-risc-v-neuromorphic-photonic-fpga-and-quantum-chips.html</id>
+            <category term="Zeitgeist"/>
+            <category term="IoT"/>
+
+        <updated>2025-10-13T17:58:22+02:00</updated>
+            <summary>
+                <![CDATA[
+                    The goal was to research the consequences of the upcoming chip technologies. The text below is the result of a short conversation with KIMI K2 0905 LLM. It reads as a mix of future history, futurism, and a list of completely alien technologies. TEXT: These&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p><img loading="lazy" src="https://media.licdn.com/dms/image/v2/D4E12AQGkIXa7YsyFsg/article-cover_image-shrink_720_1280/B4EZlZfDCFKUAM-/0/1758142940226?e=1762992000&amp;v=beta&amp;t=SXS5K_3hcPKEWj7p39_TdcbXEJDYkqiUjxSBzJrW85Y" data-is-external-image="true"></p>
+<p id="ember700">The goal was to research the consequences of the upcoming chip technologies. The text below is the result of a short conversation with KIMI K2 0905 LLM.</p>
+<p id="ember701" class="ember-view reader-text-block__paragraph">It reads as a mix of future history, futurism, and a list of completely alien technologies.</p>
+<p id="ember702" class="ember-view reader-text-block__paragraph">TEXT:</p>
+<p id="ember703" class="ember-view reader-text-block__paragraph">These five fabrics—open RISC-V, neuromorphic, photonic, FPGA, and quantum—do not just change what we compute; they change the <em>cost structure of reality</em>. Below, the long-wave civilisational story is told as five <em>phase transitions</em>, each with a tipping metric and a societal symptom you will <em>feel</em> in daily life.</p>
+<hr class="reader-divider-block__horizontal-rule">
+<h3 id="ember704" class="ember-view reader-text-block__heading-3">Phase 1 (2026-2032) “Cent-per-device”</h3>
+<p id="ember705" class="ember-view reader-text-block__paragraph">Tipping metric One useful RISC-V + neuromorphic chiplet falls below <strong>1 ¢/unit</strong> in 28 nm legacy fabs.</p>
+<p id="ember706" class="ember-view reader-text-block__paragraph">Civil symptom</p>
+<ul>
+<li><em>Dust gets a nervous system</em>. Every yoghurt lid, tennis shoe insole, and letter in the post carries a 1 mm² “sense&amp;spike” sticker that learns <em>your</em> micro-environment (gait, spoilage gases, tamper) and whispers a 100 nW spike-stream to the nearest photonic router. Insurance flips from <em>damage reimbursement</em> to <em>pre-crime reward</em>: leave the milk out, get a push-message <em>before</em> it spoils.</li>
+<li>The <em>right to be unread</em> becomes a constitutional issue—because objects now <em>out-remember</em> you.</li>
+</ul>
+<p id="ember707" class="ember-view reader-text-block__paragraph"></p>
+<hr class="reader-divider-block__horizontal-rule">
+<h3 id="ember708" class="ember-view reader-text-block__heading-3">Phase 2 (2030-2038) “Cent-per-TeraSyn”</h3>
+<p id="ember709" class="ember-view reader-text-block__paragraph">Tipping metric Energy to perform 10¹² <em>useful</em> synaptic updates drops below <strong>1 J</strong> (≈ 1 heartbeat).</p>
+<p id="ember710" class="ember-view reader-text-block__paragraph">Civil symptom</p>
+<ul>
+<li><em>Cities become predictive organisms</em>. Traffic lights, sewers, cafeteria coffee machines run a single distributed neuromorphic net that <em>dreams</em> the city 30 s ahead. Jay-walking literally re-routes a delivery van two blocks away; humans adapt by “walking politely” to save collective energy—an emergent Etiquette 2.0 enforced by <em>thermodynamic politeness</em>.</li>
+<li>Democracy mutates into <em>predictive governance</em>: citizens vote on <em>simulated futures</em> rendered in real-time. The ballot question is no longer “Do you want policy X?” but “Do you want the 17:15 simulation branch?”</li>
+</ul>
+<p id="ember711" class="ember-view reader-text-block__paragraph"></p>
+<hr class="reader-divider-block__horizontal-rule">
+<h3 id="ember712" class="ember-view reader-text-block__heading-3">Phase 3 (2035-2043) “Cent-per-logical-qubit”</h3>
+<p id="ember713" class="ember-view reader-text-block__paragraph">Tipping metric One logical qubit-hour costs <strong>&lt; 1 ¢ of electricity</strong> at consumer prices.</p>
+<p id="ember714" class="ember-view reader-text-block__paragraph">Civil symptom</p>
+<ul>
+<li><em>Consensus reality forks</em>. A teenager generates a thousand <em>entanglement-certified</em> fake video-streams per night; the cryptographic cost to <em>disprove</em> each is higher than the cost to create them. “Seeing is believing” is replaced by <em>Bell-inequality receipts</em>; eye-witness testimony becomes <em>legally inadmissible</em> without a quantum provenance tag.</li>
+<li><strong>Science turns into a subscription</strong>: universities that cannot afford 10 k logical qubits fall behind <em>discovery velocity</em>. The haves run variational quantum simulators that brute-force new antibiotics in days; the have-nots watch YouTube explainers of drugs they cannot synthesise.</li>
+</ul>
+<p id="ember715" class="ember-view reader-text-block__paragraph"></p>
+<hr class="reader-divider-block__horizontal-rule">
+<h3 id="ember716" class="ember-view reader-text-block__heading-3">Phase 4 (2040-2048) “Cent-per-truth-bit”</h3>
+<p id="ember717" class="ember-view reader-text-block__paragraph">Tipping metric A <em>globally entangled</em> bit (Earth-scale Bell test) can be minted for <strong>1 ¢</strong>.</p>
+<p id="ember718" class="ember-view reader-text-block__paragraph">Civil symptom</p>
+<ul>
+<li><strong>Money becomes a heat sink</strong>. The new reserve currency is <em>entropy debt</em>: every transaction must include a <em>negative-entropy certificate</em>—proof that you removed 1 bit of uncorrelated noise from the planet-wide entanglement mesh. Economists speak of <em>exa-Bell</em> reserves; the IMF stores qubits in orbit instead of gold.</li>
+<li><strong>Wars move to the cryostat</strong>. Sabotaging an adversary’s dilution refrigerator is the 21-st century equivalent of bombing a gasoline depot; whole countries harden their <em>quantum bunkers</em> at −269 °C.</li>
+</ul>
+<p id="ember719" class="ember-view reader-text-block__paragraph"></p>
+<hr class="reader-divider-block__horizontal-rule">
+<h3 id="ember720" class="ember-view reader-text-block__heading-3">Phase 5 (2045-∞ ) “Cent-per-reality”</h3>
+<p id="ember721" class="ember-view reader-text-block__paragraph">Tipping metric Cost to synthesise a <em>complete sensory reality</em> (visual, acoustic, haptic, olfactory) indistinguishable from physics <em>in vivo</em> falls below <strong>1 ¢ per perceived hour</strong>.</p>
+<p id="ember722" class="ember-view reader-text-block__paragraph">Civil symptom</p>
+<ul>
+<li><strong>Civilisation splits into </strong><strong><em>Continualists</em></strong><strong> and </strong><strong><em>Base-liners</em></strong>. Continualists spend 99 % of their subjective lifetime inside entanglement-verified simulations that run 10 000× faster than biology; governments grant <em>quantum asylum</em>—the right to pause your body while your mind lives a subjective century in a data-centre at 10 mK.</li>
+<li><strong>The UN declares </strong><strong><em>Planetary Identity Day</em></strong>: for 24 h all quantum, neuromorphic, photonic and consensus services are globally switched off to force every human to re-calibrate to base reality. It becomes the most hated—then most sacred—holiday of the year.</li>
+</ul>
+<p id="ember723" class="ember-view reader-text-block__paragraph"></p>
+<hr class="reader-divider-block__horizontal-rule">
+<h3 id="ember724" class="ember-view reader-text-block__heading-3">Net civilisational shift: from “scarcity of atoms” to “scarcity of certified reality”</h3>
+<p id="ember725" class="ember-view reader-text-block__paragraph">The five fabrics together drive the marginal cost of:</p>
+<ul>
+<li>sensing → <strong>0</strong> (dust does it)</li>
+<li>cognition → <strong>0</strong> (neuro + photonic + FPGA)</li>
+<li>universes → <strong>0</strong> (quantum sampling + simulation)</li>
+</ul>
+<p id="ember726" class="ember-view reader-text-block__paragraph"></p>
+<p id="ember727" class="ember-view reader-text-block__paragraph">Hence the only scarce good left is <em>trust that a signal originated in a physical world you share with others</em>. Politics, religion, markets and even romance reorganise around <em>attestation rituals</em>—ceremonies whose purpose is to consume <em>exactly enough</em> energy/entropy that forging them would cost more than the social benefit of the lie.</p>
+<p id="ember728" class="ember-view reader-text-block__paragraph">The final paradox: we are building a civilisation whose most valuable commodity is the <em>thermodynamic signature</em> that proves something <em>really happened</em>—and we need refrigerators cooled to millikelvin, chips that speak light, and brains made of spikes to produce that proof.</p>
+<p id="ember729" class="ember-view reader-text-block__paragraph">Civilisation becomes a planet-sized notary, running on light, spikes, qubits and open silicon—forever stamping reality so that tomorrow can still tell the difference between a story and a fact.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>AI Showdown Battle for Earth</title>
         <author>
@@ -378,38 +461,6 @@
 <p><strong>Conclusion</strong></p>
 <p>This enlightening conversation with a retired military intelligence illuminated the intricate dynamics of information handling in security contexts. By understanding the source, context, and intent behind data, professionals can mitigate biases and make informed decisions about military operations, business strategies, and emerging technologies. These insights serve as a valuable guide for navigating the complex landscape of intelligence and decision-making in an ever-changing world.</p>
 <p><!-- notionvc: 8c3fb7e4-8eaf-41e7-b110-7f60ce0c0719 --></p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>DragonOS R37.1 cellular experiments</title>
-        <author>
-            <name>NS</name>
-        </author>
-        <link href="https://ninkovslobodan.com/dragonos-r371-cellular-experiments.html"/>
-        <id>https://ninkovslobodan.com/dragonos-r371-cellular-experiments.html</id>
-            <category term="IoT"/>
-
-        <updated>2021-08-31T19:32:00+02:00</updated>
-            <summary>
-                <![CDATA[
-                    GSM Check GSM cell: grgsm_livemon Set GSM channel BCCH frequency in grgsm_livemon If the signal is strong enough to be decoded, t will start streaming pcap data. sudo wireshark -k -Y ‘gsmtap’ -i lo OpenBTS power control: Strongest -&gt; can burn out the output, I&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <h3>GSM</h3>
-<p>Check GSM cell:<br><strong>grgsm_livemon</strong><br>Set GSM channel BCCH frequency in grgsm_livemon</p>
-<p>If the signal is strong enough to be decoded, t will start streaming pcap data.</p>
-<p><strong>sudo wireshark -k -Y ‘gsmtap’ -i lo</strong></p>
-<p>OpenBTS power control:<br>Strongest -&gt; can burn out the output, I never used more than 3 3 for a few seconds. 10 10 is ok for a more extended period:<br><strong>power 5 5 </strong><br>Weakest:<br><strong>power 80 80</strong></p>
-<h3> </h3>
-<h3>LTE</h3>
-<p>4G operation using RTLSDR (note that this does not work above 1.8MHz on RTLSDR):</p>
-<p><strong>CellSearch –freq-start 1845e6</strong></p>
-<p><strong>LTE-Tracker -f 954.9e6</strong></p>
-<p>Find USRP devices, a good first check if a system is correctly configured:<br><strong>uhd_find_devices</strong></p>
-<p>Sending a strictly defined signal using USRP:<br><strong>uhd_siggen</strong></p>
             ]]>
         </content>
     </entry>

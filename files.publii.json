@@ -12,7 +12,7 @@
     {
         "path": "ai-showdown-battle-for-earth.html",
         "type": "file",
-        "md5": "f4845dc2794fb29a3093ef8b101d0ff5"
+        "md5": "baccba69c914e73a984a71d20ce90a6b"
     },
     {
         "path": "assets",
@@ -92,7 +92,7 @@
     {
         "path": "/authors/ns/index.html",
         "type": "file",
-        "md5": "53d722b62a25be380346b0f0600ee87f"
+        "md5": "6b6e2a71fa0c10dcea563aa28ac18675"
     },
     {
         "path": "authors/ns/page",
@@ -107,7 +107,7 @@
     {
         "path": "/authors/ns/page/2/index.html",
         "type": "file",
-        "md5": "e0946a52bc036723131195a66b088841"
+        "md5": "86a5dbe5cc413eb49014ffb667f925d8"
     },
     {
         "path": "authors/ns/page/3",
@@ -117,12 +117,17 @@
     {
         "path": "/authors/ns/page/3/index.html",
         "type": "file",
-        "md5": "c90dd94f49336c13a268486ebb54b318"
+        "md5": "3278bbf046fb068a89a7b6ab8fe91794"
     },
     {
         "path": "blog.html",
         "type": "file",
         "md5": "b4f6e2d6c6094e0de891169206f9a71e"
+    },
+    {
+        "path": "convergence-of-risc-v-neuromorphic-photonic-fpga-and-quantum-chips.html",
+        "type": "file",
+        "md5": "35eefa9fa2cee041492c38e4bc3ff7a4"
     },
     {
         "path": "data-handling-anti-patterns.html",
@@ -152,12 +157,12 @@
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "7d7fb8dc1be4f2edd1a89c69d5ef17e1"
+        "md5": "b4c611d87f69d0a84a8ad0027e018663"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "4cff40d92e4eedfb754771ae13939674"
+        "md5": "73ae304b98adfe6df578755b24e84f16"
     },
     {
         "path": "few-lessons-from-a-failed-startup.html",
@@ -172,7 +177,7 @@
     {
         "path": "index.html",
         "type": "file",
-        "md5": "241f3670b87d1b66fed6c70ad80fcdb7"
+        "md5": "792b0977d621d7b169a3591462964f55"
     },
     {
         "path": "insight-into-military-intelligence-mindset-from-an-outsider.html",
@@ -302,7 +307,7 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "7cf1ecb08a535d91719c9917e5232513"
+        "md5": "d995a33ccd7c096ad4d8585323b9b288"
     },
     {
         "path": "page/3",
@@ -312,7 +317,7 @@
     {
         "path": "/page/3/index.html",
         "type": "file",
-        "md5": "70c5e6f5eff6c6a8fc9c02c39af85453"
+        "md5": "0cf79b96527520902f02ff0f9035fd70"
     },
     {
         "path": "projects.html",
@@ -327,7 +332,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "029a1048476d24d735cacaa6a014197b"
+        "md5": "c9c85fd703c41669efe1353efcfda618"
     },
     {
         "path": "sitemap.xsl",
@@ -362,7 +367,7 @@
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "3b603b6f82972b32da306dc86fbac0ad"
+        "md5": "414cc67c35932b047bfa1864d2d3309d"
     },
     {
         "path": "tags/rf-and-cellular",
@@ -372,7 +377,7 @@
     {
         "path": "/tags/rf-and-cellular/index.html",
         "type": "file",
-        "md5": "29ffc416423bb927d50c2af700746316"
+        "md5": "6e6b6651e92c644f428ffa84dfc40e8a"
     },
     {
         "path": "tags/zeitgeist",
@@ -382,7 +387,7 @@
     {
         "path": "/tags/zeitgeist/index.html",
         "type": "file",
-        "md5": "32f4ccf2fd89491364c2e967406e37af"
+        "md5": "67ef3bb43cb4cfed94d91696ecccab89"
     },
     {
         "path": "tags/zeitgeist/page",
@@ -397,7 +402,7 @@
     {
         "path": "/tags/zeitgeist/page/2/index.html",
         "type": "file",
-        "md5": "5a647678b65f1898ea224ac8489d1dff"
+        "md5": "963a7ea3b8f5f3f8e3b5d9858a476e3f"
     },
     {
         "path": "the-crucial-role-of-ai-in-strategic-decision-making-learning-from-history.html",
