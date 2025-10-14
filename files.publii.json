@@ -2,17 +2,17 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "43be14b466c989e451a2ea7a4a28a4a9"
+        "md5": "b2464637f4d6847ec0f1329fe0b15cb0"
     },
     {
         "path": "about.html",
         "type": "file",
-        "md5": "8076a2753d1f18e25c7828434fecb43e"
+        "md5": "972f4e0fd3ad8f2ccefc28d2f969ce4f"
     },
     {
         "path": "ai-showdown-battle-for-earth.html",
         "type": "file",
-        "md5": "baccba69c914e73a984a71d20ce90a6b"
+        "md5": "ec5db35ac0a84db948f7df10ee2ad724"
     },
     {
         "path": "assets",
@@ -92,7 +92,7 @@
     {
         "path": "/authors/ns/index.html",
         "type": "file",
-        "md5": "08f96e85ca3dfc67d518a0afc5da80eb"
+        "md5": "e22daaf3e9a091af7220774b3db4a59b"
     },
     {
         "path": "authors/ns/page",
@@ -107,7 +107,7 @@
     {
         "path": "/authors/ns/page/2/index.html",
         "type": "file",
-        "md5": "7e25bd8022043aa5739a2ca843cb7f0b"
+        "md5": "5faf434dc15f3461ed2c60a1a8adac06"
     },
     {
         "path": "authors/ns/page/3",
@@ -117,87 +117,82 @@
     {
         "path": "/authors/ns/page/3/index.html",
         "type": "file",
-        "md5": "2c5490452067b0497eb9b41f349cb7c4"
+        "md5": "1cf634802aa95e67d9c0580c5a4d1e6d"
     },
     {
         "path": "autonomous-swarm-drones.html",
         "type": "file",
-        "md5": "652d5883155d3930af4c20f730d807b1"
+        "md5": "2bbc2bbc4f43ed02f297f148893aa8bd"
     },
     {
         "path": "blog.html",
         "type": "file",
-        "md5": "b4f6e2d6c6094e0de891169206f9a71e"
+        "md5": "72c13b98afcfbb4b3a213ac8f8ccf594"
     },
     {
         "path": "convergence-of-risc-v-neuromorphic-photonic-fpga-and-quantum-chips.html",
         "type": "file",
-        "md5": "009d16c02570301d40f99780e2296e8f"
+        "md5": "9c559f402bf7201a5ce119613763367b"
     },
     {
         "path": "data-handling-anti-patterns.html",
         "type": "file",
-        "md5": "c5242f2426bd6d8f5485113183839f92"
+        "md5": "7fa88bf77d608ed4bc18d6723ee4fdeb"
     },
     {
         "path": "dopamine-overload.html",
         "type": "file",
-        "md5": "3f61f60fb785aa57f11db3825d6a678a"
+        "md5": "cdfac7b4c1a390c17af28fb36eaf30d7"
     },
     {
         "path": "dragonos-r371-cellular-experiments.html",
         "type": "file",
-        "md5": "00fa05ad79cec22ac27648100ce543ba"
+        "md5": "21639158e113e9862508ff13b24b0fd0"
     },
     {
         "path": "drone-flight-simulator.html",
         "type": "file",
-        "md5": "1bca0a24cbe77280dfafee3a524feb91"
+        "md5": "93bed889265da3537e87129f14e172f2"
     },
     {
         "path": "evolution-of-the-information-system-2005-2012.html",
         "type": "file",
-        "md5": "88811bb873a30073c1e0be582cecc8bd"
+        "md5": "c74ee51dbcd9bb3b0b2a4c4d00a6d6f9"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "090054df1887d9624e727e9b0b349da8"
+        "md5": "1c27f3c84c06efa0c7b290bf048ca2fb"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "351f04427a8dbdcbb0184ea59ff72d99"
+        "md5": "2534c350fcb922cb3c2f0c7ed8f37810"
     },
     {
         "path": "few-lessons-from-a-failed-startup.html",
         "type": "file",
-        "md5": "c0cf0a46d97558e3eda8baafdd609573"
-    },
-    {
-        "path": "home-page.html",
-        "type": "file",
-        "md5": "f15c054a8e362d4fe4ccc077b4d6621d"
+        "md5": "e6a6bee8788dfb98b1ec89ed49915516"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "869483dc7800088b51c3783f2c896afe"
+        "md5": "f1deb4270c8a071e96703cf5473877b1"
     },
     {
         "path": "insight-into-military-intelligence-mindset-from-an-outsider.html",
         "type": "file",
-        "md5": "b81ce328e9c9e1fc3dfd0f70b8e9663a"
+        "md5": "68f11749aa6c8bd502d9d02e9b83a7c2"
     },
     {
         "path": "iot-device-field-testing.html",
         "type": "file",
-        "md5": "5ce369b6d9853a8d7c4f98742a652652"
+        "md5": "94a408d54257fe2bc1ef15c1ebed7b6e"
     },
     {
         "path": "mastering-the-game-the-art-of-deception-and-control.html",
         "type": "file",
-        "md5": "2f319957df1eb22886ad548d37458969"
+        "md5": "49582fe93feacfbaad18ff2a0576638a"
     },
     {
         "path": "media",
@@ -447,7 +442,7 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "aa570591f70430a9f8364372c6e2e093"
+        "md5": "0f7bcac7dc242b33c2dbd017493fdc4c"
     },
     {
         "path": "page/3",
@@ -457,7 +452,7 @@
     {
         "path": "/page/3/index.html",
         "type": "file",
-        "md5": "216e8b1ce15385cfcf7c38640cecaf55"
+        "md5": "debf456f5454829826ced6d77e813873"
     },
     {
         "path": "robots.txt",
@@ -467,7 +462,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "4b569b55f16059d5d95eafd08dcda9b5"
+        "md5": "98d8a83edf956af2b2b7e3ac1dbedffe"
     },
     {
         "path": "sitemap.xsl",
@@ -487,7 +482,7 @@
     {
         "path": "/tags/blogpost/index.html",
         "type": "file",
-        "md5": "c8d4755fb507084e6f71246cdb79e335"
+        "md5": "403d418a4d48aeb20e8b469cbb913c1d"
     },
     {
         "path": "tags/data",
@@ -497,12 +492,12 @@
     {
         "path": "/tags/data/index.html",
         "type": "file",
-        "md5": "302584246865272d66d24b1059fdd313"
+        "md5": "bf9ec69a50093b44e5456e3c61be2e93"
     },
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "414cc67c35932b047bfa1864d2d3309d"
+        "md5": "84bc894c684302a70acfc5004d62a47e"
     },
     {
         "path": "tags/rf-and-cellular",
@@ -512,7 +507,7 @@
     {
         "path": "/tags/rf-and-cellular/index.html",
         "type": "file",
-        "md5": "6e6b6651e92c644f428ffa84dfc40e8a"
+        "md5": "08186321f402918d517ca25ffd45a394"
     },
     {
         "path": "tags/zeitgeist",
@@ -522,7 +517,7 @@
     {
         "path": "/tags/zeitgeist/index.html",
         "type": "file",
-        "md5": "67ef3bb43cb4cfed94d91696ecccab89"
+        "md5": "3aa249f0b5dbedce75b9adcb2445e1af"
     },
     {
         "path": "tags/zeitgeist/page",
@@ -537,11 +532,11 @@
     {
         "path": "/tags/zeitgeist/page/2/index.html",
         "type": "file",
-        "md5": "963a7ea3b8f5f3f8e3b5d9858a476e3f"
+        "md5": "97d4baa2eb012e4084af11ba6ae94fcf"
     },
     {
         "path": "the-crucial-role-of-ai-in-strategic-decision-making-learning-from-history.html",
         "type": "file",
-        "md5": "c6092d329a9279c891930ff7490f0258"
+        "md5": "0f7b140eea25909729fa5b4a72b50eb9"
     }
 ]

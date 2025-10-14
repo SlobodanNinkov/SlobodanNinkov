@@ -3,30 +3,30 @@
     <title>Ninkov Slobodan</title>
     <link href="https://ninkovslobodan.com/feed.xml" rel="self" />
     <link href="https://ninkovslobodan.com" />
-    <updated>2025-10-13T18:14:01+02:00</updated>
+    <updated>2025-10-14T23:47:34+02:00</updated>
     <author>
         <name>NS</name>
     </author>
     <id>https://ninkovslobodan.com</id>
 
     <entry>
-        <title>Autonomous swarm drones</title>
+        <title>Autonomous swarm systems</title>
         <author>
             <name>NS</name>
         </author>
         <link href="https://ninkovslobodan.com/autonomous-swarm-drones.html"/>
         <id>https://ninkovslobodan.com/autonomous-swarm-drones.html</id>
+            <category term="Zeitgeist"/>
 
         <updated>2025-10-13T18:07:22+02:00</updated>
             <summary>
                 <![CDATA[
-                    The only way short of nuclear caboom to break the stalemate of the current situation in the Ukraine-Russia war is to use autonomous swarms. Heterogeneous drone types have a complete picture of the situation and decide what to do in their local environment.
+                    The only way, short of nuclear armageddon, to break the stalemate of the current situation in the Ukraine-Russia war is going to be the use of autonomous swarm systems.
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <p>The only way short of nuclear caboom to break the stalemate of the current situation in the Ukraine-Russia war is to use autonomous swarms.</p>
-<p>Heterogeneous drone types have a complete picture of the situation and decide what to do in their local environment.</p>
+                <p>The only way, short of nuclear armageddon, to break the stalemate of the current situation in the Ukraine-Russia war is going to be the use of autonomous swarm systems.</p>
             ]]>
         </content>
     </entry>

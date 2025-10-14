@@ -12,16 +12,17 @@
         {
             "id": "https://ninkovslobodan.com/autonomous-swarm-drones.html",
             "url": "https://ninkovslobodan.com/autonomous-swarm-drones.html",
-            "title": "Autonomous swarm drones",
-            "summary": "The only way short of nuclear caboom to break the stalemate of the current situation in the Ukraine-Russia war is to use autonomous swarms. Heterogeneous drone types have a complete picture of the situation and decide what to do in their local environment.",
-            "content_html": "<p>The only way short of nuclear caboom to break the stalemate of the current situation in the Ukraine-Russia war is to use autonomous swarms.</p>\n<p>Heterogeneous drone types have a complete picture of the situation and decide what to do in their local environment.</p>",
+            "title": "Autonomous swarm systems",
+            "summary": "The only way, short of nuclear armageddon, to break the stalemate of the current situation in the Ukraine-Russia war is going to be the use of autonomous swarm systems.",
+            "content_html": "<p>The only way, short of nuclear armageddon, to break the stalemate of the current situation in the Ukraine-Russia war is going to be the use of autonomous swarm systems.</p>",
             "author": {
                 "name": "NS"
             },
             "tags": [
+                   "Zeitgeist"
             ],
             "date_published": "2025-10-13T18:07:22+02:00",
-            "date_modified": "2025-10-13T18:07:22+02:00"
+            "date_modified": "2025-10-14T23:47:34+02:00"
         },
         {
             "id": "https://ninkovslobodan.com/convergence-of-risc-v-neuromorphic-photonic-fpga-and-quantum-chips.html",
