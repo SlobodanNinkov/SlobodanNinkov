@@ -7,7 +7,7 @@
     {
         "path": "about.html",
         "type": "file",
-        "md5": "99a88117ed496fa4717724a144faf8a3"
+        "md5": "8076a2753d1f18e25c7828434fecb43e"
     },
     {
         "path": "ai-showdown-battle-for-earth.html",
@@ -132,7 +132,7 @@
     {
         "path": "convergence-of-risc-v-neuromorphic-photonic-fpga-and-quantum-chips.html",
         "type": "file",
-        "md5": "553fd3b50bc3d21b6e12b6657101d924"
+        "md5": "009d16c02570301d40f99780e2296e8f"
     },
     {
         "path": "data-handling-anti-patterns.html",
@@ -162,12 +162,12 @@
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "eeeed778ecd778217e8f6d1395f26984"
+        "md5": "090054df1887d9624e727e9b0b349da8"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "2ee8b0623d9dff03d8ce545769de33dc"
+        "md5": "351f04427a8dbdcbb0184ea59ff72d99"
     },
     {
         "path": "few-lessons-from-a-failed-startup.html",
@@ -177,7 +177,7 @@
     {
         "path": "home-page.html",
         "type": "file",
-        "md5": "c96da181a4505b8ee2e19dfc372df983"
+        "md5": "f15c054a8e362d4fe4ccc077b4d6621d"
     },
     {
         "path": "index.html",
@@ -187,7 +187,7 @@
     {
         "path": "insight-into-military-intelligence-mindset-from-an-outsider.html",
         "type": "file",
-        "md5": "73371ea8a71394903a1d4117261eb30b"
+        "md5": "b81ce328e9c9e1fc3dfd0f70b8e9663a"
     },
     {
         "path": "iot-device-field-testing.html",
@@ -197,7 +197,7 @@
     {
         "path": "mastering-the-game-the-art-of-deception-and-control.html",
         "type": "file",
-        "md5": "80d2551d16a55204c6db571a62e07e5d"
+        "md5": "2f319957df1eb22886ad548d37458969"
     },
     {
         "path": "media",
@@ -300,6 +300,141 @@
         "md5": "f1fbaa1d2678077eb03be7b302e2df90"
     },
     {
+        "path": "media/posts/13",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/13/1_ckR4wHyUDr097YVwL-_cNg.png",
+        "type": "file",
+        "md5": "89931f2b20560c4eeb402ce1c9076a47"
+    },
+    {
+        "path": "media/posts/13/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-2xl.png",
+        "type": "file",
+        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
+    },
+    {
+        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-lg.png",
+        "type": "file",
+        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
+    },
+    {
+        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-md.png",
+        "type": "file",
+        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
+    },
+    {
+        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-sm.png",
+        "type": "file",
+        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
+    },
+    {
+        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-xl.png",
+        "type": "file",
+        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
+    },
+    {
+        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-xs.png",
+        "type": "file",
+        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
+    },
+    {
+        "path": "media/posts/14",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/14/1_2bbSeZSS52Q1MtXy3tZiYQ.png",
+        "type": "file",
+        "md5": "f920c3b994a431970e712e3aea373770"
+    },
+    {
+        "path": "media/posts/14/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-2xl.png",
+        "type": "file",
+        "md5": "e353a2ca16d46e1dda813fb9554bec33"
+    },
+    {
+        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-lg.png",
+        "type": "file",
+        "md5": "e353a2ca16d46e1dda813fb9554bec33"
+    },
+    {
+        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-md.png",
+        "type": "file",
+        "md5": "e353a2ca16d46e1dda813fb9554bec33"
+    },
+    {
+        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-sm.png",
+        "type": "file",
+        "md5": "e353a2ca16d46e1dda813fb9554bec33"
+    },
+    {
+        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-xl.png",
+        "type": "file",
+        "md5": "e353a2ca16d46e1dda813fb9554bec33"
+    },
+    {
+        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-xs.png",
+        "type": "file",
+        "md5": "e4b7fb098be7b056d5c1c3bb9c4ff815"
+    },
+    {
+        "path": "media/posts/20",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/20/1758142940226.png",
+        "type": "file",
+        "md5": "e1b198105c35e086020b59be7837a562"
+    },
+    {
+        "path": "media/posts/20/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/20/responsive/1758142940226-2xl.png",
+        "type": "file",
+        "md5": "7ab12aca042d7ce6ad21ced6aef827a9"
+    },
+    {
+        "path": "/media/posts/20/responsive/1758142940226-lg.png",
+        "type": "file",
+        "md5": "7ab12aca042d7ce6ad21ced6aef827a9"
+    },
+    {
+        "path": "/media/posts/20/responsive/1758142940226-md.png",
+        "type": "file",
+        "md5": "b5d59e3369a7699a50ef11d5bd0472cd"
+    },
+    {
+        "path": "/media/posts/20/responsive/1758142940226-sm.png",
+        "type": "file",
+        "md5": "c88a08261e7bd11a4539a68e0f89ddcf"
+    },
+    {
+        "path": "/media/posts/20/responsive/1758142940226-xl.png",
+        "type": "file",
+        "md5": "7ab12aca042d7ce6ad21ced6aef827a9"
+    },
+    {
+        "path": "/media/posts/20/responsive/1758142940226-xs.png",
+        "type": "file",
+        "md5": "6f8913bbcf48d1cfb646ff8b8744cfef"
+    },
+    {
         "path": "page",
         "type": "directory",
         "md5": false
@@ -325,11 +460,6 @@
         "md5": "216e8b1ce15385cfcf7c38640cecaf55"
     },
     {
-        "path": "projects.html",
-        "type": "file",
-        "md5": "ce6c2f7147f45c2ab21d2ac9a4c33d5e"
-    },
-    {
         "path": "robots.txt",
         "type": "file",
         "md5": "9c6ff7a84fa2f59fc71ca4a6db5631e8"
@@ -337,7 +467,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "826d0f9c5aa63ac956ffb861fe72d009"
+        "md5": "4b569b55f16059d5d95eafd08dcda9b5"
     },
     {
         "path": "sitemap.xsl",
