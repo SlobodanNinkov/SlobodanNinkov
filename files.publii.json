@@ -92,7 +92,7 @@
     {
         "path": "/authors/ns/index.html",
         "type": "file",
-        "md5": "5cb921adb4a2cad32a5b97843f9d3aa1"
+        "md5": "b95125716ca9c7d19339adebb514cd37"
     },
     {
         "path": "authors/ns/page",
@@ -137,12 +137,12 @@
     {
         "path": "data-handling-anti-patterns.html",
         "type": "file",
-        "md5": "6b9b69ae8fd7c33c951c8cf8c91825b9"
+        "md5": "781f38b33537ef74dcb259dff4e2e033"
     },
     {
         "path": "dopamine-overload.html",
         "type": "file",
-        "md5": "a2358b3bab80a5055cdc3270cdaf31c4"
+        "md5": "67e6dd93c26fac8de97daa92794c6306"
     },
     {
         "path": "dragonos-r371-cellular-experiments.html",
@@ -162,12 +162,12 @@
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "3d5e9fdd13aef3e9cf1d9641947b69f6"
+        "md5": "bc374eb0a9ed1f6ca8742d23c1f2a7e5"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "7614e32ed7998be32bc86b684918e6d3"
+        "md5": "e1de473ba17db0f6f6f185b608a01421"
     },
     {
         "path": "few-lessons-from-a-failed-startup.html",
@@ -177,7 +177,7 @@
     {
         "path": "index.html",
         "type": "file",
-        "md5": "95902f78730b5c6f5c45d66f0b8ff765"
+        "md5": "affd2090b3d5945d18f04219e6389774"
     },
     {
         "path": "insight-into-military-intelligence-mindset-from-an-outsider.html",
@@ -187,7 +187,7 @@
     {
         "path": "iot-device-field-testing.html",
         "type": "file",
-        "md5": "525b723709839cef867ba4e083eb38be"
+        "md5": "1a682f2524f028edb095bead110c3cc7"
     },
     {
         "path": "mastering-the-game-the-art-of-deception-and-control.html",
@@ -462,7 +462,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "331722b2029d6955eaab59b5d9c4e5b8"
+        "md5": "480da510a41420b74666e467399470cb"
     },
     {
         "path": "sitemap.xsl",
@@ -492,7 +492,7 @@
     {
         "path": "/tags/data/index.html",
         "type": "file",
-        "md5": "507656dfc5cf9f1e40b6fe6aed539313"
+        "md5": "273b0d5afb61577f6b811bc26a4449e1"
     },
     {
         "path": "/tags/index.html",

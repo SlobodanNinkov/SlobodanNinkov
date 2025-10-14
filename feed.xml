@@ -3,7 +3,7 @@
     <title>Ninkov Slobodan</title>
     <link href="https://ninkovslobodan.com/feed.xml" rel="self" />
     <link href="https://ninkovslobodan.com" />
-    <updated>2025-10-14T23:52:36+02:00</updated>
+    <updated>2025-10-15T01:56:20+02:00</updated>
     <author>
         <name>NS</name>
     </author>
@@ -147,7 +147,7 @@
         </content>
     </entry>
     <entry>
-        <title>Data handling anti-patterns</title>
+        <title>Data handling anti-patterns and root causes</title>
         <author>
             <name>NS</name>
         </author>
@@ -158,52 +158,39 @@
         <updated>2025-10-12T21:11:09+02:00</updated>
             <summary>
                 <![CDATA[
-                    Synchronous paths Avoid performing heavy computations in synchronous HTTP request/response flows (except when serving simple web pages). Offload processing to asynchronous workers via queues or streams. Small validations or trivial lookups are acceptable if bounded by strict timeouts and circuit breakers. Workload isolation Do not&hellip;
+                    Red flag: UI actions freeze &gt;3s. Likely cause: Heavy compute in HTTP request/response; unrealistic perf testing on empty data. Action: Push non-trivial work to queues/streams; small validations only, guarded by strict timeouts + circuit breakers. KPI: p95/p99 latency per endpoint; queue age; error budget burn.
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <ol class="wp-block-list">
-<li>
-<h4>Synchronous paths</h4>
-<ul class="list-disc">
-<li class="ml-4">Avoid performing heavy computations in synchronous HTTP request/response flows (except when serving simple web pages). Offload processing to asynchronous workers via queues or streams. Small validations or trivial lookups are acceptable if bounded by strict timeouts and circuit breakers.</li>
-</ul>
-<h4>Workload isolation</h4>
-<ul class="list-disc">
-<li class="ml-4">Do not mix frontend (user-facing) workers with sensor ingestion/processing workers. Use separate compute pools, autoscaling policies, and queues to prevent noisy‑neighbor and head‑of‑line blocking.</li>
-</ul>
-<h4>Caching for responsiveness</h4>
-<ul class="list-disc">
-<li class="ml-4">Use in-memory or distributed caches (e.g., Redis, Memcached) to prepare or cache response data and hot aggregates. Define clear TTLs, invalidation strategies, and backfill mechanisms.</li>
-</ul>
-<h4>Command and telemetry separation</h4>
-<ul class="list-disc">
-<li class="ml-4">Separate data, telemetry and command/control channels for devices. Make both directions explicit and reliable (ACKs, QoS, retries, device shadow/state sync).</li>
-</ul>
-<h4>Data serialization</h4>
-<ul class="list-disc">
-<li class="ml-4">Prefer compact binary formats over text for device links and internal services (e.g., Protocol Buffers, FlatBuffers, CBOR). Use human-readable formats, such as JSON, at external API boundaries where appropriate.</li>
-</ul>
-<h4>Network stack reuse</h4>
-<ul class="list-disc">
-<li class="ml-4">Do not implement custom TCP/IP listeners. Use established brokers/gateways and extend them with plugins/handlers (e.g., MQTT brokers such as EMQX, Mosquitto, HiveMQ; NATS; Kafka; CoAP servers).</li>
-</ul>
-<h4>Operational vs analytical separation</h4>
-<ul class="list-disc">
-<li class="ml-4">Keep transactional/operational stores separate from analytical stores. Ingest to OLTP/time-series databases; replicate or stream-transform to OLAP warehouses/lakes for analytics.</li>
-</ul>
-<h4>Failure capture and forensics</h4>
-<ul class="list-disc">
-<li class="ml-4">Route unparseable or invalid packets to a dead-letter queue or error log, preserving the original payload and error metadata for post-analysis. Apply rate limits and protect sensitive data.</li>
-</ul>
-<h4>Reuse without coupling</h4>
-<ul class="list-disc">
-<li class="ml-4">Reuse shared libraries and interfaces without creating hard coupling between services. Maintain clear, versioned contracts (APIs, schemas) so components remain independently deployable.</li>
-</ul>
-</li>
-</ol>
-<p>Or you can "know better" and spend 2 years hitting each problem in production, only to experience all of the above anti-patterns firsthand.<br>If you are a product manager and your developers are unaware of the issues above, good luck. You can call me if you need a shoulder to cry on.</p>
+                <p data-start="183" data-end="307"> </p>
+<h3 data-start="314" data-end="338">1) Synchronous paths</h3>
+<p data-start="339" data-end="672"><strong data-start="339" data-end="352">Red flag:</strong> UI actions freeze &gt;3s.<br data-start="375" data-end="378"><strong data-start="378" data-end="395">Likely cause:</strong> Heavy compute in HTTP request/response; unrealistic perf testing on empty data.<br data-start="475" data-end="478"><strong data-start="478" data-end="489">Action:</strong> Push non-trivial work to queues/streams; small validations only, guarded by strict timeouts + circuit breakers.<br data-start="601" data-end="604"><strong data-start="604" data-end="612">KPI:</strong> p95/p99 latency per endpoint; queue age; error budget burn.</p>
+<hr data-start="674" data-end="677">
+<h3 data-start="679" data-end="704">2) Workload isolation</h3>
+<p data-start="705" data-end="1043"><strong data-start="705" data-end="718">Red flag:</strong> User clicks stall ingestion; GUI becomes unresponsive under sensor spikes.<br data-start="793" data-end="796"><strong data-start="796" data-end="813">Likely cause:</strong> Shared workers/ASGs for frontend and ingestion.<br data-start="861" data-end="864"><strong data-start="864" data-end="875">Action:</strong> Separate pools, autoscaling, and queues for user traffic vs. device pipelines; isolate head-of-line risk.<br data-start="981" data-end="984"><strong data-start="984" data-end="992">KPI:</strong> Separate SLOs; saturation per pool; backlog depth.</p>
+<hr data-start="1045" data-end="1048">
+<h3 data-start="1050" data-end="1083">3) Caching for responsiveness</h3>
+<p data-start="1084" data-end="1384"><strong data-start="1084" data-end="1097">Red flag:</strong> Repeated timeouts on read-heavy screens.<br data-start="1138" data-end="1141"><strong data-start="1141" data-end="1158">Likely cause:</strong> Recomputing hot aggregates on every request.<br data-start="1203" data-end="1206"><strong data-start="1206" data-end="1217">Action:</strong> In-memory/distributed cache (Redis/Memcached) with clear TTLs, invalidation, backfill, and stampede protection.<br data-start="1329" data-end="1332"><strong data-start="1332" data-end="1340">KPI:</strong> Cache hit rate; origin QPS; p95 end-to-end.</p>
+<hr data-start="1386" data-end="1389">
+<h3 data-start="1391" data-end="1428">4) Command vs. telemetry vs. data</h3>
+<p data-start="1429" data-end="1759"><strong data-start="1429" data-end="1442">Red flag:</strong> Devices “fixed” only by power-cycling or shelling in.<br data-start="1496" data-end="1499"><strong data-start="1499" data-end="1516">Likely cause:</strong> One channel for everything; no ACK/QoS/retry semantics.<br data-start="1572" data-end="1575"><strong data-start="1575" data-end="1586">Action:</strong> Separate command/control, telemetry, and data channels; device shadow/state sync; explicit reliability.<br data-start="1690" data-end="1693"><strong data-start="1693" data-end="1701">KPI:</strong> Command success rate; time-to-recover; shadow drift rate.</p>
+<hr data-start="1761" data-end="1764">
+<h3 data-start="1766" data-end="1791">5) Data serialization</h3>
+<p data-start="1792" data-end="2101"><strong data-start="1792" data-end="1805">Red flag:</strong> Bandwidth ceilings hit; partial or delayed payloads.<br data-start="1858" data-end="1861"><strong data-start="1861" data-end="1878">Likely cause:</strong> Verbose text formats used on constrained links.<br data-start="1926" data-end="1929"><strong data-start="1929" data-end="1940">Action:</strong> Use compact binary (ProtoBuf/FlatBuffers/CBOR) on device/internal links; reserve JSON for public APIs.<br data-start="2043" data-end="2046"><strong data-start="2046" data-end="2054">KPI:</strong> Bytes/event; CPU/parse cost; link utilization.</p>
+<hr data-start="2103" data-end="2106">
+<h3 data-start="2108" data-end="2134">6) Network stack reuse</h3>
+<p data-start="2135" data-end="2448"><strong data-start="2135" data-end="2148">Red flag:</strong> Random crashes every 1–12 hours; ghost disconnects.<br data-start="2200" data-end="2203"><strong data-start="2203" data-end="2220">Likely cause:</strong> DIY TCP listeners treating streams like a message bus.<br data-start="2275" data-end="2278"><strong data-start="2278" data-end="2289">Action:</strong> Use proven brokers/gateways (MQTT/NATS/Kafka/CoAP servers); extend via plugins/handlers.<br data-start="2378" data-end="2381"><strong data-start="2381" data-end="2389">KPI:</strong> Broker uptime; reconnect rate; duplicate/partial msg rate.</p>
+<hr data-start="2450" data-end="2453">
+<h3 data-start="2455" data-end="2499">7) Operational vs. analytical separation</h3>
+<p data-start="2500" data-end="2806"><strong data-start="2500" data-end="2513">Red flag:</strong> Live app slows or times out during analytics jobs.<br data-start="2564" data-end="2567"><strong data-start="2567" data-end="2584">Likely cause:</strong> One database for OLTP and OLAP.<br data-start="2616" data-end="2619"><strong data-start="2619" data-end="2630">Action:</strong> Keep transactional/time-series stores separate; stream/replicate into OLAP lakes/warehouses.<br data-start="2723" data-end="2726"><strong data-start="2726" data-end="2734">KPI:</strong> OLTP p95 under analytics load; replication lag; query slot utilization.</p>
+<hr data-start="2808" data-end="2811">
+<h3 data-start="2813" data-end="2847">8) Failure capture &amp; forensics</h3>
+<p data-start="2848" data-end="3159"><strong data-start="2848" data-end="2861">Red flag:</strong> “We don’t know why it failed.”<br data-start="2892" data-end="2895"><strong data-start="2895" data-end="2912">Likely cause:</strong> Invalid/unparseable events dropped on the floor.<br data-start="2961" data-end="2964"><strong data-start="2964" data-end="2975">Action:</strong> DLQs with full payload + error metadata; rate-limit; protect sensitive data; trace IDs end-to-end.<br data-start="3074" data-end="3077"><strong data-start="3077" data-end="3085">KPI:</strong> DLQ volume; mean time to explain (MTTX); % issues closed with root cause.</p>
+<hr data-start="3161" data-end="3164">
+<h3 data-start="3166" data-end="3195">9) Reuse without coupling</h3>
+<p data-start="3196" data-end="3545"><strong data-start="3196" data-end="3209">Red flag:</strong> Endless debates on “the right pattern,” refactors ripple across services.<br data-start="3283" data-end="3286"><strong data-start="3286" data-end="3303">Likely cause:</strong> Over-shared and modified libraries without versioned contracts.<br data-start="3354" data-end="3357"><strong data-start="3357" data-end="3368">Action:</strong> Versioned APIs/schemas; keep services independently deployable; minimize shared runtime code.<br data-start="3462" data-end="3465"><strong data-start="3465" data-end="3473">KPI:</strong> Independent deploy rate; breakage per release; contract test pass rate.</p>
+<p data-start="3552" data-end="3817"> </p>
             ]]>
         </content>
     </entry>
