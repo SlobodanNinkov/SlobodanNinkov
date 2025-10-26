@@ -10,11 +10,6 @@
         "md5": "e72b4f7cd6e55eb53d5da682f9051709"
     },
     {
-        "path": "ai-showdown-battle-for-earth.html",
-        "type": "file",
-        "md5": "82e86e667e6efd53e310f94b64d58308"
-    },
-    {
         "path": "assets",
         "type": "directory",
         "md5": false
@@ -92,7 +87,7 @@
     {
         "path": "/authors/ns/index.html",
         "type": "file",
-        "md5": "b95125716ca9c7d19339adebb514cd37"
+        "md5": "5357ff64d9454877c32f49bcb40de813"
     },
     {
         "path": "authors/ns/page",
@@ -107,22 +102,7 @@
     {
         "path": "/authors/ns/page/2/index.html",
         "type": "file",
-        "md5": "c030cdbe316e854812855ec2e21ac9c5"
-    },
-    {
-        "path": "authors/ns/page/3",
-        "type": "directory",
-        "md5": false
-    },
-    {
-        "path": "/authors/ns/page/3/index.html",
-        "type": "file",
-        "md5": "7742f959af62a44fb9ba53fb65620f33"
-    },
-    {
-        "path": "autonomous-swarm-drones.html",
-        "type": "file",
-        "md5": "b5b3c8944693f887b90f316c528b508e"
+        "md5": "9538e4614f3bc8d98f44956c99f0f51b"
     },
     {
         "path": "blog.html",
@@ -132,7 +112,7 @@
     {
         "path": "convergence-of-risc-v-neuromorphic-photonic-fpga-and-quantum-chips.html",
         "type": "file",
-        "md5": "209b4962bc296a32e6d9a7b2c54a701b"
+        "md5": "2303380d49ef5cddcbbd4808fd47b2f9"
     },
     {
         "path": "data-handling-anti-patterns.html",
@@ -142,57 +122,47 @@
     {
         "path": "dopamine-overload.html",
         "type": "file",
-        "md5": "67e6dd93c26fac8de97daa92794c6306"
+        "md5": "fbc59d6f2d4f8a0dc4a9784fc3df6ae4"
     },
     {
         "path": "dragonos-r371-cellular-experiments.html",
         "type": "file",
-        "md5": "caee0f010ad933942ba8aeb0f1e225d2"
+        "md5": "115156917e6a370d858343d48c47030c"
     },
     {
         "path": "drone-flight-simulator.html",
         "type": "file",
-        "md5": "6c78f30810e8009f6a95039812004ade"
+        "md5": "25179397d04932e72711b23d7a4287a5"
     },
     {
         "path": "evolution-of-the-information-system-2005-2012.html",
         "type": "file",
-        "md5": "9fbd653f3e0177dec5f5d369311da832"
+        "md5": "8fc5fff94bbb880729c98313c7f3bc7b"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "bc374eb0a9ed1f6ca8742d23c1f2a7e5"
+        "md5": "ef5f83e931141bfbce2b3d9527ae02f9"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "e1de473ba17db0f6f6f185b608a01421"
+        "md5": "3cc07f37263074c36898bea03f4c1d68"
     },
     {
         "path": "few-lessons-from-a-failed-startup.html",
         "type": "file",
-        "md5": "95a28443fd7e0648a9b89dc45d972699"
+        "md5": "e22b4805dd0a4411776b42016c23e606"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "affd2090b3d5945d18f04219e6389774"
-    },
-    {
-        "path": "insight-into-military-intelligence-mindset-from-an-outsider.html",
-        "type": "file",
-        "md5": "70ee52026bbb8d7b5bc11ef4506b658f"
+        "md5": "5b64ad34646eae20cac597020a6fe587"
     },
     {
         "path": "iot-device-field-testing.html",
         "type": "file",
         "md5": "1a682f2524f028edb095bead110c3cc7"
-    },
-    {
-        "path": "mastering-the-game-the-art-of-deception-and-control.html",
-        "type": "file",
-        "md5": "4da6bcef3087adec78ca85bc6373d8c4"
     },
     {
         "path": "media",
@@ -248,141 +218,6 @@
         "path": "/media/posts/1/SlobodanNinkovProfessionalImageSmall.png",
         "type": "file",
         "md5": "a02586457dd28f26fb19d1efb4e1bcf6"
-    },
-    {
-        "path": "media/posts/12",
-        "type": "directory",
-        "md5": false
-    },
-    {
-        "path": "/media/posts/12/image-2.png",
-        "type": "file",
-        "md5": "1ce014031ac777c74559bff6b2a9341f"
-    },
-    {
-        "path": "media/posts/12/responsive",
-        "type": "directory",
-        "md5": false
-    },
-    {
-        "path": "/media/posts/12/responsive/image-2-2xl.png",
-        "type": "file",
-        "md5": "7cf4d12d700d35779cfea19628cf83a0"
-    },
-    {
-        "path": "/media/posts/12/responsive/image-2-lg.png",
-        "type": "file",
-        "md5": "7cf4d12d700d35779cfea19628cf83a0"
-    },
-    {
-        "path": "/media/posts/12/responsive/image-2-md.png",
-        "type": "file",
-        "md5": "7cf4d12d700d35779cfea19628cf83a0"
-    },
-    {
-        "path": "/media/posts/12/responsive/image-2-sm.png",
-        "type": "file",
-        "md5": "7cf4d12d700d35779cfea19628cf83a0"
-    },
-    {
-        "path": "/media/posts/12/responsive/image-2-xl.png",
-        "type": "file",
-        "md5": "7cf4d12d700d35779cfea19628cf83a0"
-    },
-    {
-        "path": "/media/posts/12/responsive/image-2-xs.png",
-        "type": "file",
-        "md5": "f1fbaa1d2678077eb03be7b302e2df90"
-    },
-    {
-        "path": "media/posts/13",
-        "type": "directory",
-        "md5": false
-    },
-    {
-        "path": "/media/posts/13/1_ckR4wHyUDr097YVwL-_cNg.png",
-        "type": "file",
-        "md5": "89931f2b20560c4eeb402ce1c9076a47"
-    },
-    {
-        "path": "media/posts/13/responsive",
-        "type": "directory",
-        "md5": false
-    },
-    {
-        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-2xl.png",
-        "type": "file",
-        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
-    },
-    {
-        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-lg.png",
-        "type": "file",
-        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
-    },
-    {
-        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-md.png",
-        "type": "file",
-        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
-    },
-    {
-        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-sm.png",
-        "type": "file",
-        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
-    },
-    {
-        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-xl.png",
-        "type": "file",
-        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
-    },
-    {
-        "path": "/media/posts/13/responsive/1_ckR4wHyUDr097YVwL-_cNg-xs.png",
-        "type": "file",
-        "md5": "7d7626e9ed8f0e99ad5f5e4c11528a13"
-    },
-    {
-        "path": "media/posts/14",
-        "type": "directory",
-        "md5": false
-    },
-    {
-        "path": "/media/posts/14/1_2bbSeZSS52Q1MtXy3tZiYQ.png",
-        "type": "file",
-        "md5": "f920c3b994a431970e712e3aea373770"
-    },
-    {
-        "path": "media/posts/14/responsive",
-        "type": "directory",
-        "md5": false
-    },
-    {
-        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-2xl.png",
-        "type": "file",
-        "md5": "e353a2ca16d46e1dda813fb9554bec33"
-    },
-    {
-        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-lg.png",
-        "type": "file",
-        "md5": "e353a2ca16d46e1dda813fb9554bec33"
-    },
-    {
-        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-md.png",
-        "type": "file",
-        "md5": "e353a2ca16d46e1dda813fb9554bec33"
-    },
-    {
-        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-sm.png",
-        "type": "file",
-        "md5": "e353a2ca16d46e1dda813fb9554bec33"
-    },
-    {
-        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-xl.png",
-        "type": "file",
-        "md5": "e353a2ca16d46e1dda813fb9554bec33"
-    },
-    {
-        "path": "/media/posts/14/responsive/1_2bbSeZSS52Q1MtXy3tZiYQ-xs.png",
-        "type": "file",
-        "md5": "e4b7fb098be7b056d5c1c3bb9c4ff815"
     },
     {
         "path": "media/posts/20",
@@ -442,17 +277,7 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "c01f921acdcc647c76e856a829d24ca4"
-    },
-    {
-        "path": "page/3",
-        "type": "directory",
-        "md5": false
-    },
-    {
-        "path": "/page/3/index.html",
-        "type": "file",
-        "md5": "39decc42c2626f5eee230919d42d9384"
+        "md5": "c094b7d12cb2c14774bf3c4cc674a516"
     },
     {
         "path": "robots.txt",
@@ -462,7 +287,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "480da510a41420b74666e467399470cb"
+        "md5": "d03feb6ab307824d7270232d04a11218"
     },
     {
         "path": "sitemap.xsl",
@@ -497,7 +322,7 @@
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "96974aa4a1b94d0667f78915274986b3"
+        "md5": "99645ce507159b9836d5f0df8d15e76f"
     },
     {
         "path": "tags/rf-and-cellular",
@@ -517,26 +342,6 @@
     {
         "path": "/tags/zeitgeist/index.html",
         "type": "file",
-        "md5": "2e7fc7d30a444d2643e7445ddf4b0569"
-    },
-    {
-        "path": "tags/zeitgeist/page",
-        "type": "directory",
-        "md5": false
-    },
-    {
-        "path": "tags/zeitgeist/page/2",
-        "type": "directory",
-        "md5": false
-    },
-    {
-        "path": "/tags/zeitgeist/page/2/index.html",
-        "type": "file",
-        "md5": "4a801fb56317738e3ba81e97aa21a4f2"
-    },
-    {
-        "path": "the-crucial-role-of-ai-in-strategic-decision-making-learning-from-history.html",
-        "type": "file",
-        "md5": "b8854a353f1e37a9eb8ae07f22ee3854"
+        "md5": "44d15f4e15d49b786d80dacf1bb9d9bf"
     }
 ]
