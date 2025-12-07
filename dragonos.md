@@ -2,9 +2,9 @@
 
 layout: page
 
-title: Dragon OS \& Cellular Interception
+title: Dragon OS & Cellular Interception
 
-subtitle: 
+subtitle: Practical tips and tricks for data extraction
 
 ---
 
