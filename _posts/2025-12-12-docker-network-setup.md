@@ -23,6 +23,8 @@ postgres-interlinedlist => running container
 # Inspect docker network configuration
 docker inspect => Show local network configuration, here you will find IP-s for each container.
 ....
+```json
+{
  "Containers": {
             "4fc9fb3c919d720e9e07d819260e78d60f0c4d5461884d643a6541dd688b3875": {
                 "Name": "postgres-interlinedlist",
@@ -39,4 +41,5 @@ docker inspect => Show local network configuration, here you will find IP-s for 
                 "IPv6Address": ""
             }
         }
+}
 ....
