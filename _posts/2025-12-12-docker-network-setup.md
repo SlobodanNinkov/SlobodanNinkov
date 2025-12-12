@@ -13,12 +13,12 @@ author: Slobodan Ninkov
 docker network create locnetwork 
 
 # Add containers to local network
-docker network connect locnetwork c4db0a1638e308b9a6ea7ddecde1ee46f664f85ccb0b73bc89adaa12f1be7853
-docker network connect locnetwork 4fc9fb3c919d720e9e07d819260e78d60f0c4d5461884d643a6541dd688b3875
+docker network connect locnetwork metabase
+docker network connect locnetwork postgres-interlinedlist
 
 locnetwork => name of the local network
-c4db0a1638e308b9a6ea7ddecde1ee46f664f85ccb0b73bc89adaa12f1be7853 => running container
-4fc9fb3c919d720e9e07d819260e78d60f0c4d5461884d643a6541dd688b3875 => running container
+metabase => running container
+postgres-interlinedlist => running container
 
 # Inspect docker network configuration
 docker inspect => Show local network configuration, here you will find IP-s for each container.
