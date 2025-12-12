@@ -22,7 +22,6 @@ postgres-interlinedlist => running container
 
 # Inspect docker network configuration
 docker inspect => Show local network configuration, here you will find IP-s for each container.
-....
 ```json
 {
  "Containers": {
@@ -42,4 +41,3 @@ docker inspect => Show local network configuration, here you will find IP-s for 
             }
         }
 }
-....
