@@ -10,16 +10,23 @@ author: Slobodan Ninkov
 ---
 
 # Create local network to docker  
-docker network create locnetwork  
 docker network create <network_name>  
 
+Example:  
+docker network create locnetwork  
+
+
 # Add containers to local network  
+docker network connect <network_name> <running_container>  
+  
+Examples:  
 docker network connect locnetwork metabase  
 docker network connect locnetwork postgres-interlinedlist  
 
 locnetwork => name of the local network  
 metabase => running container  
 postgres-interlinedlist => running container  
+
 
 # Inspect docker network configuration  
 docker inspect => Show local network configuration, here you will find IP-s for each container.  
