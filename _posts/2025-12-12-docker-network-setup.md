@@ -29,7 +29,8 @@ Examples:
 
 
 # Inspect docker network configuration  
-`docker inspect => Show local network configuration, here you will find IP-s for each container.`  
+`docker inspect <network_name>`  
+`docker inspect locnetwork` => Show local network configuration, here you will find IP-s for each container.  
 
 ```json
 {
