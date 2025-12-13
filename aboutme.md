@@ -1,44 +1,55 @@
 ---
 layout: page
 title: About me
-subtitle: Decision support, product analytics, and systems thinking
+subtitle: Decision systems, product intelligence, and complex systems
 ---
 
 My name is **Slobodan Ninkov**.  
-I work at the intersection of **product analytics, decision support, and complex systems**.
+I work on **decision systems and product intelligence** for complex, data-rich products.
 
-I design **decision-grade analytics and feedback systems** that help teams make high-stakes product decisions under uncertainty. My focus is not on reporting or vanity metrics, but on **separating signal from noise**, aligning metrics with real decisions, and preventing **AI- and KPI-driven self-deception**.
-
-
-## What I actually do
-
-- Design **product and operational metrics** that map directly to decisions
-- Build **dashboards as control surfaces**, not presentation artifacts
-- Translate messy system behavior into **actionable insights**
-- Evaluate and monitor **AI-enabled systems** with an emphasis on uncertainty, drift, and failure modes
-- Challenge misleading metrics before they harden into bad decisions
-
-I care less about tools and more about **judgment, incentives, and feedback loops**.
+I design **decision-grade analytics, models, and feedback systems** that help teams make high-stakes product decisions under uncertainty. My work sits between **product management, data science, and systems analysis**, with a strong focus on how decisions are actually made in real organizations.
 
 
-## How I think about analytics
 
-- Analytics exists to **constrain decisions**, not decorate them
-- Every metric must have a **clear owner and a clear action**
+## What I work on
+
+I focus on problems where dashboards alone are not enough:
+
+- **Decision support and product intelligence**
+- **Product and operational analytics tied to real decisions**
+- **Data and system modeling for complex behavior**
+- **Evaluation and monitoring of AI-enabled systems**
+- **Uncertainty, drift, and failure-mode analysis**
+
+The goal is not reporting, but **better decisions under real-world constraints**.
+
+
+
+## How I approach problems
+
+My approach is shaped by systems thinking and engineering practice:
+
+- Analytics exists to **constrain and inform decisions**, not decorate them
+- Metrics must map to **specific actions and owners**
+- Models are useful only if their assumptions and limits are explicit
+- Uncertainty should be exposed, not hidden
 - If a metric can be gamed, it eventually will
-- Uncertainty should be surfaced, not hidden
-- When data and intuition disagree, both need scrutiny
+
+I treat dashboards, models, and analyses as **interfaces between complex systems and human judgment**.
 
 
-## Background (brief and relevant)
 
-I come from a **systems and engineering background**, which shapes how I approach analytics: I pay attention to data generation, failure modes, and real-world constraints. This helps me avoid the common trap of building dashboards that look correct but misrepresent reality.
+## Background
+
+I come from a **technical and systems background**, which influences how I think about product and data work: I pay close attention to data generation, feedback loops, incentives, and failure modes. This helps avoid common traps such as misleading KPIs, overconfident models, and analytics disconnected from actual product decisions.
+
 
 
 ## What I’m interested in
 
-- Decision support and product analytics roles
-- Analytics for complex, AI-enabled, or safety-critical systems
-- Work where metrics directly influence product and operational outcomes
+- Decision systems and product intelligence roles
+- Product analytics combined with modeling and evaluation
+- Work on complex or AI-enabled systems where uncertainty matters
+- Environments that value judgment, clarity, and accountability
 
-If the goal is to make **better decisions under uncertainty**, we’ll probably get along.
+If the problem involves **making better decisions in complex systems**, this is where I do my best work.
