@@ -42,10 +42,11 @@ I treat analytics as a **core product capability**, not a supporting afterthough
 
 ## Background
 
-I come from a **technical and systems-oriented background**, with experience on complex and safety-sensitive products. This shapes how I approach product analytics: I pay close attention to how data is generated, how incentives influence behavior, and where systems tend to fail under real conditions.
+I come from a **technical and systems-oriented background**, with experience on complex and safety-sensitive products. This shapes how I approach analytics work: I pay close attention to how data is generated, how incentives influence behavior, and where systems tend to fail under real operating conditions.
 
-This helps avoid common traps such as misleading KPIs, overconfident interpretations, and analytics that look correct but don’t hold up when decisions matter.
+In addition to this, I have worked in product management contexts, which gives me practical insight into how data is actually used in prioritization, discovery, and delivery. This helps me design analytics foundations that support real product decisions, rather than theoretical reporting needs.
 
+I use this perspective to build data models and metrics that hold up under pressure, and to avoid common traps such as misleading KPIs, overconfident interpretations, and analytics that look correct but fail when decisions matter.
 
 
 ## What I’m interested in
