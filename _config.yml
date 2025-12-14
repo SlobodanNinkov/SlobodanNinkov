@@ -22,6 +22,7 @@ author: Slobodan Ninkov
 navbar-links:
   About Me: "aboutme"
   Resources:
+     - Blog : "blogs"
      - Projects : "projects"
      - Dragon OS : "dragonos"
 
