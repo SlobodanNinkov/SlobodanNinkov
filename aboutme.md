@@ -1,55 +1,58 @@
 ---
 layout: page
 title: About me
-subtitle: Decision systems, product intelligence, and complex systems
+subtitle: Analytics engineering, product analytics, and decision-ready data
 ---
 
-My name is **Slobodan Ninkov**.  
-I work on **decision systems and product intelligence** for complex, data-rich products.
+My name is **Slobodan Ninkov**.
 
-I design **decision-grade analytics, models, and feedback systems** that help teams make high-stakes product decisions under uncertainty. My work sits between **product management, data science, and systems analysis**, with a strong focus on how decisions are actually made in real organizations.
+I work as an **analytics engineer** focused on building reliable data models, metrics, and analytical foundations that support **product and operational decision-making** in complex, data-rich products.
+
+My work sits close to engineering, but is strongly informed by **product thinking**: understanding user behavior, system constraints, and the trade-offs behind real product decisions. The goal is to ensure teams are working from data that reflects reality, not just activity.
 
 
 
 ## What I work on
 
-I focus on problems where dashboards alone are not enough:
+I focus on areas where product decisions depend on data being correct, consistent, and interpretable:
 
-- **Decision support and product intelligence**
-- **Product and operational analytics tied to real decisions**
-- **Data and system modeling for complex behavior**
-- **Evaluation and monitoring of AI-enabled systems**
-- **Uncertainty, drift, and failure-mode analysis**
+- Analytics engineering and data modeling (facts, dimensions, events)
+- Product and operational metrics with clear definitions and ownership
+- Semantic layers that keep teams aligned on “what the numbers mean”
+- Data quality, validation, and early detection of issues
+- Supporting product discovery, experimentation, and evaluation with trustworthy data
 
-The goal is not reporting, but **better decisions under real-world constraints**.
+The goal is not reporting for reporting’s sake, but **analytics that product teams can confidently act on**.
 
 
 
 ## How I approach problems
 
-My approach is shaped by systems thinking and engineering practice:
+My approach combines product awareness with engineering discipline:
 
-- Analytics exists to **constrain and inform decisions**, not decorate them
-- Metrics must map to **specific actions and owners**
-- Models are useful only if their assumptions and limits are explicit
-- Uncertainty should be exposed, not hidden
-- If a metric can be gamed, it eventually will
+- Start from the **decision or question**, then design the data backward
+- Define data grain and metric meaning before building dashboards
+- Keep business logic versioned and reviewable, not hidden in tools
+- Treat metrics as part of the product contract, not just internal KPIs
+- Assume data and usage patterns will change, and design for that
 
-I treat dashboards, models, and analyses as **interfaces between complex systems and human judgment**.
+I treat analytics as a **core product capability**, not a supporting afterthought.
 
 
 
 ## Background
 
-I come from a **technical and systems background**, which influences how I think about product and data work: I pay close attention to data generation, feedback loops, incentives, and failure modes. This helps avoid common traps such as misleading KPIs, overconfident models, and analytics disconnected from actual product decisions.
+I come from a **technical and systems-oriented background**, with experience on complex and safety-sensitive products. This shapes how I approach product analytics: I pay close attention to how data is generated, how incentives influence behavior, and where systems tend to fail under real conditions.
+
+This helps avoid common traps such as misleading KPIs, overconfident interpretations, and analytics that look correct but don’t hold up when decisions matter.
 
 
 
 ## What I’m interested in
 
-- Decision systems and product intelligence roles
-- Product analytics combined with modeling and evaluation
-- Work on complex or AI-enabled systems where uncertainty matters
-- Environments that value judgment, clarity, and accountability
+- Analytics engineering roles with strong product collaboration  
+- Product analytics built on solid data foundations  
+- Data work that directly supports prioritization, discovery, and delivery  
+- Environments that value clarity, correctness, and accountability over volume of output  
 
-If the problem involves **making better decisions in complex systems**, this is where I do my best work.
+If the goal is to make **better product decisions with data teams can trust**, that’s where I do my best work.
