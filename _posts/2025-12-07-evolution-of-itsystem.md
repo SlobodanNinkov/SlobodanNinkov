@@ -7,8 +7,6 @@ mathjax: true
 author: Slobodan Ninkov
 ---
 
-*By Slobodan Ninkov*  
-*Posted on December 7, 2025*
 
 This short essay reflects on how a large, real-time transactional system evolved its reporting and analytics stack between 2005 and 2012, based on my work at the State Lottery of Serbia.
 
