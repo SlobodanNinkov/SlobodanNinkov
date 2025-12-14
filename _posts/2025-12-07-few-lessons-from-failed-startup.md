@@ -32,6 +32,7 @@ author: Slobodan Ninkov
 
 Context: I tried to build a startup based on “simulated field usage and testing”. The need is real: in product development with field testing, simulation can be far cheaper than running systems in the field.
 
+This experience strongly influenced how I think about analytics and data work today: clarity beats cleverness, incentives shape behavior more than intent, and systems fail at their boundaries, not their centers.  
 
 
 What I learned:
