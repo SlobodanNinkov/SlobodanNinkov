@@ -103,3 +103,19 @@ Active Directory was adopted. Permissions were enforced at the data level. Excel
 For the first time in years, access control stopped being a guessing game.
 
 
+
+## What still holds true today
+
+Looking back, several patterns repeat regardless of tooling or era:
+
+- You cannot mix high-volume transactional workloads with analytical queries without pain  
+- Near-real-time reporting always increases architectural and operational complexity  
+- Self-service analytics without identity and access control devolves into chaos  
+- KPI proliferation erodes trust faster than lack of data  
+- Excel will become a system if governance is missing  
+- Identity and access management is a **data problem**, not just an IT problem  
+
+
+
+
+
