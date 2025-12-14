@@ -42,3 +42,64 @@ This was our first practical lesson in why **OLTP and OLAP must be separated**.
 
 
 
+## Phase 3: Nightly ETL and early near-real-time pipelines
+
+We introduced nightly automated parsing and loading to prepare data for reporting. This stabilized most reporting needs, but management still wanted some indicators in near real time.
+
+The result was a hybrid approach: what would today be described as an early map-reduce–style pipeline. Real-time data was parsed and aggregated into small, fast tables updated multiple times per second, while heavier reports relied on nightly-prepared data.
+
+This worked, but at the cost of additional complexity and operational risk. Freshness was always traded against stability.
+
+
+
+## Phase 4: Application sprawl and access control
+
+As reports and dashboards multiplied, they spread across the company as standalone web pages. Everyone could see everything.
+
+Predictably, top management was not enthusiastic about discovering that company-wide financial figures were accessible to anyone who happened to open the right URL.
+
+The solution was consolidation: a single web-based Information System with authentication, permissions, and basic security controls.
+
+This solved visibility concerns, but did nothing to slow the next problem.
+
+
+
+## Phase 5: Report explosion and KPI overload
+
+Once access was centralized, demand exploded.
+
+Every department wanted more reports. At the same time, the system was expanding to support new lottery games and integrations with external partners. Reporting grew faster than development capacity.
+
+Eventually, top management reached saturation: too many dashboards, too many KPIs, and conflicting numbers depending on who produced the report.
+
+The business response was to define a **single, standardized set of KPIs** aligned with company goals, replacing ad-hoc departmental metrics. This helped restore trust, but reduced flexibility.
+
+
+
+## Phase 6: Self-service and the Excel era
+
+When sales began declining, Marketing and Sales requested increasingly exploratory reports, often best summarized as “compare everything to everything else.”
+
+The only scalable answer was self-service analytics. We introduced Microsoft data warehouse technologies (SSIS and SSAS). Data was prepared nightly, processing took roughly six hours, and multiple consistency checks were built in.
+
+Technically, this was a success.
+
+Organizationally, Excel became the new Information System.
+
+Teams built their own reports. Versions multiplied. Ownership blurred. Eventually, we noticed that almost no one logged into the centralized IS anymore.
+
+
+
+## Phase 7: Identity, access, and the Excel incident
+
+Despite earlier efforts, we found ourselves back where we started.
+
+Even with good intentions, trusting people not to forward Excel files proved unrealistic. The situation peaked when the CEO shared an Excel file with CEO-level access to Payments, which was then accidentally forwarded to Sales. Overnight, half the company had visibility they were never meant to have.
+
+That incident finally provided enough leverage to resolve a long-standing internal debate: introducing centralized identity and access management.
+
+Active Directory was adopted. Permissions were enforced at the data level. Excel files began to respect user identity automatically.
+
+For the first time in years, access control stopped being a guessing game.
+
+
