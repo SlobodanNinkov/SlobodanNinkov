@@ -1,13 +1,11 @@
 ---
 layout: post
-title: Evolution of the Information System 2005-2012
+title: Evolution of an Information System (2005–2012)
 subtitle: 
 comments: true
 mathjax: true
 author: Slobodan Ninkov
 ---
-
-# Evolution of an Information System (2005–2012)
 
 *By Slobodan Ninkov*  
 *Posted on December 7, 2025*
