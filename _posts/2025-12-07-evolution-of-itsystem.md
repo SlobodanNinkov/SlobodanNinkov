@@ -115,7 +115,11 @@ Looking back, several patterns repeat regardless of tooling or era:
 - Excel will become a system if governance is missing  
 - Identity and access management is a **data problem**, not just an IT problem  
 
+Between 2005 and 2012, we solved these problems incrementally, often under live operational pressure, with millions of users and no realistic option to “pause the system.”
 
+Today, much of this functionality can be implemented with modern BI and data platforms. What hasn’t changed are the underlying trade-offs: **freshness vs stability, access vs control, flexibility vs trust**.
+
+Those remain architectural and organizational problems, not tooling problems.
 
 
 
