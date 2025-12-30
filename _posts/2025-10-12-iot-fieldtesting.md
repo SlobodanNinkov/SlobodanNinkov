@@ -1,11 +1,13 @@
 ---
 layout: post
-title: IoT device field testing
+title: Field Testing IoT Devices: A Practical Checklist
 subtitle: 
 comments: true
 mathjax: true
 author: Slobodan Ninkov
 ---
+
+After running dozens of IoT field tests, these are the things that actually matter. Most come from mistakes.  
 
 IoT device initial field testing is a special moment in the product lifecycle. During this phase, the team receives brutal, reality-based feedback on technical decisions made during development.  
   
