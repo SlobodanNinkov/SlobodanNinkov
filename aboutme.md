@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About me
-subtitle: Analytics engineering for decision-critical systems
+subtitle: Technical Product Manager | IoT • Real-Time Systems • Simulation
 ---
 
 ## Slobodan Ninkov
@@ -9,7 +9,7 @@ subtitle: Analytics engineering for decision-critical systems
 I solve technical problems end-to-end — from system design through field deployment.  
 For over twenty years, I've built systems where failure isn't an option: IoT sensor networks, real-time data pipelines, airborne intelligence platforms, and simulation systems that replaced 95% of physical field testing.  Two patents. Work spanning distributed systems, embedded devices, and mission-critical operations.  
   
-#What I do  
+# What I do  
   
 I design, prototype, and deploy systems that interact with the real world:  
   
@@ -20,7 +20,7 @@ I design, prototype, and deploy systems that interact with the real world:
   
 The goal is systems that actually work under real conditions — not just in demos or design reviews.  
   
-#How I work  
+# How I work  
   
 * Start from the problem, not the technology  
 * Prototype early, test in the field, iterate  
@@ -30,16 +30,16 @@ The goal is systems that actually work under real conditions — not just in dem
   
 I work best with high autonomy on real problems where outcomes matter more than appearances.  
   
-#Background  
+# Background  
   
 My path: software development → system architecture → technical product management. The thread through all of it: building systems that have to work reliably in unpredictable environments.  
 I've led cross-functional R&D teams, defined product roadmaps, and shipped production systems across defense-adjacent, telecommunications, and regulated industries. But what I do best — and prefer — is the technical work itself.  
   
-#Currently  
+# Currently  
   
 MSc in Cognitive Systems (Open University of Cyprus, 2026) — focused on simulation and AI-physics integration.  
   
-#Interested in  
+# Interested in  
   
 * Technical roles with end-to-end ownership  
 * Small teams, real problems, minimal process theater  
