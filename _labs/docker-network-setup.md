@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: Connecting Docker Containers for Local Development
+title: Docker Container Networking
 subtitle: 
 comments: true
 mathjax: true

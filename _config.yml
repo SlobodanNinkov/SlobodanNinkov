@@ -18,15 +18,19 @@ author: Slobodan Ninkov
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
-
+collections:
+  labs:
+    output: true
+    permalink: /labs/:title/
+    
 navbar-links:
   About Me: "aboutme"
   Blog: "blogs"
   Lab Notes: "labs"
-  Resources:
-     - Blog : "blogs"
+#  Resources:
+#     - Blog : "blogs"
 #     - Projects : "projects"
-     - Dragon OS : "dragonos"
+#     - Dragon OS : "dragonos"
 
 #  Author's home: "https://deanattali.com"
 

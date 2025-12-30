@@ -1,13 +1,13 @@
 ---
 
-layout: page
-
+layout: post
 title: SDR & Cellular Signal Analysis — Lab Notes
-
-subtitle: Practical tips and tricks for data extraction
+subtitle: 
+comments: true
+mathjax: true
+author: Slobodan Ninkov
 
 ---
-
 
 
 DragonOS R37.1 cellular experiments
