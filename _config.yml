@@ -21,6 +21,8 @@ author: Slobodan Ninkov
 
 navbar-links:
   About Me: "aboutme"
+  Blog: "blogs"
+  Lab Notes: "labs"
   Resources:
      - Blog : "blogs"
 #     - Projects : "projects"
