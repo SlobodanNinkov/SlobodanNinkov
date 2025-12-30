@@ -34,11 +34,7 @@ I work best with high autonomy on real problems where outcomes matter more than 
   
 My path: software development → system architecture → technical product management. The thread through all of it: building systems that have to work reliably in unpredictable environments.  
 I've led cross-functional R&D teams, defined product roadmaps, and shipped production systems across defense-adjacent, telecommunications, and regulated industries. But what I do best — and prefer — is the technical work itself.  
-  
-# Currently  
-  
-MSc in Cognitive Systems (Open University of Cyprus, 2026) — focused on simulation and AI-physics integration.  
-  
+   
 # Interested in  
   
 * Technical roles with end-to-end ownership  
