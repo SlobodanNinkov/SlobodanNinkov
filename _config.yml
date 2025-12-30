@@ -23,7 +23,7 @@ navbar-links:
   About Me: "aboutme"
   Resources:
      - Blog : "blogs"
-     - Projects : "projects"
+#     - Projects : "projects"
      - Dragon OS : "dragonos"
 
 #  Author's home: "https://deanattali.com"
