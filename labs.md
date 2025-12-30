@@ -11,6 +11,6 @@ permalink: /labs/
 Technical notes and experiments.
 
 {% for note in site.labs %}
-- [{{ note.title }}]({{ note.url }}) — {{ note.description }}
+- [{{ note.title }}]({{ note.url }}) {{ note.description }}
 {% endfor %}
 
