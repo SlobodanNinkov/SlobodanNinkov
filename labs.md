@@ -4,17 +4,13 @@ layout: page
 
 title: Lab Notes
 
-permalink: /labnotes/
+permalink: /labs/
 
 ---
 
+Technical notes and experiments.
 
-
-{% for note in site.labnotes %}
-
-\- \[{{ note.title }}]({{ note.url }})
-
+{% for note in site.labs %}
+- [{{ note.title }}]({{ note.url }}) {{ note.description }}
 {% endfor %}
-
-
 
