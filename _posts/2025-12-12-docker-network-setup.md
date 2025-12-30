@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: How to configure two or more docker containers to exchange data
+title: Connecting Docker Containers for Local Development
 subtitle: 
 comments: true
 mathjax: true
@@ -9,19 +9,15 @@ author: Slobodan Ninkov
 
 ---
 
-Problem: Out of the box, when container is started it does not see other containers running on the same Docker. This problem comes up often during the testing and experimentation when you want to connect a python notebook with several databases. To make it happen, there are 2 steps you need to do.
-
-Step 1. Create a local network in the docker
-# Create local network to docker  
+Problem: In the docker system, when container is started it does not see other containers running on the same Docker. This problem comes up often during the testing and experimentation when you want to connect a python notebook with several databases. To make it happen, there are 2 steps you need to do.
+  
+# Step 1. Create local network in the docker  
 `docker network create <network_name>`  
 
 Example:  
 `docker network create locnetwork`  
 
-
-Step 2. Add containers to the configured docker network
-
-# Add containers to local network  
+# Step 2. Add containers to the configured docker local network  
 `docker network connect <network_name> <running_container>`  
   
 Examples:  
@@ -33,9 +29,7 @@ Examples:
 `postgres-interlinedlist => running container`  
 
 
-Step 3. Read the IP-s from the docker network and configure python notebook and other containers with IP-s where they should send or query data.
-
-# Inspect docker network configuration  
+# Step 3. Read the IP-s from the docker network and configure python notebook and other containers with IP-s where they should send or query data.
 `docker inspect <network_name>`  
 `docker inspect locnetwork` => Show local network configuration, here you will find IP-s for each container.  
 
