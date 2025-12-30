@@ -2,7 +2,7 @@
 
 layout: page
 
-title: Dragon OS & Cellular Interception
+title: SDR & Cellular Signal Analysis — Lab Notes
 
 subtitle: Practical tips and tricks for data extraction
 
@@ -28,7 +28,7 @@ Set GSM channel BCCH frequency in grgsm\_livemon
 
 
 
-If the signal is strong enough to be decoded, t will start streaming pcap data.
+If the signal is strong enough to be decoded, it will start streaming pcap data.
 
 
 
