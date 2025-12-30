@@ -25,7 +25,7 @@ collections:
     
 navbar-links:
   About Me: "aboutme"
-  Blog: "blogs"
+  Articles: "blogs"
   Lab Notes: "labs"
 #  Resources:
 #     - Blog : "blogs"
