@@ -1,5 +1,5 @@
 ---
 layout: home
-title: Slobodan Ninkov
-subtitle: Blog
+title: Articles
+subtitle: 
 ---
