@@ -22,10 +22,13 @@ collections:
   labs:
     output: true
     permalink: /labs/:title/
+  articles:
+    output: true
+    permalink: /articles/:title/
     
 navbar-links:
   About Me: "aboutme"
-  Articles: "blogs"
+  Articles: "articles"
   Lab Notes: "labs"
 #  Resources:
 #     - Blog : "blogs"
