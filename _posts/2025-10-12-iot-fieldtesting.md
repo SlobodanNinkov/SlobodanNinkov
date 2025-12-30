@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Field Testing IoT Devices: A Practical Checklist
+title: "Field Testing IoT Devices: A Practical Checklist"
 subtitle: 
 comments: true
 mathjax: true
