@@ -4,7 +4,6 @@ title: About me
 subtitle: Technical Product Manager | IoT • Real-Time Systems • Simulation
 ---
 
-## Slobodan Ninkov
   
 I solve technical problems end-to-end — from system design through field deployment.  
 For over twenty years, I've built systems where failure isn't an option: IoT sensor networks, real-time data pipelines, airborne intelligence platforms, and simulation systems that replaced 95% of physical field testing.  Two patents. Work spanning distributed systems, embedded devices, and mission-critical operations.  
