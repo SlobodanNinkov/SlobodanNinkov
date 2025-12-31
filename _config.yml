@@ -11,6 +11,9 @@
 
 # Name of website
 title: Slobodan Ninkov
+description: Technical Product Manager | IoT • Real-Time Systems • Simulation
+baseurl: "" 
+url: "https://ninkovslobodan.com"
 
 # Your name to show in the footer
 author: Slobodan Ninkov
