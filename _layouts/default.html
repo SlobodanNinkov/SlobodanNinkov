@@ -33,44 +33,52 @@
             padding: 2rem;
         }
 
-        /* Top Navigation */
-        nav {
-            background: #fff;
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+/* Navigation Container */
+nav {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-        .nav-content {
-            max-width: 850px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+.nav-content {
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Pushes content to edges */
+    align-items: center;
+    padding: 0 2rem;
+}
 
-        .nav-logo {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            color: var(--navy);
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
+/* Common Link Styling */
+.nav-content a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    transition: color 0.2s ease;
+}
 
-        .nav-links a {
-            margin-left: 2rem;
-            text-decoration: none;
-            color: var(--slate);
-            font-weight: 500;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+/* Home Button Specifics */
+.nav-home {
+    font-family: 'Playfair Display', serif;
+    color: var(--navy);
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+}
 
-        .nav-links a:hover { color: var(--navy); }
+/* Right Side Links */
+.nav-right a {
+    color: var(--slate);
+    margin-left: 2.5rem;
+}
+
+.nav-right a:hover, .nav-home:hover {
+    color: var(--navy);
+}
 
         header {
             text-align: center;
@@ -162,16 +170,18 @@
 </head>
 <body>
 
-    <nav>
-        <div class="nav-content">
-            <a href="{{ site.baseurl }}/" class="nav-logo">SN</a>
-            <div class="nav-links">
-                {% for page in site.header_pages %}
-                <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
-                {% endfor %}
-            </div>
+   <nav>
+    <div class="nav-content">
+        <div class="nav-left">
+            <a href="{{ site.baseurl }}/" class="nav-home">Home</a>
         </div>
-    </nav>
+        
+        <div class="nav-right">
+            <a href="{{ site.baseurl }}/articles/">Articles</a>
+            <a href="{{ site.baseurl }}/labs/">Lab Notes</a>
+        </div>
+    </div>
+   </nav>
 
     <div class="container">
         {{ content }}
