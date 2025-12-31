@@ -27,7 +27,6 @@ collections:
     permalink: /articles/:title/
     
 navbar-links:
-  About Me: "aboutme"
   Articles: "articles"
   Lab Notes: "labs"
 #  Resources:
