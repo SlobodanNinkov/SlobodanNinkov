@@ -1309,3 +1309,14 @@ pre {
 @media (max-width: 768px){
   .image-grid{ grid-template-columns: 1fr; }
 }
+
+.full-img{
+  margin: 2rem 0;
+}
+.full-img img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius: 6px;        /* optional */
+  border: 1px solid #e6e6e6; /* optional */
+}
