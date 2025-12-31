@@ -1293,3 +1293,19 @@ pre {
   text-transform: uppercase;
   font-weight: 500;
 }
+
+.image-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.image-grid img{
+  width:100%;
+  height:auto;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+}
+@media (max-width: 768px){
+  .image-grid{ grid-template-columns: 1fr; }
+}
