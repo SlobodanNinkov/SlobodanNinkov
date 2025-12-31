@@ -61,15 +61,11 @@ body > main {
 }
 
 p {
-  line-height: 1.65;
-  margin: 1.25rem 0;
+  line-height: 1.7;
+  margin: 1.5rem 0;
 }
 
-.container-md, 
-.post-content,
-article {
-  max-width: 680px;
-}
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--header-font);
