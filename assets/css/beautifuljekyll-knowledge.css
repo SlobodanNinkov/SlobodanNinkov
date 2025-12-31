@@ -7,8 +7,8 @@ layout: null
 
 :root {
   /* Updated color scheme */
-  --page-col: {{ site.page-col | default: "#f8f9fa" }};
-  --text-col: {{ site.text-col | default: "#2d3748" }};
+  --page-col: {{ site.page-col | default: "#ffffff" }};
+  --text-col: {{ site.text-col | default: "#1a202c" }};
   --link-col: {{ site.link-col | default: "#1a2a3a" }};
   --hover-col: {{ site.hover-col | default: "#4a5568" }};
   --navbar-col: {{ site.navbar-col | default: "#ffffff" }};
@@ -41,6 +41,7 @@ html {
 body {
   font-family: var(--body-font);
   font-size: 1.125rem;
+  font-weight: 450;
   color: var(--text-col);
   position: relative;
   background-color: var(--page-col);
@@ -60,8 +61,14 @@ body > main {
 }
 
 p {
-  line-height: 1.7;
-  margin: 1.5rem 0;
+  line-height: 1.65;
+  margin: 1.25rem 0;
+}
+
+.container-md, 
+.post-content,
+article {
+  max-width: 680px;
 }
 
 h1, h2, h3, h4, h5, h6 {
