@@ -3,7 +3,7 @@ layout: page
 title: Slobodan Ninkov
 ---
   
-**Systems Builder | Technical Product Manager**
+**Systems Builder | Technical Product Manager**  
 IoT • Real-Time Systems • Simulation • Sensor Networks
 
 
@@ -11,7 +11,7 @@ I solve technical problems end-to-end — from system design through field deplo
 
 20+ years building mission-critical systems: IoT sensor networks processing millions of daily transactions, airborne intelligence platforms, and simulation systems that eliminated 95% of physical testing. Two patents in mobile location systems. Currently completing MSc in Cognitive Systems (2026), focused on simulation and AI-physics integration.
   
-# What I Build
+## What I Build
 
 Systems that work under real conditions — not just in demos.
 
@@ -28,7 +28,7 @@ Architected high-throughput systems handling €50M+ annual transaction volume a
 Drove €3M+ in hardware sales through development and integration of complex airborne and cyber-intelligence products. Full lifecycle ownership from architecture through field operations.
 
 
-# How I Work
+## How I Work
 
 - Start from the problem, not the technology
 - Prototype early, test in the field, iterate
@@ -38,7 +38,7 @@ Drove €3M+ in hardware sales through development and integration of complex ai
 
 I work best with high autonomy on real problems where outcomes matter more than appearances.
 
-# Background
+## Background
 
 **Path:** Software Development → System Architecture → Technical Product Management
 
@@ -48,10 +48,9 @@ The thread: building systems that must work reliably in unpredictable environmen
 
 **Previous:** Product Owner at UTX Technologies — airborne platforms, simulation systems, cyber-intelligence products. Software Architect at State Lottery of Serbia — high-throughput transaction systems, fraud detection, regulatory compliance.
 
-**Education:** MSc Cognitive Systems (in progress, 2026) | BSc Software Engineering
 
 
-# Looking For
+## Looking For
 
 - Technical roles with end-to-end system ownership
 - Simulation, IoT, real-time systems, sensor fusion, anomaly detection
