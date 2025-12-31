@@ -5,7 +5,7 @@ author: Slobodan Ninkov
 ---
 
 {% assign imgs = "part0_overall_mnemoic.jpg,
-                  part1_reliable_scalable_maintainable_applications.png,
+                  part1_reliable_scalable_maintainable_applications.jpg,
                   part2_data_models_and_query.jpg,
                   part3_storage_and_retrieval.jpg,
                   part4_encoding_and_evolution.jpg,
