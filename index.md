@@ -3,10 +3,10 @@ layout: page
 title: Slobodan Ninkov
 ---
 
-{: .text-center}    
-**Systems Builder | Technical Product Manager**  
-IoT • Real-Time Systems • Simulation • Sensor Networks  
-
+<p class="text-center">
+<strong>Systems Builder | Technical Product Manager</strong><br>
+IoT • Real-Time Systems • Simulation • Sensor Networks
+</p> 
 
 
 I solve technical problems end-to-end — from system design through field deployment.
