@@ -11,7 +11,7 @@ IoT • Real-Time Systems • Simulation • Sensor Networks
 
 I solve technical problems end-to-end — from system design through field deployment.
 
-20+ years building mission-critical systems: IoT sensor networks processing millions of daily transactions, airborne intelligence platforms, and simulation systems that eliminated 95% of physical testing. Two patents in mobile location systems. Currently completing MSc in Cognitive Systems (2026), focused on simulation and AI-physics integration.
+20+ years building mission-critical systems: IoT sensor networks processing millions of daily transactions, airborne intelligence platforms, and simulation systems that eliminated 95% of physical testing. Two patents in mobile location systems.
   
 ## What I Build
 
