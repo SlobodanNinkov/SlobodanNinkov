@@ -46,9 +46,14 @@ I work best with high autonomy on real problems where outcomes matter more than 
 
 The thread: building systems that must work reliably in unpredictable environments.
 
-**Current:** Technical Product Manager at GSMK (secure communications), Berlin — 7 years leading mission-critical IoT and real-time systems.
+**Current:**  
+Technical Product Manager at GSMK (secure communications), Berlin — 7 years leading mission-critical IoT and real-time systems.  
 
-**Previous:** Product Owner at UTX Technologies — airborne platforms, simulation systems, cyber-intelligence products. Software Architect at State Lottery of Serbia — high-throughput transaction systems, fraud detection, regulatory compliance.
+**Previous:**  
+Owner at SN Terra Cognitive LTD - flight simulation and training systems.
+Product Owner at UTX Technologies — airborne platforms, simulation systems, cyber-intelligence products.  
+Software Architect at State Lottery of Serbia — high-throughput transaction systems, fraud detection, regulatory compliance.  
+Senior Software Engineer at LegisStream - documentation support system.
 
 
 
