@@ -9,64 +9,36 @@ mathjax: false
 author: Slobodan Ninkov
 ---
 
-## TL;DR
-We were validating a hardware-dependent drone + sensor system where meaningful testing required real flights across environments. Each iteration took days, failures were hard to isolate, and regressions were common because validation was gated by field access.
+We were validating a hardware-dependent drone + sensor system on the drone where meaningful testing required real flights across environments. Each iteration took days, failures were hard to isolate, and regressions were common because validation was gated by field access.
 
 I introduced a **simulation-driven workflow** built around an **interactive Unity-based mission + flight tool**. Developers could configure missions on a map (start + target), issue movement/mission commands, and generate synthetic telemetry under configurable RF propagation and antenna orientation assumptions. This shifted validation from rare field events to continuous, developer-owned testing with repeatable baselines for engineering and product decisions.
 
-**Impact**
-- **Before:** field testing roughly once every ~10 days (≈6 field tests over ~3 months), slow iteration, hard to isolate causes  
-- **After:** major issues from the prior months were reproduced and fixed using the simulator-driven workflow, with additional issues uncovered within days  
-- **Field tests shifted to ~once every ~2 months**, mainly for simulator-to-reality verification  
-- **Iteration speed improved 10x+**, and physical testing needs dropped by **~95%** for comparable scope
+In practice, the cadence changed dramatically: instead of waiting ~10 days for a flight window (about six field tests over three months), we moved most validation into simulation. Major issues from the previous months were reproduced and fixed in the simulator, and additional problems surfaced within days. Field tests dropped to roughly once every two months and became primarily simulator-to-reality verification. Net effect: **10x+ faster iteration** and about **95% less physical testing** for comparable scope.
 
 ---
 
 ## Context
-The product was a hardware-heavy system: drones + sensor package + a main app (including geolocation logic). Validation depended on:
-- real flights,
-- mission configuration,
-- environment-specific RF behavior,
-- orientation/geometry effects,
-- and timing-sensitive interactions.
-
-Which meant “testing” was basically scheduling plus hope.
+The product was a hardware-heavy system: drones, a sensor package, and a main application (including geolocation logic) on ground control station. Validation depended on real flights, mission configuration, environment-specific RF behavior, antenna orientation and geometry effects, and timing-sensitive interactions between commands and telemetry. In other words, “testing” mostly meant scheduling and hoping conditions lined up.
 
 ---
 
 ## The problem
-### Symptoms
-- **Long feedback loop:** meaningful validation every ~10 days  
-- **Hard debugging:** failures were multi-factor (mission geometry + RF + orientation + command timing)  
-- **Regression risk:** fixes landed without fast confidence checks  
-- **Slow decisions:** engineering and product debates had no consistent baseline
+The workflow had a built-in bottleneck. The feedback loop was long (meaningful validation every ~10 days), debugging was painful because failures were multi-factor (mission geometry, RF conditions, orientation, timing), and fixes often shipped without fast confidence checks, which increased regression risk. Product and engineering decisions also suffered because there was no stable baseline to compare behavior across changes.
 
-### Root causes
-- Inputs were coupled to the physical world and not easily controllable.
-- There was no interactive way to explore “what happens if we change X?” without flying.
+At the root of it, the key inputs were coupled to the physical world and not controllable, and there was no practical way to explore “what happens if we change X?” without flying.
 
 ---
 
 ## Goal
-Enable developers to validate behavior **without waiting for field tests**, by making test conditions:
-1) configurable, 2) repeatable enough for comparison, 3) fast to iterate, and 4) close enough to reality to be useful.
+Enable developers to validate behavior **without waiting for field tests** by making test conditions configurable, repeatable enough for comparison, fast to iterate, and close enough to reality to be useful.
 
 ---
 
 ## Solution overview
-I introduced an **interactive simulation harness** that:
-- simulates drone flight and mission execution,
-- lets a developer configure **start/target on a map** and run missions interactively,
-- generates **synthetic sensor telemetry** as if it came from hardware,
-- models key environmental effects (e.g., RF propagation + antenna orientation),
-- feeds telemetry into the main app’s component under test,
-- captures outputs and compares them across runs and baselines.
+I introduced an **interactive simulation harness** that simulates drone flight and mission execution while generating synthetic telemetry as if it came from the real hardware. Developers could configure missions directly on a map (start/target), issue mission and movement commands, and vary the environmental assumptions that mattered most in practice, especially RF propagation and antenna orientation. The simulator fed telemetry into the component under test and captured outputs so behavior could be compared across runs and against baselines.
 
-This created three practical modes:
+This effectively created three operating modes: an interactive developer testing loop for fast what-if exploration, regression-style checks using saved configurations and baselines to guard against regressions, and periodic hardware tests used primarily for calibration and simulator-to-reality verification.
 
-1) **Interactive developer testing loop** (fast “what-if” exploration)  
-2) **Regression-style checks using saved configs/baselines** (guard against regressions)  
-3) **Real hardware operation + periodic verification** (calibration / reality check)
 
 ---
 
