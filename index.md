@@ -21,7 +21,8 @@ Systems that work under real conditions — not just in demos.
 Led a €2M+ IoT sensor network from proof-of-concept to multi-territory production deployment. 10-person cross-functional team. Mission-critical reliability requirements.
 
 **Simulation & Digital Twins**
-Built a proprietary drone simulation platform that replaced 95% of physical flight testing — later commercialized as a $200K standalone product.
+Built a proprietary drone simulation platform that replaced 95% of physical flight testing — later commercialized as a $200K add-one product package.
+[Case Study: Simulation-First Validation](/articles/simulation-validation/)
 
 **Real-Time Data Pipelines**
 Architected high-throughput systems handling €50M+ annual transaction volume and 1M+ daily transactions, with integrated fraud detection and anomaly detection.
