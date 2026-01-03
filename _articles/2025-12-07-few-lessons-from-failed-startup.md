@@ -39,7 +39,7 @@ What I learned:
 
 
 
-\- Paperwork is real
+## Paperwork is real
 
 Starting, running, and closing a company means lawyers, auditors, and filings.
 
@@ -47,43 +47,43 @@ They’re friendly—but they get paid whether you sink or swim. Budget for thei
 
 
 
-\- Be clear: product or service
+## Be clear: product or service
 
 Product = you sell a thing. Service = you sell time/knowledge. I tried “product with customization.” It muddied the message and confused customers.
 
 
 
-\- The EU favors products
+## The EU favors products
 
 Services don’t scale easily; policy and incentives often lean toward product companies.
 
 
 
-\- GDPR is not optional
+## GDPR is not optional
 
 If your site has logins, you’re under GDPR. Competitors may report you. Compliance and cybersecurity are real costs and responsibilities—almost a separate business function.
 
 
 
-\- Anything near defense has its own gravity
+## Anything near defense has its own gravity
 
 Different rules, long procurement cycles, and relationship-driven. The system favors big, slow incumbents. Connections matter.
 
 
 
-\- Distribution beats almost everything
+## Distribution beats almost everything
 
 If you crack marketing and sales, you can rent development and still build a product.
 
 
 
-\- TAM isn’t what you think
+## TAM isn’t what you think
 
 Your “imagined” market and your “accessible” market are different. Validate the reachable slice.
 
 
 
-\- Technical excellence ≠ traction
+## Technical excellence ≠ traction
 
 Without sales and marketing, craftsmanship doesn’t move the needle.
 
@@ -91,9 +91,9 @@ Without sales and marketing, craftsmanship doesn’t move the needle.
 
 !!! Important takeaways:
 
-\- Nail the product messaging. Clear > clever.
+## Nail the product messaging. Clear > clever.
 
-\- Make the value obvious to people who aren’t already problem-aware. “This is how we do things” inertia is your real competitor.
+## Make the value obvious to people who aren’t already problem-aware. “This is how we do things” inertia is your real competitor.
 
 
 
