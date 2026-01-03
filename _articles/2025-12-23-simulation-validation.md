@@ -56,6 +56,8 @@ The main app consumes **synthetic telemetry** from the simulator and produces **
 </figure>
 
 
+  
+  
 ### 2) Simulation-driven regression checks (optional but high leverage)
 
 A regression layer can run predefined mission configurations (saved start/target + parameters), execute the flow, and verify outputs against baselines.
@@ -69,6 +71,8 @@ A regression layer can run predefined mission configurations (saved start/target
 </figure>
 
 
+  
+  
 ### 3) Real-world operation (hardware mode)
 
 In production/field mode, the app consumes telemetry from the real sensor package.
