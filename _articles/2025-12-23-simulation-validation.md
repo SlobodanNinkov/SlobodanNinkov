@@ -3,7 +3,6 @@ layout: post
 title: "Simulation-first validation for a hardware-heavy system (95% fewer field tests)"
 subtitle: "An interactive mission workbench: map-based setup, RF modeling, and synthetic telemetry for fast validation"
 description: "Built an interactive simulator for a drone + sensor system: configurable missions (start/target), RF propagation, antenna orientation, and synthetic telemetry. Cut field tests ~95% for comparable scope and improved iteration speed 10x+."
-tags: [simulation, validation, testing, robotics, systems, product-engineering]
 comments: false
 mathjax: false
 author: Slobodan Ninkov
