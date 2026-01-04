@@ -5,7 +5,6 @@ subtitle:
 author: Slobodan Ninkov
 ---
 
-# Emotional Hijack: Recognize, Pause, Recover
 
 Emotional hijack:  
 When emotions & beliefs about how things should be override reason.  
