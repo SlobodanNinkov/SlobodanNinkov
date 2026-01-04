@@ -60,9 +60,9 @@ Senior Software Engineer at Questys — documentation support system.
 ## Looking For
 
 - Technical roles with end-to-end system ownership
-- Simulation, IoT, real-time systems, sensor fusion, anomaly detection
+- IoT, real-time systems, simulation, sensor fusion, anomaly detection
 - Small teams, real problems, high autonomy
-- Environments where the system has to actually work
+- Systems where field performance is the only metric that matters.
 
 **Location:** Berlin-based. Open to relocation (UAE, Singapore) or remote roles with travel.
 
