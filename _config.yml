@@ -32,7 +32,7 @@ collections:
 navbar-links:
   Articles: "articles"
   Ideas: "ideas"
-  Lab Notes: "labs"
+  Labs: "labs"
 #  Resources:
 #     - Blog : "blogs"
 #     - Projects : "projects"
