@@ -25,9 +25,13 @@ collections:
   articles:
     output: true
     permalink: /articles/:title/
+  ideas:
+    output: true
+    permalink: /ideas/:title/
     
 navbar-links:
   Articles: "articles"
+  Ideas: "ideas"
   Lab Notes: "labs"
 #  Resources:
 #     - Blog : "blogs"
