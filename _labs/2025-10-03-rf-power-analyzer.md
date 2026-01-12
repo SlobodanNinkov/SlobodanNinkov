@@ -1,6 +1,6 @@
 ---
 layout: post
-title: RF power analyzer using AI code generation
+title: AI experiment - RF power analyzer using AI code generation
 subtitle: 
 author: Slobodan Ninkov
 ---
