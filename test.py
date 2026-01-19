@@ -3,6 +3,7 @@
 
 from scapy.all import sniff, Raw
 import struct
+import si2decode
 
 RR_MSG_TYPES = {
     0x19: 'SI1', 0x1a: 'SI2', 0x1b: 'SI3',0x1c: 'SI4', 0x1d: 'SI5', 0x1e: 'SI6', 
@@ -210,16 +211,18 @@ def parse_si2(payload):
 	
     	data = data[:16]
 	
-    	fmt = (data[0] >> 6) & 0b11
-    	if fmt != 0:
-        	# Not bit map 0 (could be range 1024/512/256/128/variable bitmap)
-        	return []
+        results = decode_ncd(data)
+        print(results)
+    	# fmt = (data[0] >> 6) & 0b11
+    	# if fmt != 0:
+        # 	# Not bit map 0 (could be range 1024/512/256/128/variable bitmap)
+        # 	return []
 	
-    	# Expand to 128 bits, MSB-first per octet.
-    	bits = []
-    	for b in data:
-        	for shift in range(7, -1, -1):
-        		bits.append((b >> shift) & 1)
+    	# # Expand to 128 bits, MSB-first per octet.
+    	# bits = []
+    	# for b in data:
+        # 	for shift in range(7, -1, -1):
+        # 		bits.append((b >> shift) & 1)
 	
     	# bits[0] is bit128 (octet1 bit8). For ARFCN N, check bit index (128 - N).
     	arfcns = []
