@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """GSMTAP Listener - Full SI parsing with neighbors and reselection"""
-
+import subprocess
+import os
+import signal
 from scapy.all import sniff, Raw
 import struct
 import si2decode
+import sys
+import argparse
+
 
 RR_MSG_TYPES = {
     0x19: 'SI1', 0x1a: 'SI2', 0x1b: 'SI3',0x1c: 'SI4', 0x1d: 'SI5', 0x1e: 'SI6', 
@@ -211,8 +216,8 @@ def parse_si2(payload):
 	
     	data = data[:16]
 	
-        results = decode_ncd(data)
-        print(results)
+    	results = si2decode.decode_ncd(data)
+    	print(results)
     	# fmt = (data[0] >> 6) & 0b11
     	# if fmt != 0:
         # 	# Not bit map 0 (could be range 1024/512/256/128/variable bitmap)
@@ -225,10 +230,10 @@ def parse_si2(payload):
         # 		bits.append((b >> shift) & 1)
 	
     	# bits[0] is bit128 (octet1 bit8). For ARFCN N, check bit index (128 - N).
-    	arfcns = []
-    	for n in range(1, 125):  # 1..124
-    		if bits[128 - n]:
-    			arfcns.append(n)
+    	arfcns = results.arfcn
+    	#for n in range(1, 125):  # 1..124
+    	#	if bits[128 - n]:
+    	#		arfcns.append(n)
 
     	info['neighbor_arfcns'] = sorted(arfcns, reverse=True)
     
@@ -392,73 +397,27 @@ def handle_packet(pkt):
     if msg_type == 0x19:  # SI1
         info = parse_si1(payload[2:])
         print(f"  SI1: {info}")
-        #if 'cell_arfcns' in info:
-        #    print(f"  Cell ARFCNs: {info['cell_arfcns']}")
     
     elif msg_type == 0x1a:  # SI2
         info = parse_si2(payload[2:])
         print(f"  SI2: {info}")
-        #if 'neighbor_arfcns' in info:
-        #    cell_info['neighbors'].update(info['neighbor_arfcns'])
-        #    print(f"  Neighbor ARFCNs: {info['neighbor_arfcns']}")
     
     elif msg_type == 0x02:  # SI2bis
         info = parse_si2bis(payload)
         print(f"  SI2bis: {info}")
-        #if 'neighbor_arfcns' in info:
-        #    cell_info['neighbors'].update(info['neighbor_arfcns'])
-        #    print(f"  Neighbor ARFCNs (bis): {info['neighbor_arfcns']}")
     
     elif msg_type == 0x03:  # SI2ter
         info = parse_si2ter(payload)
         print(f"  SI2ter: {info}")
-        #if 'neighbor_arfcns' in info:
-        #    cell_info['neighbors'].update(info['neighbor_arfcns'])
-        #    print(f"  Neighbor ARFCNs (ter): {info['neighbor_arfcns']}")
     
     elif msg_type == 0x1b:  # SI3
         info = parse_si3(payload[2:])
         print(f"  SI3: {info}")
-        #if 'cell_id' in info:
-        #    cell_info['cell_id'] = info['cell_id']
-        #    cell_info['mcc'] = info.get('mcc')
-        #    cell_info['mnc'] = info.get('mnc')
-        #    cell_info['lac'] = info.get('lac')
-        #    print(f"  Cell ID: {info['cell_id']}")
-        #    print(f"  MCC: {info.get('mcc')} | MNC: {info.get('mnc')} | LAC: {info.get('lac')}")
-        
-        #if 'cell_selection' in info:
-        #    cs = info['cell_selection']
-        #    cell_info['reselection'].update(cs)
-        #    print(f"  Cell Selection:")
-        #    print(f"    RXLEV_ACCESS_MIN: {cs.get('rxlev_access_min_dbm')} dBm")
-        #    print(f"    Cell Reselect Hysteresis: {cs.get('cell_reselect_hysteresis_db')} dB")
-        #    print(f"    MS_TXPWR_MAX_CCH: {cs.get('ms_txpwr_max_cch')}")
-        
-        #if 'cell_options' in info:
-        #    co = info['cell_options']
-        #    cell_info['reselection'].update(co)
-        #    print(f"  Cell Options:")
-        #    print(f"    DTX: {co.get('dtx')}")
-        #    print(f"    Radio Link Timeout: {co.get('radio_link_timeout')} SACCH blocks")
-        
-        #if 'control_channel' in info:
-        #    cc = info['control_channel']
-        #    cell_info['reselection'].update(cc)
-        #    print(f"  Control Channel:")
-        #    print(f"    ATT (IMSI attach): {cc.get('att')}")
-        #    print(f"    T3212: {cc.get('t3212_min')} min")
-        #    print(f"    CCCH Config: {cc.get('ccch_conf')}")
     
     elif msg_type == 0x1c:  # SI4
         info = parse_si4(payload)
         print(f"  SI4: {info}")
-        #if 'cell_selection' in info:
-        #    cs = info['cell_selection']
-        #    print(f"  Cell Selection:")
-        #    print(f"    RXLEV_ACCESS_MIN: {cs.get('rxlev_access_min_dbm')} dBm")
-        #    print(f"    Cell Reselect Hysteresis: {cs.get('cell_reselect_hysteresis_db')} dB")
-        
+            
     elif msg_type == 0x1d:  # SI5
         info = parse_si5(payload)
         print(f"  SI5: {info}")
@@ -485,6 +444,25 @@ print("Run: grgsm_livemon -f <freq>")
 print("=" * 60)
 
 try:
+
+    # Option 2: argparse (better)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-f', '--freq', default='939400000', help='Frequency in Hz')
+    args = parser.parse_args()
+
+    def start_grgsm(freq_hz):
+        def set_pdeathsig():
+            import ctypes
+            libc = ctypes.CDLL("libc.so.6")
+            libc.prctl(1, signal.SIGTERM)
+        
+        return subprocess.Popen(
+            ['grgsm_livemon_headless', '-f', str(freq_hz)],
+            preexec_fn=set_pdeathsig
+        )
+
+    proc = start_grgsm(args.freq) 
+    
     sniff(iface='lo', filter='udp port 4729', prn=handle_packet)
 except KeyboardInterrupt:
     print_summary()
