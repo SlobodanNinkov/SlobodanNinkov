@@ -3,12 +3,10 @@ layout: portfolio
 ---
 
 <header class="hero">
-    <span class="subtitle">Systems Builder | Technical Product Manager</span>
+    <span class="subtitle">Systems Architect | Mission-Critical Infrastructure</span>
     <h1>Slobodan Ninkov</h1>
     <p class="bio">
-        Building mission-critical systems that work under real conditions. 
-        Specializing in IoT, real-time data, and simulation. 
-        20+ years experience bridging hardware, software, and field operations.
+        I design systems where failure isn't an option—secure communications, RF intelligence, real-time sensor networks. Two patents. €2M+ deployments that actually shipped.
     </p>
     <div style="margin-top: 1.5rem;">
         <a href="mailto:ninkovslobodan@gmail.com" style="margin-right: 1.5rem; font-family: var(--font-mono);">Email Me</a>
@@ -48,7 +46,7 @@ layout: portfolio
         <span class="tag">High autonomy</span>
     </div>
     <p style="margin-top: 1.5rem;">
-        I work best with small teams and clear ownership. My focus is on systems where field performance is the only metric that matters, avoiding process theater in favor of outcomes.
+        Field performance is the only honest metric. I prototype before I PowerPoint. I design for the failure modes nobody wants to discuss. Process theater is someone else's job—I build things that work under stress, then hand them off running. Currently: MSc Cognitive Systems.
     </p>
 </section>
 
