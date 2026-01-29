@@ -15,7 +15,7 @@ layout: portfolio
 </header>
 
 <section>
-    <h2>What I Built</h2>
+    <h2>What I Build</h2>
     <div class="grid">
         <div class="card">
             <h3>Sensor Networks</h3>
@@ -59,7 +59,7 @@ layout: portfolio
             <span class="experience-role">Owner</span>
             <span class="experience-company">SN Terra Cognitive LTD</span>
         </div>
-        <p>Developed flight simulation and training systems.</p>
+        <p>Drone flight simulation and training systems. Syntetic data generator for drone AI development.</p>
     </div>
 
     <div class="experience-item">
