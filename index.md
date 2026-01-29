@@ -82,7 +82,6 @@ layout: portfolio
 <footer>
     <div>© 2026 Slobodan Ninkov</div>
     <div class="social-links">
-        <span>Berlin-based</span>
-        <span>Open to Relocation</span>
+        <span>Berlin | EU | Remote</span>
     </div>
 </footer>
