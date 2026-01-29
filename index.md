@@ -1,68 +1,98 @@
 ---
-layout: page
-title: Slobodan Ninkov
+layout: portfolio
 ---
 
-<p class="text-center">
-<strong>Systems Builder | Technical Product Manager</strong><br>
-IoT • Real-Time Systems • Simulation • Sensor Networks
-</p> 
+<header class="hero">
+    <span class="subtitle">Systems Builder | Technical Product Manager</span>
+    <h1>Slobodan Ninkov</h1>
+    <p class="bio">
+        Building mission-critical systems that work under real conditions. 
+        Specializing in IoT, real-time data, and simulation. 
+        20+ years experience bridging hardware, software, and field operations.
+    </p>
+    <div style="margin-top: 1.5rem;">
+        <a href="mailto:ninkovslobodan@gmail.com" style="margin-right: 1.5rem; font-family: var(--font-mono);">Email Me</a>
+        <a href="https://www.linkedin.com/in/slobodanninkov/" style="font-family: var(--font-mono);">LinkedIn</a>
+    </div>
+</header>
 
+<section>
+    <h2>What I Build</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Sensor Networks</h3>
+            <p>Led a €2M+ IoT network from PoC to multi-territory deployment. Managed a 10-person cross-functional team with mission-critical reliability requirements.</p>
+        </div>
+        <div class="card">
+            <h3>Digital Twins</h3>
+            <p>Built a proprietary drone simulation platform that replaced 95% of physical flight testing, later commercialized as a $200K add-on product. <a href="/articles/simulation-validation/">[Case Study]</a></p>
+        </div>
+        <div class="card">
+            <h3>Data Pipelines</h3>
+            <p>Architected high-throughput systems handling €50M+ annual volume and 1M+ daily transactions, with integrated anomaly detection.</p>
+        </div>
+        <div class="card">
+            <h3>Integration</h3>
+            <p>Drove €3M+ in hardware sales through the development of complex airborne and cyber-intelligence products.</p>
+        </div>
+    </div>
+</section>
 
-I solve technical problems end-to-end — from system design through field deployment.
+<section>
+    <h2>How I Work</h2>
+    <div class="tag-cloud">
+        <span class="tag">Start from the problem</span>
+        <span class="tag">Prototype early</span>
+        <span class="tag">Test in field</span>
+        <span class="tag">Design for failure modes</span>
+        <span class="tag">High autonomy</span>
+    </div>
+    <p style="margin-top: 1.5rem;">
+        I work best with small teams and clear ownership. My focus is on systems where field performance is the only metric that matters, avoiding process theater in favor of outcomes.
+    </p>
+</section>
 
-20+ years building mission-critical systems: IoT sensor networks processing millions of daily transactions, airborne intelligence platforms, and simulation systems that eliminated 95% of physical testing. Two patents in mobile location systems.
-  
-## What I Build
+<section>
+    <h2>Experience</h2>
 
-Systems that work under real conditions — not just in demos.
+    <div class="experience-item">
+        <div class="experience-header">
+            <span class="experience-role">Technical Product Manager</span>
+            <span class="experience-company">GSMK, Berlin</span>
+        </div>
+        <div class="experience-date">7 Years</div>
+        <p>Leading mission-critical IoT and secure communication systems.</p>
+    </div>
 
-**Sensor Networks at Scale**
-Led a €2M+ IoT sensor network from proof-of-concept to multi-territory production deployment. 10-person cross-functional team. Mission-critical reliability requirements.
+    <div class="experience-item">
+        <div class="experience-header">
+            <span class="experience-role">Owner</span>
+            <span class="experience-company">SN Terra Cognitive LTD</span>
+        </div>
+        <p>Developed flight simulation and training systems.</p>
+    </div>
 
-**Simulation & Digital Twins**
-Built a proprietary drone simulation platform that replaced 95% of physical flight testing — later commercialized as a $200K add-on product package.
-[Case Study: Simulation-First Validation](/articles/simulation-validation/)
+    <div class="experience-item">
+        <div class="experience-header">
+            <span class="experience-role">Product Owner</span>
+            <span class="experience-company">UTX Technologies</span>
+        </div>
+        <p>Airborne platforms, simulation systems, and cyber-intelligence products.</p>
+    </div>
 
-**Real-Time Data Pipelines**
-Architected high-throughput systems handling €50M+ annual transaction volume and 1M+ daily transactions, with integrated fraud detection and anomaly detection.
+    <div class="experience-item">
+        <div class="experience-header">
+            <span class="experience-role">Software Architect</span>
+            <span class="experience-company">State Lottery of Serbia</span>
+        </div>
+        <p>High-throughput transaction systems, fraud detection, and regulatory compliance.</p>
+    </div>
+</section>
 
-**Hardware-Software Integration**
-Drove €3M+ in hardware sales through development and integration of complex airborne and cyber-intelligence products. Full lifecycle ownership from architecture through field operations.
-
-
-## How I Work
-
-- Start from the problem, not the technology
-- Prototype early, test in the field, iterate
-- Design for failure modes, edge cases, and drift
-- Keep complexity where it earns its keep
-- Small teams with clear ownership over process theater
-
-I work best with high autonomy on real problems where outcomes matter more than appearances.
-
-## Background
-
-**Path:** Software Development → System Architecture → Technical Product Management
-
-The thread: building systems that must work reliably in unpredictable environments.
-
-**Current:**  
-Technical Product Manager at GSMK (secure communications), Berlin — 7 years leading mission-critical IoT and real-time systems.  
-
-**Previous:**  
-Owner of SN Terra Cognitive LTD — flight simulation and training system.  
-Product Owner at UTX Technologies — airborne platforms, simulation systems, cyber-intelligence products.  
-Software Architect at State Lottery of Serbia — high-throughput transaction systems, fraud detection, regulatory compliance.  
-Senior Software Engineer at Questys — documentation support system.  
-
-
-## Looking For
-
-- Technical roles with end-to-end system ownership
-- IoT, real-time systems, simulation, sensor fusion, anomaly detection
-- Small teams, real problems, high autonomy
-- Systems where field performance is the only metric that matters.
-
-**Location:** Berlin-based. Open to relocation (UAE, Singapore) or remote roles with travel.
-
+<footer>
+    <div>© 2026 Slobodan Ninkov</div>
+    <div class="social-links">
+        <span>Berlin-based</span>
+        <span>Open to Relocation</span>
+    </div>
+</footer>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Slobodan Ninkov - Systems Builder & Technical Product Manager. Building mission-critical systems and IoT networks.">
+    <title>Slobodan Ninkov | Systems Builder</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-main: #1a1a1a;
+            --text-muted: #555;
+            --accent: #2563eb; /* Technical Blue */
+            --border: #e5e7eb;
+            --card-bg: #ffffff;
+            --font-mono: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --max-width: 800px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #111111;
+                --text-main: #e5e5e5;
+                --text-muted: #a3a3a3;
+                --accent: #60a5fa;
+                --border: #333333;
+                --card-bg: #1a1a1a;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+        a:hover { opacity: 0.8; text-decoration: underline; }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        section { margin-bottom: 4rem; }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
+        h2 { font-size: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.9rem; color: var(--text-muted); }
+        h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+        
+        p { margin-bottom: 1rem; color: var(--text-muted); }
+        ul { list-style: none; }
+        li { margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; color: var(--text-muted); }
+        li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* --- COMPONENTS --- */
+        
+        /* Header/Hero */
+        .hero { margin-bottom: 5rem; }
+        .hero .subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .hero .bio { font-size: 1.2rem; color: var(--text-main); max-width: 600px; }
+
+        /* Achievement Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 4px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+        .card h3 { margin-bottom: 0.75rem; }
+
+        /* Timeline/Experience */
+        .experience-item { margin-bottom: 2rem; }
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+        .experience-role { font-weight: 600; color: var(--text-main); }
+        .experience-company { color: var(--accent); font-family: var(--font-mono); }
+        .experience-date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Philosophy Tag Cloud */
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+            border-radius: 50px;
+            color: var(--text-main);
+            font-family: var(--font-mono);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .social-links a { margin-left: 1.5rem; }
+
+        /* Print Styles */
+        @media print {
+            body { background: white; color: black; }
+            .container { padding: 0; max-width: 100%; }
+            .card { border: none; padding: 0; margin-bottom: 1.5rem; }
+            a { text-decoration: none; color: black; }
+            .experience-header { border-bottom: 1px solid #ccc; padding-bottom: 0.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="hero">
+            <span class="subtitle">Systems Builder | Technical Product Manager</span>
+            <h1>Slobodan Ninkov</h1>
+            <p class="bio">
+                Building mission-critical systems that work under real conditions. 
+                Specializing in IoT, real-time data, and simulation. 
+                20+ years experience bridging hardware, software, and field operations.
+            </p>
+            <div style="margin-top: 1.5rem;">
+                <a href="mailto:contact@ninkovslobodan.com" style="margin-right: 1.5rem; font-family: var(--font-mono);">Email Me</a>
+                <a href="#" style="font-family: var(--font-mono);">LinkedIn</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>What I Build</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Sensor Networks</h3>
+                    <p>Led a €2M+ IoT network from PoC to multi-territory deployment. Managed a 10-person cross-functional team with mission-critical reliability requirements.</p>
+                </div>
+                <div class="card">
+                    <h3>Digital Twins</h3>
+                    <p>Built a proprietary drone simulation platform that replaced 95% of physical flight testing, later commercialized as a $200K add-on product.</p>
+                </div>
+                <div class="card">
+                    <h3>Data Pipelines</h3>
+                    <p>Architected high-throughput systems handling €50M+ annual volume and 1M+ daily transactions, with integrated anomaly detection.</p>
+                </div>
+                <div class="card">
+                    <h3>Integration</h3>
+                    <p>Drove €3M+ in hardware sales through the development of complex airborne and cyber-intelligence products.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>How I Work</h2>
+            <div class="tag-cloud">
+                <span class="tag">Start from the problem</span>
+                <span class="tag">Prototype early</span>
+                <span class="tag">Test in field</span>
+                <span class="tag">Design for failure modes</span>
+                <span class="tag">High autonomy</span>
+            </div>
+            <p style="margin-top: 1.5rem;">
+                I work best with small teams and clear ownership. My focus is on systems where field performance is the only metric that matters, avoiding process theater in favor of outcomes.
+            </p>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-role">Technical Product Manager</span>
+                    <span class="experience-company">GSMK, Berlin</span>
+                </div>
+                <div class="experience-date">7 Years</div>
+                <p>Leading mission-critical IoT and secure communication systems.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-role">Owner</span>
+                    <span class="experience-company">SN Terra Cognitive LTD</span>
+                </div>
+                <p>Developed flight simulation and training systems.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-role">Product Owner</span>
+                    <span class="experience-company">UTX Technologies</span>
+                </div>
+                <p>Airborne platforms, simulation systems, and cyber-intelligence products.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-role">Software Architect</span>
+                    <span class="experience-company">State Lottery of Serbia</span>
+                </div>
+                <p>High-throughput transaction systems, fraud detection, and regulatory compliance.</p>
+            </div>
+        </section>
+
+        <footer>
+            <div>© 2026 Slobodan Ninkov</div>
+            <div class="social-links">
+                <span>Berlin-based</span>
+                <span>Open to Relocation</span>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
