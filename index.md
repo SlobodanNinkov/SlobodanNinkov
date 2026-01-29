@@ -6,7 +6,7 @@ layout: portfolio
     <span class="subtitle">Systems Builder | Mission-Critical Infrastructure</span>
     <h1>Slobodan Ninkov</h1>
     <p class="bio">
-        I solve technical problems end-to-end — from system design through field deployment. Cognitive Systems, RF intelligence, Real-time sensor networks, Secure communications. Two patents.
+        End-to-end system ownership — from architecture to field deployment. Cognitive Systems, RF intelligence, Real-time sensor networks, Secure communications. Two patents.
     </p>
     <div style="margin-top: 1.5rem;">
         <a href="mailto:ninkovslobodan@gmail.com" style="margin-right: 1.5rem; font-family: var(--font-mono);">Email Me</a>
@@ -39,7 +39,7 @@ layout: portfolio
 <section>
     <h2>How I Work</h2>
     <p style="margin-top: 1.5rem;">
-        Field performance is the only honest metric. I prototype before I PowerPoint. I design for the failure modes nobody wants to discuss. Process theater is someone else's job—I build things that work under stress, then hand them off running. Currently: MSc Cognitive Systems.
+        Field performance is the only honest metric. I prototype before I PowerPoint. I design for the failure modes nobody wants to discuss. Process theater is someone else's job—I build things that work under stress, then hand them off running.
     </p>
 </section>
 
@@ -51,7 +51,6 @@ layout: portfolio
             <span class="experience-role">Technical Product Manager</span>
             <span class="experience-company">GSMK, Berlin</span>
         </div>
-        <div class="experience-date">7 Years</div>
         <p>Cellular network security, RF signal analysis, secure communications infrastructure.</p>
     </div>
 
