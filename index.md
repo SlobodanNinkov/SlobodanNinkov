@@ -6,7 +6,7 @@ layout: portfolio
     <span class="subtitle">Systems Builder | Mission-Critical Infrastructure</span>
     <h1>Slobodan Ninkov</h1>
     <p class="bio">
-        End-to-end system ownership — from architecture to field deployment. Cognitive Systems, RF intelligence, Real-time sensor networks, Secure communications. Two patents.
+        End-to-end system ownership—from architecture to field deployment. RF intelligence, autonomous decision systems, real-time sensors, secure communications. Two patents.
     </p>
     <div style="margin-top: 1.5rem;">
         <a href="mailto:ninkovslobodan@gmail.com" style="margin-right: 1.5rem; font-family: var(--font-mono);">Email Me</a>
@@ -59,7 +59,7 @@ layout: portfolio
             <span class="experience-role">Owner</span>
             <span class="experience-company">SN Terra Cognitive LTD</span>
         </div>
-        <p>Drone flight simulation and training systems. Syntetic data generator for drone AI development.</p>
+        <p>Drone flight simulation and training systems. Synthetic data generator for drone AI development.</p>
     </div>
 
     <div class="experience-item">
