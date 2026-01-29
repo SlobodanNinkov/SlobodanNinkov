@@ -3,10 +3,10 @@ layout: portfolio
 ---
 
 <header class="hero">
-    <span class="subtitle">Systems Architect | Mission-Critical Infrastructure</span>
+    <span class="subtitle">Systems Builder | Mission-Critical Infrastructure</span>
     <h1>Slobodan Ninkov</h1>
     <p class="bio">
-        I design systems where failure isn't an option—secure communications, RF intelligence, real-time sensor networks. Two patents. €2M+ deployments that actually shipped.
+        I solve technical problems end-to-end — from system design through field deployment. Cognitive Systems, RF intelligence, Real-time sensor networks, Secure communications. Two patents.
     </p>
     <div style="margin-top: 1.5rem;">
         <a href="mailto:ninkovslobodan@gmail.com" style="margin-right: 1.5rem; font-family: var(--font-mono);">Email Me</a>
@@ -15,7 +15,7 @@ layout: portfolio
 </header>
 
 <section>
-    <h2>What I Build</h2>
+    <h2>What I Built</h2>
     <div class="grid">
         <div class="card">
             <h3>Sensor Networks</h3>
