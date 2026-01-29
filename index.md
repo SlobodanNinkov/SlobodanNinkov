@@ -38,13 +38,6 @@ layout: portfolio
 
 <section>
     <h2>How I Work</h2>
-    <div class="tag-cloud">
-        <span class="tag">Start from the problem</span>
-        <span class="tag">Prototype early</span>
-        <span class="tag">Test in field</span>
-        <span class="tag">Design for failure modes</span>
-        <span class="tag">High autonomy</span>
-    </div>
     <p style="margin-top: 1.5rem;">
         Field performance is the only honest metric. I prototype before I PowerPoint. I design for the failure modes nobody wants to discuss. Process theater is someone else's job—I build things that work under stress, then hand them off running. Currently: MSc Cognitive Systems.
     </p>
@@ -59,7 +52,7 @@ layout: portfolio
             <span class="experience-company">GSMK, Berlin</span>
         </div>
         <div class="experience-date">7 Years</div>
-        <p>Leading mission-critical IoT and secure communication systems.</p>
+        <p>Cellular network security, RF signal analysis, secure communications infrastructure.</p>
     </div>
 
     <div class="experience-item">
