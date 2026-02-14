@@ -3,10 +3,10 @@ layout: portfolio
 ---
 
 <header class="hero">
-    <span class="subtitle">Systems Builder | Mission-Critical Infrastructure</span>
+    <span class="subtitle">Systems Builder | Cognitive & Adaptive Systems</span>
     <h1>Slobodan Ninkov</h1>
     <p class="bio">
-        End-to-end system ownership—from architecture to field deployment. RF intelligence, autonomous decision systems, real-time sensors, secure communications. Two patents.
+        End-to-end system ownership—from architecture to field deployment. RF intelligence, autonomous decision systems, real-time sensors, secure communications. Two patents. Applying cognitive systems research to signal intelligence and autonomous agents.
     </p>
     <div style="margin-top: 1.5rem;">
         <a href="mailto:ninkovslobodan@gmail.com" style="margin-right: 1.5rem; font-family: var(--font-mono);">Email Me</a>
