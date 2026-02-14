@@ -15,6 +15,20 @@ layout: portfolio
 </header>
 
 <section>
+    <h2>Current Focus</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+        <div>
+            <h3>Applied Cognitive Systems</h3>
+            <p>CNN-based RF classification, autonomous agents, and simulation-driven testing and product development.</p>
+        </div>
+        <div>
+            <h3>MSc Cognitive Systems</h3>
+            <p>Adaptive decision systems, cognitive architectures, and ML for signal intelligence.</p>
+        </div>
+    </div>
+</section>
+
+<section>
     <h2>What I Build</h2>
     <div class="grid">
         <div class="card">
