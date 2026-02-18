@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PASAT – CognitiveLab</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .pasat-arena { text-align:center; }
+    .pasat-digit { font-size:8rem; font-weight:900; color:var(--accent);
+                   min-height:200px; display:flex; align-items:center; justify-content:center; }
+    .pasat-prev  { font-size:1rem; color:var(--text-dim); margin-bottom:.25rem; }
+    .pasat-bar   { width:100%; height:8px; background:var(--surface-3); border-radius:100px;
+                   overflow:hidden; margin-bottom:1.5rem; }
+    .pasat-fill  { height:100%; background:var(--accent); border-radius:100px; transition:width .1s linear; }
+    .pasat-trial { font-size:.85rem; color:var(--text-muted); margin-bottom:.5rem; }
+    .speed-selector { display:flex; gap:.5rem; justify-content:center; margin-bottom:1.5rem; }
+    .speed-btn { padding:.4rem .9rem; border:1px solid var(--border); border-radius:var(--r-sm);
+                 background:var(--surface-3); color:var(--text-muted); font-size:.85rem;
+                 cursor:pointer; font-family:inherit; font-weight:600; }
+    .speed-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  </style>
+</head>
+<body>
+<header class="page-header">
+  <div class="container">
+    <a href="/" class="back-btn">← Home</a>
+    <h2>PASAT</h2>
+  </div>
+</header>
+
+<main class="test-page">
+<div class="test-content">
+
+  <div id="instructions" class="panel">
+    <h2>Paced Auditory Serial Addition Test</h2>
+    <p style="margin-bottom:1.25rem;">A demanding working-memory task using paced arithmetic.</p>
+    <ul>
+      <li>Single-digit numbers appear one at a time on screen.</li>
+      <li>For each new number, enter the <strong>sum of that number and the previous number</strong>.</li>
+      <li>Press <kbd>Enter</kbd> or click Submit after each answer.</li>
+      <li>You must answer before the next number appears.</li>
+    </ul>
+    <div class="example-box" style="background:var(--surface-3);padding:.75rem 1rem;border-radius:var(--r-sm);margin:.75rem 0;font-size:.875rem;color:var(--text-muted);">
+      <strong style="color:var(--text);">Example:</strong><br>
+      3 appears → (no answer yet)<br>
+      7 appears → enter <strong>10</strong> (3+7)<br>
+      2 appears → enter <strong>9</strong> (7+2)
+    </div>
+    <p style="font-size:.85rem;margin-bottom:1rem;">Choose pace:</p>
+    <div class="speed-selector">
+      <button class="speed-btn active" id="sp-3" onclick="setSpeed(3000,'sp-3')">3 s (Easy)</button>
+      <button class="speed-btn"        id="sp-2" onclick="setSpeed(2000,'sp-2')">2 s (Medium)</button>
+      <button class="speed-btn"        id="sp-1" onclick="setSpeed(1200,'sp-1')">1.2 s (Hard)</button>
+    </div>
+    <button class="btn btn-primary btn-full mt-2" onclick="startTest()">Begin Test</button>
+  </div>
+
+  <div id="test-area" class="panel hidden">
+    <div class="pasat-trial" id="trial-label">Trial 1 / 30</div>
+    <div class="pasat-bar"><div class="pasat-fill" id="pasat-fill" style="width:100%"></div></div>
+    <div class="pasat-arena">
+      <div class="pasat-prev" id="prev-label"></div>
+      <div class="pasat-digit" id="digit-display">–</div>
+    </div>
+    <input id="pasat-input" class="input-field" type="number"
+           placeholder="Enter sum…" style="margin-top:1rem;"
+           onkeydown="if(event.key==='Enter') submitSum()">
+    <div id="pasat-fb" class="feedback hidden" style="margin-top:.75rem;"></div>
+    <button class="btn btn-primary btn-full mt-2" onclick="submitSum()">Submit</button>
+  </div>
+
+  <div id="results" class="panel hidden" style="text-align:center;">
+    <h2 style="margin-bottom:1.5rem;">Results</h2>
+    <div class="score-display">
+      <div class="score-number" id="final-score">-</div>
+      <div class="score-label">Correct answers</div>
+    </div>
+    <p id="result-detail" style="margin-top:.75rem;"></p>
+    <table class="stats-table mt-3" id="pasat-table">
+      <thead><tr><th>#</th><th>Prev</th><th>New</th><th>Expected</th><th>Given</th><th>✓/✗</th></tr></thead>
+      <tbody id="results-body"></tbody>
+    </table>
+    <div style="display:flex;gap:.75rem;margin-top:1.5rem;">
+      <button class="btn btn-secondary" style="flex:1" onclick="location.href='/'">Home</button>
+      <button class="btn btn-primary"   style="flex:1" onclick="restart()">Try Again</button>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<script>
+const TOTAL = 30;
+let speed = 3000;
+let digits = [], trialIdx = 0, prevDigit = null;
+let trialLog = [];
+let timer = null, barTimer = null, barStart = 0;
+let awaitingInput = false;
+
+function setSpeed(ms, btnId) {
+  speed = ms;
+  ['sp-3','sp-2','sp-1'].forEach(id => document.getElementById(id).classList.remove('active'));
+  document.getElementById(btnId).classList.add('active');
+}
+
+function randDigit() { return Math.floor(Math.random()*9)+1; }
+
+function startTest() {
+  digits = Array.from({length:TOTAL}, randDigit);
+  trialIdx = 0; prevDigit = null; trialLog = [];
+  document.getElementById('instructions').classList.add('hidden');
+  document.getElementById('test-area').classList.remove('hidden');
+  document.getElementById('digit-display').textContent = '–';
+  document.getElementById('prev-label').textContent = '';
+  document.getElementById('pasat-fb').classList.add('hidden');
+  document.getElementById('pasat-input').value = '';
+  nextDigit();
+}
+
+function restart() {
+  if (timer) clearTimeout(timer);
+  if (barTimer) clearInterval(barTimer);
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('instructions').classList.remove('hidden');
+}
+
+function nextDigit() {
+  if (trialIdx >= TOTAL) { endTest(); return; }
+
+  const digit = digits[trialIdx];
+  document.getElementById('digit-display').textContent = digit;
+  document.getElementById('trial-label').textContent   = `Trial ${trialIdx+1} / ${TOTAL}`;
+
+  if (prevDigit !== null) {
+    document.getElementById('prev-label').textContent = `Previous: ${prevDigit}`;
+    awaitingInput = true;
+    document.getElementById('pasat-input').value = '';
+    document.getElementById('pasat-input').focus();
+  } else {
+    document.getElementById('prev-label').textContent = 'First digit – no answer yet';
+    awaitingInput = false;
+  }
+
+  // Start progress bar countdown
+  if (barTimer) clearInterval(barTimer);
+  const fill = document.getElementById('pasat-fill');
+  fill.style.width = '100%';
+  fill.style.background = 'var(--accent)';
+  barStart = Date.now();
+  barTimer = setInterval(() => {
+    const elapsed = Date.now() - barStart;
+    const pct = Math.max(0, 100 - (elapsed / speed * 100));
+    fill.style.width = pct + '%';
+    if (pct < 20) fill.style.background = 'var(--danger)';
+    else if (pct < 50) fill.style.background = 'var(--warning)';
+    else fill.style.background = 'var(--accent)';
+  }, 50);
+
+  timer = setTimeout(() => {
+    if (awaitingInput) {
+      // Timeout – record miss
+      logTrial(prevDigit, digit, prevDigit + digit, null, false, true);
+      showFeedback(false, true, prevDigit + digit);
+    }
+    awaitingInput = false;
+    prevDigit = digit;
+    trialIdx++;
+    clearInterval(barTimer);
+    setTimeout(nextDigit, 150);
+  }, speed);
+}
+
+function submitSum() {
+  if (!awaitingInput) return;
+  const val = parseInt(document.getElementById('pasat-input').value, 10);
+  if (isNaN(val)) return;
+
+  clearTimeout(timer);
+  clearInterval(barTimer);
+  awaitingInput = false;
+
+  const digit    = digits[trialIdx];
+  const expected = prevDigit + digit;
+  const correct  = val === expected;
+  logTrial(prevDigit, digit, expected, val, correct, false);
+  showFeedback(correct, false, expected);
+
+  prevDigit = digit;
+  trialIdx++;
+  setTimeout(() => {
+    document.getElementById('pasat-fb').classList.add('hidden');
+    nextDigit();
+  }, 300);
+}
+
+function logTrial(prev, cur, exp, given, correct, timeout) {
+  trialLog.push({ prev, cur, exp, given, correct, timeout });
+}
+
+function showFeedback(correct, timeout, expected) {
+  const fb = document.getElementById('pasat-fb');
+  fb.className = 'feedback ' + (correct ? 'feedback-correct' : 'feedback-wrong');
+  fb.textContent = timeout
+    ? `⏱ Too slow! Answer: ${expected}`
+    : (correct ? '✓' : `✗ Expected: ${expected}`);
+  fb.classList.remove('hidden');
+}
+
+function endTest() {
+  clearInterval(barTimer);
+  document.getElementById('test-area').classList.add('hidden');
+  document.getElementById('results').classList.remove('hidden');
+
+  const correct = trialLog.filter(t => t.correct).length;
+  const total   = trialLog.length;
+  document.getElementById('final-score').textContent = `${correct} / ${total}`;
+  document.getElementById('result-detail').textContent =
+    `Accuracy: ${total > 0 ? (correct/total*100).toFixed(0) : 0}%  |  Speed: ${speed/1000}s ISI`;
+
+  const tbody = document.getElementById('results-body');
+  tbody.innerHTML = trialLog.map((t,i) => `
+    <tr>
+      <td>${i+1}</td>
+      <td>${t.prev}</td>
+      <td>${t.cur}</td>
+      <td>${t.exp}</td>
+      <td>${t.timeout ? '(timeout)' : (t.given ?? '–')}</td>
+      <td style="color:${t.correct?'var(--success)':'var(--danger)'}">${t.correct?'✓':'✗'}</td>
+    </tr>`).join('');
+}
+</script>
+</body>
+</html>

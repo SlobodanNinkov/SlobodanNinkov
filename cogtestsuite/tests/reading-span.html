@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading Span – CognitiveLab</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .sentence-box {
+      font-size:1.1rem; line-height:1.7;
+      padding:1.25rem 1.5rem;
+      background:var(--surface-3); border-radius:var(--r);
+      color:var(--text); margin-bottom:1rem; text-align:center;
+    }
+    .last-word { color:var(--accent); font-weight:700; }
+    .word-pill-row { display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin-bottom:1rem; }
+    .word-pill {
+      padding:.35rem .8rem; border-radius:100px;
+      background:var(--surface-3); border:1px solid var(--border);
+      font-size:.875rem; color:var(--text-muted);
+    }
+    .word-pill.filled   { background:var(--accent-lite); color:var(--accent); border-color:rgba(59,130,246,.4); }
+    .word-pill.correct  { background:var(--success-lite); color:var(--success); }
+    .word-pill.wrong    { background:var(--danger-lite);  color:var(--danger);  }
+    .recall-word-choice {
+      padding:.4rem .9rem; border:1px solid var(--border); border-radius:var(--r-sm);
+      background:var(--surface-3); color:var(--text); font-size:.9rem;
+      cursor:pointer; font-family:inherit; transition:all .15s;
+    }
+    .recall-word-choice:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .recall-word-choice.selected { background:var(--accent); color:#fff; border-color:var(--accent); }
+  </style>
+</head>
+<body>
+<header class="page-header">
+  <div class="container">
+    <a href="/" class="back-btn">← Home</a>
+    <h2>Reading Span</h2>
+  </div>
+</header>
+
+<main class="test-page">
+<div class="test-content">
+
+  <div id="instructions" class="panel">
+    <h2>Reading Span Task</h2>
+    <p style="margin-bottom:1.25rem;">Measures your ability to process and store information simultaneously.</p>
+    <ul>
+      <li>A sentence will appear. Judge whether it makes sense (YES / NO).</li>
+      <li>The last word of each sentence is highlighted — remember it.</li>
+      <li>After a set of sentences, click all the last words in the order the sentences appeared.</li>
+      <li>Set sizes increase from 2 to 5 sentences.</li>
+    </ul>
+    <button class="btn btn-primary btn-full mt-2" onclick="startTest()">Begin Test</button>
+  </div>
+
+  <!-- Sentence phase -->
+  <div id="phase-sentence" class="panel hidden" style="text-align:center;">
+    <div class="trial-info">
+      <span id="sent-progress">Sentence 1 / 2</span>
+      <span id="sent-setinfo">Set size: 2</span>
+    </div>
+    <p style="color:var(--text-muted);margin-bottom:.75rem;font-size:.85rem;">Does this sentence make sense?</p>
+    <div class="sentence-box" id="sentence-display"></div>
+    <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:.75rem;">
+      Remember the last word: <span class="last-word" id="last-word-hint"></span>
+    </p>
+    <div class="yn-buttons">
+      <button class="btn-yes" onclick="judgeSentence(true)">YES</button>
+      <button class="btn-no"  onclick="judgeSentence(false)">NO</button>
+    </div>
+    <div id="sent-fb" class="feedback hidden" style="margin-top:1rem;"></div>
+  </div>
+
+  <!-- Recall phase -->
+  <div id="phase-recall" class="panel hidden" style="text-align:center;">
+    <p style="color:var(--text-muted);margin-bottom:.75rem;">Click the last words in the order the sentences appeared:</p>
+    <div class="word-pill-row" id="recall-slots" style="margin-bottom:1.25rem;"></div>
+    <div class="word-pill-row" id="word-choices"></div>
+    <button id="recall-submit" class="btn btn-primary btn-full mt-3" onclick="submitRecall()">Submit</button>
+    <div id="recall-fb" class="feedback hidden" style="margin-top:1rem;"></div>
+  </div>
+
+  <!-- Results -->
+  <div id="results" class="panel hidden" style="text-align:center;">
+    <h2 style="margin-bottom:1.5rem;">Results</h2>
+    <div class="score-display">
+      <div class="score-number" id="final-rspan">-</div>
+      <div class="score-label">Reading Span (perfect sets)</div>
+    </div>
+    <table class="stats-table mt-3">
+      <thead><tr><th>Set Size</th><th>Words Correct</th><th>Sentence Accuracy</th></tr></thead>
+      <tbody id="results-body"></tbody>
+    </table>
+    <div style="display:flex;gap:.75rem;margin-top:1.5rem;">
+      <button class="btn btn-secondary" style="flex:1" onclick="location.href='/'">Home</button>
+      <button class="btn btn-primary"   style="flex:1" onclick="restart()">Try Again</button>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<script>
+const SENTENCES = [
+  { text:"The doctor examined the patient carefully in his office.", lastWord:"office",    sensible:true  },
+  { text:"The banana drove the car to the supermarket.",            lastWord:"supermarket", sensible:false },
+  { text:"She placed the book on the shelf by the window.",         lastWord:"window",     sensible:true  },
+  { text:"The mountain climbed the brave explorer yesterday.",      lastWord:"yesterday",  sensible:false },
+  { text:"He poured a glass of water from the tap.",               lastWord:"tap",        sensible:true  },
+  { text:"The dog barked loudly at the passing bicycle.",          lastWord:"bicycle",    sensible:true  },
+  { text:"The invisible thunder ate several silver clouds.",        lastWord:"clouds",     sensible:false },
+  { text:"They planted flowers in the garden every spring.",       lastWord:"spring",     sensible:true  },
+  { text:"The professor wrote the formula on the blackboard.",     lastWord:"blackboard", sensible:true  },
+  { text:"The sleeping number counted three curious chairs.",      lastWord:"chairs",     sensible:false },
+  { text:"She caught the bus just before it pulled away.",         lastWord:"away",       sensible:true  },
+  { text:"The river flowed quietly past the small village.",       lastWord:"village",    sensible:true  },
+  { text:"He borrowed the happiness from a broken Tuesday.",       lastWord:"Tuesday",    sensible:false },
+  { text:"The chef prepared a delicious meal for the guests.",     lastWord:"guests",     sensible:true  },
+  { text:"The purple silence swam across the frozen ceiling.",     lastWord:"ceiling",    sensible:false },
+  { text:"She finished her report before the deadline arrived.",   lastWord:"arrived",    sensible:true  },
+  { text:"The musician played a soothing melody on the piano.",   lastWord:"piano",      sensible:true  },
+  { text:"Cold laughter melted the green rectangle slowly.",       lastWord:"slowly",     sensible:false },
+];
+
+const SET_SIZES = [2,3,4,5];
+const sleep = ms => new Promise(r => setTimeout(r,r,ms));
+
+let setIdx=0, sentIdx=0;
+let currentSet=[], targetWords=[], sentenceJudgments=[];
+let recall=[], setScores=[];
+let usedSentences=[];
+
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function startTest(){
+  setIdx=0; setScores=[]; usedSentences=[];
+  document.getElementById('instructions').classList.add('hidden');
+  runSet();
+}
+function restart(){
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('instructions').classList.remove('hidden');
+}
+
+function pickSentences(n){
+  const available=SENTENCES.filter((_,i)=>!usedSentences.includes(i));
+  const shuffled=shuffle(available.map((_,i)=>i).filter(i=>!usedSentences.includes(i)));
+  const picked=shuffled.slice(0,n);
+  picked.forEach(i=>usedSentences.push(i));
+  return picked.map(i=>SENTENCES[i]);
+}
+
+function runSet(){
+  const size=SET_SIZES[setIdx];
+  currentSet=pickSentences(size);
+  targetWords=currentSet.map(s=>s.lastWord);
+  sentenceJudgments=[];
+  sentIdx=0;
+  showSentence();
+}
+
+function showSentence(){
+  const s=currentSet[sentIdx];
+  const size=SET_SIZES[setIdx];
+
+  const words=s.text.split(' ');
+  const lastW=words.pop();
+  const mainText=words.join(' ')+' ';
+
+  document.getElementById('sentence-display').innerHTML =
+    mainText + `<span class="last-word">${lastW}</span>`;
+  document.getElementById('last-word-hint').textContent=lastW;
+  document.getElementById('sent-progress').textContent=`Sentence ${sentIdx+1} / ${size}`;
+  document.getElementById('sent-setinfo').textContent=`Set size: ${size}`;
+  document.getElementById('sent-fb').classList.add('hidden');
+  document.getElementById('phase-sentence').classList.remove('hidden');
+}
+
+function judgeSentence(yes){
+  const s=currentSet[sentIdx];
+  const correct=(yes===s.sensible);
+  sentenceJudgments.push(correct);
+
+  const fb=document.getElementById('sent-fb');
+  fb.className='feedback '+(correct?'feedback-correct':'feedback-wrong');
+  fb.textContent=correct?'✓ Correct!':`✗ The sentence ${s.sensible?'does':'does not'} make sense.`;
+  fb.classList.remove('hidden');
+
+  setTimeout(()=>{
+    document.getElementById('phase-sentence').classList.add('hidden');
+    sentIdx++;
+    if(sentIdx<currentSet.length) showSentence();
+    else setupRecall();
+  },600);
+}
+
+function setupRecall(){
+  recall=[];
+  // Slots
+  const slots=document.getElementById('recall-slots');
+  slots.innerHTML='';
+  targetWords.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='word-pill';
+    d.id=`rslot-${i}`;
+    d.textContent='—';
+    slots.appendChild(d);
+  });
+
+  // Choices: target words + foils
+  const foilPool=SENTENCES.filter(s=>!targetWords.includes(s.lastWord)).map(s=>s.lastWord);
+  const foils=shuffle(foilPool).slice(0,Math.min(4,foilPool.length));
+  const allChoices=shuffle([...targetWords,...foils]);
+
+  const choicesEl=document.getElementById('word-choices');
+  choicesEl.innerHTML='';
+  allChoices.forEach(w=>{
+    const btn=document.createElement('button');
+    btn.className='recall-word-choice';
+    btn.textContent=w;
+    btn.addEventListener('click',()=>selectWord(btn,w));
+    choicesEl.appendChild(btn);
+  });
+
+  document.getElementById('recall-fb').classList.add('hidden');
+  document.getElementById('recall-submit').textContent='Submit';
+  document.getElementById('recall-submit').onclick=submitRecall;
+  document.getElementById('phase-recall').classList.remove('hidden');
+}
+
+function selectWord(btn,word){
+  if(recall.length>=targetWords.length) return;
+  if(btn.classList.contains('selected')) return;
+  btn.classList.add('selected');
+  recall.push(word);
+  const slot=document.getElementById(`rslot-${recall.length-1}`);
+  slot.textContent=word;
+  slot.classList.add('filled');
+}
+
+function submitRecall(){
+  if(recall.length<targetWords.length){
+    const fb=document.getElementById('recall-fb');
+    fb.className='feedback feedback-wrong';
+    fb.textContent=`Select all ${targetWords.length} words first.`;
+    fb.classList.remove('hidden');
+    return;
+  }
+  const correct=recall.every((w,i)=>w===targetWords[i]);
+  const wordCorrect=recall.filter((w,i)=>w===targetWords[i]).length;
+  const sentAcc=sentenceJudgments.filter(Boolean).length;
+
+  recall.forEach((w,i)=>{
+    const slot=document.getElementById(`rslot-${i}`);
+    slot.classList.remove('filled');
+    slot.classList.add(w===targetWords[i]?'correct':'wrong');
+  });
+
+  setScores.push({size:SET_SIZES[setIdx],wordCorrect,total:targetWords.length,sentAcc,allCorrect:correct});
+
+  const fb=document.getElementById('recall-fb');
+  fb.className='feedback '+(correct?'feedback-correct':'feedback-wrong');
+  fb.textContent=correct?`✓ Perfect! Words: ${targetWords.join(', ')}`:`Target was: ${targetWords.join(', ')}`;
+  fb.classList.remove('hidden');
+
+  document.getElementById('recall-submit').textContent='Continue →';
+  document.getElementById('recall-submit').onclick=nextSet;
+}
+
+function nextSet(){
+  document.getElementById('phase-recall').classList.add('hidden');
+  setIdx++;
+  if(setIdx<SET_SIZES.length) runSet();
+  else showResults();
+}
+
+function showResults(){
+  document.getElementById('results').classList.remove('hidden');
+  const perfect=setScores.filter(s=>s.allCorrect).length;
+  document.getElementById('final-rspan').textContent=`${perfect} / ${SET_SIZES.length}`;
+  const tbody=document.getElementById('results-body');
+  tbody.innerHTML=setScores.map(s=>`
+    <tr>
+      <td>${s.size}</td>
+      <td style="color:${s.allCorrect?'var(--success)':'var(--danger)'}">${s.wordCorrect} / ${s.total}</td>
+      <td>${s.sentAcc} / ${s.size}</td>
+    </tr>`).join('');
+}
+</script>
+</body>
+</html>

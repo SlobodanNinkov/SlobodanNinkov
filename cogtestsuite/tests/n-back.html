@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N-Back Task – CognitiveLab</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .nback-wrap { display:flex; flex-direction:column; align-items:center; gap:1.5rem; }
+    .nback-info { font-size:.875rem; color:var(--text-muted); }
+    .match-btn {
+      padding:1rem 3rem; font-size:1.1rem; font-weight:700;
+      background:var(--accent); color:#fff; border:none;
+      border-radius:var(--r-sm); cursor:pointer; transition:all .15s;
+      font-family:inherit;
+    }
+    .match-btn:hover    { background:var(--accent-h); transform:scale(1.03); }
+    .match-btn:active   { transform:scale(.97); }
+    .match-btn:disabled { opacity:.45; cursor:not-allowed; transform:none; }
+    .nback-seq { display:flex; gap:.4rem; flex-wrap:wrap; justify-content:center; max-width:400px; }
+    .seq-dot {
+      width:12px; height:12px; border-radius:50%;
+      background:var(--surface-3); border:1px solid var(--border);
+    }
+    .seq-dot.target   { background:var(--accent); }
+    .seq-dot.hit      { background:var(--success); }
+    .seq-dot.miss     { background:var(--danger); }
+    .seq-dot.fa       { background:var(--warning); }
+    .seq-dot.cr       { background:var(--surface-3); border-color:var(--success); }
+    .legend { display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center; font-size:.75rem; color:var(--text-muted); }
+    .leg-item { display:flex; align-items:center; gap:.3rem; }
+    .leg-dot  { width:10px; height:10px; border-radius:50%; }
+    .history-trail {
+      display:flex; gap:4px; align-items:center; margin:0 auto;
+      padding:.5rem; background:var(--surface-3); border-radius:var(--r-sm);
+      min-height:40px; flex-wrap:wrap; justify-content:center; max-width:360px;
+    }
+    .hist-chip {
+      padding:.2rem .5rem; border-radius:4px; font-size:.75rem; font-weight:700;
+      background:var(--surface-2); color:var(--text-muted);
+    }
+    .hist-chip.target-chip { background:var(--accent-lite); color:var(--accent); }
+    .timer-bar { width:100%; max-width:340px; height:5px; background:var(--surface-3);
+                 border-radius:100px; overflow:hidden; }
+    .timer-fill { height:100%; background:var(--accent); border-radius:100px;
+                  transition:width .05s linear; }
+  </style>
+</head>
+<body>
+<header class="page-header">
+  <div class="container">
+    <a href="/" class="back-btn">← Home</a>
+    <h2>N-Back Task</h2>
+  </div>
+</header>
+
+<main class="test-page">
+<div class="test-content">
+
+  <div id="instructions" class="panel">
+    <h2>N-Back Task</h2>
+    <p style="margin-bottom:1.25rem;">Measures working-memory updating ability.</p>
+    <ul>
+      <li>Letters appear one at a time on screen.</li>
+      <li>Press <kbd>Space</kbd> or click <strong>MATCH</strong> when the current letter matches the one <em>N</em> positions back.</li>
+      <li>Do nothing when there is no match.</li>
+      <li>Respond before the next letter appears.</li>
+    </ul>
+    <p style="font-size:.875rem;margin-bottom:1rem;">Choose N-Back level:</p>
+    <div class="mode-selector">
+      <button class="mode-btn active" id="nb-1" onclick="setN(1,'nb-1')">1-Back</button>
+      <button class="mode-btn" id="nb-2" onclick="setN(2,'nb-2')">2-Back</button>
+      <button class="mode-btn" id="nb-3" onclick="setN(3,'nb-3')">3-Back</button>
+    </div>
+    <p style="font-size:.8rem;color:var(--text-dim);margin-bottom:1rem;">30 trials, 2-second stimulus interval</p>
+    <button class="btn btn-primary btn-full" onclick="startTest()">Begin Test</button>
+  </div>
+
+  <div id="test-area" class="hidden" style="display:none;flex-direction:column;align-items:center;padding:2rem 1rem;gap:1.25rem;width:100%;">
+    <div class="nback-info">
+      <span id="nb-label">2-Back</span> &nbsp;|&nbsp;
+      <span id="nb-trial-info">Trial 1 / 30</span>
+    </div>
+    <div class="timer-bar"><div class="timer-fill" id="nb-timer-fill" style="width:100%"></div></div>
+    <div class="nback-wrap">
+      <div class="nback-stimulus" id="nb-stim">–</div>
+      <div class="history-trail" id="nb-history"></div>
+      <button class="match-btn" id="match-btn" onclick="pressMatch()" disabled>MATCH ␣</button>
+      <div id="nb-fb" style="font-size:.85rem;color:var(--text-muted);min-height:1.2rem;"></div>
+    </div>
+  </div>
+
+  <div id="results" class="panel hidden" style="text-align:center;">
+    <h2 style="margin-bottom:1.5rem;">Results</h2>
+    <table class="stats-table" style="margin-bottom:1.5rem;">
+      <thead><tr><th>Metric</th><th>Count</th><th>%</th></tr></thead>
+      <tbody id="results-body"></tbody>
+    </table>
+    <div class="nback-seq" id="results-seq" style="margin:0 auto 1rem;"></div>
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:var(--success)"></div>Hit</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--danger)"></div>Miss</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--warning)"></div>False Alarm</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--surface-3);border:1px solid var(--border)"></div>Correct Rejection</div>
+    </div>
+    <div style="display:flex;gap:.75rem;margin-top:1.5rem;">
+      <button class="btn btn-secondary" style="flex:1" onclick="location.href='/'">Home</button>
+      <button class="btn btn-primary"   style="flex:1" onclick="restart()">Try Again</button>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<script>
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const LETTERS = ['A','B','C','D','E','F','G','H','K','L','M','N','P','R','S','T'];
+const ISI = 2000; // inter-stimulus interval ms
+const TOTAL_TRIALS = 30;
+const TARGET_RATE  = 0.30;
+
+let N = 2;
+let stimSeq = [], trialLog = [];
+let trialIdx = 0, responded = false;
+let trialTimer = null, barTimer = null, barStart = 0;
+let keyHandler = null;
+
+function setN(n, btnId) {
+  N = n;
+  ['nb-1','nb-2','nb-3'].forEach(id => document.getElementById(id).classList.remove('active'));
+  document.getElementById(btnId).classList.add('active');
+}
+
+function generateSequence(n, length, rate) {
+  const seq = [];
+  for (let i=0; i<n; i++) {
+    seq.push(LETTERS[Math.floor(Math.random()*LETTERS.length)]);
+  }
+  while (seq.length < length) {
+    if (Math.random() < rate) {
+      seq.push(seq[seq.length-n]); // target
+    } else {
+      let l;
+      do { l=LETTERS[Math.floor(Math.random()*LETTERS.length)]; }
+      while(l===seq[seq.length-n]);
+      seq.push(l);
+    }
+  }
+  return seq;
+}
+
+function startTest() {
+  stimSeq = generateSequence(N, TOTAL_TRIALS, TARGET_RATE);
+  trialLog = [];
+  trialIdx = 0;
+  document.getElementById('instructions').classList.add('hidden');
+  const ta = document.getElementById('test-area');
+  ta.classList.remove('hidden');
+  ta.style.display = 'flex';
+  document.getElementById('nb-label').textContent = `${N}-Back`;
+  document.getElementById('nb-history').innerHTML = '';
+
+  keyHandler = (e) => { if(e.code==='Space'){e.preventDefault();pressMatch();} };
+  document.addEventListener('keydown', keyHandler);
+  runTrial();
+}
+
+function restart() {
+  if(keyHandler) document.removeEventListener('keydown', keyHandler);
+  clearTimeout(trialTimer);
+  clearInterval(barTimer);
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('instructions').classList.remove('hidden');
+}
+
+async function runTrial() {
+  if(trialIdx >= TOTAL_TRIALS) { endTest(); return; }
+
+  const letter  = stimSeq[trialIdx];
+  const isTarget = trialIdx>=N && stimSeq[trialIdx-N]===letter;
+  responded = false;
+
+  document.getElementById('nb-trial-info').textContent = `Trial ${trialIdx+1} / ${TOTAL_TRIALS}`;
+
+  // Flash stimulus
+  const stim = document.getElementById('nb-stim');
+  stim.textContent = letter;
+  stim.classList.add('flash');
+  document.getElementById('match-btn').disabled = false;
+
+  // Progress bar
+  clearInterval(barTimer);
+  barStart = Date.now();
+  const fill = document.getElementById('nb-timer-fill');
+  fill.style.width = '100%';
+  barTimer = setInterval(()=>{
+    const pct = Math.max(0, 100-(Date.now()-barStart)/ISI*100);
+    fill.style.width=pct+'%';
+  }, 40);
+
+  // Update history trail
+  updateHistory(trialIdx, letter, isTarget);
+
+  trialTimer = setTimeout(() => {
+    stim.classList.remove('flash');
+    stim.textContent = '–';
+    document.getElementById('match-btn').disabled = true;
+    clearInterval(barTimer);
+
+    // Record non-response
+    if (!responded) {
+      const result = isTarget ? 'miss' : 'cr';
+      trialLog.push({ isTarget, pressed:false, result });
+      showFeedback(result);
+    }
+
+    trialIdx++;
+    setTimeout(runTrial, 200);
+  }, ISI);
+}
+
+function pressMatch() {
+  if(responded) return;
+  responded = true;
+  clearTimeout(trialTimer);
+  clearInterval(barTimer);
+
+  const letter   = stimSeq[trialIdx];
+  const isTarget = trialIdx>=N && stimSeq[trialIdx-N]===letter;
+  const result   = isTarget ? 'hit' : 'fa';
+  trialLog.push({ isTarget, pressed:true, result });
+  showFeedback(result);
+
+  document.getElementById('nb-stim').classList.remove('flash');
+  document.getElementById('nb-stim').textContent = '–';
+  document.getElementById('match-btn').disabled = true;
+  document.getElementById('nb-timer-fill').style.width = '0%';
+
+  trialIdx++;
+  setTimeout(runTrial, 200);
+}
+
+function showFeedback(result) {
+  const fb = document.getElementById('nb-fb');
+  const msgs = { hit:'✓ Hit!', miss:'✗ Missed target', fa:'✗ False alarm', cr:'' };
+  fb.textContent = msgs[result];
+  fb.style.color = (result==='hit'||result==='cr') ? 'var(--success)' : 'var(--danger)';
+  if(result!=='cr') setTimeout(()=>{ fb.textContent=''; }, 400);
+}
+
+function updateHistory(idx, letter, isTarget) {
+  const hist = document.getElementById('nb-history');
+  const chip = document.createElement('div');
+  chip.className = 'hist-chip' + (isTarget?' target-chip':'');
+  chip.textContent = letter;
+  hist.appendChild(chip);
+  if(hist.children.length > 15) hist.removeChild(hist.firstChild);
+}
+
+function endTest() {
+  if(keyHandler) document.removeEventListener('keydown', keyHandler);
+  clearTimeout(trialTimer);
+  clearInterval(barTimer);
+  document.getElementById('test-area').style.display='none';
+  document.getElementById('results').classList.remove('hidden');
+
+  const hits = trialLog.filter(t=>t.result==='hit').length;
+  const miss = trialLog.filter(t=>t.result==='miss').length;
+  const fa   = trialLog.filter(t=>t.result==='fa').length;
+  const cr   = trialLog.filter(t=>t.result==='cr').length;
+  const targets  = hits+miss;
+  const nonTargets = fa+cr;
+
+  const hitRate  = targets>0 ? (hits/targets*100).toFixed(0) : '–';
+  const faRate   = nonTargets>0 ? (fa/nonTargets*100).toFixed(0) : '–';
+  const accuracy = ((hits+cr)/trialLog.length*100).toFixed(0);
+
+  document.getElementById('results-body').innerHTML = [
+    ['Hits', hits, hitRate+'%'],
+    ['Misses', miss, targets>0?(miss/targets*100).toFixed(0)+'%':'–'],
+    ['False Alarms', fa, faRate+'%'],
+    ['Correct Rejections', cr, nonTargets>0?(cr/nonTargets*100).toFixed(0)+'%':'–'],
+    ['Overall Accuracy', hits+cr, accuracy+'%'],
+  ].map(([l,c,p])=>`<tr><td>${l}</td><td>${c}</td><td>${p}</td></tr>`).join('');
+
+  // Dot trail
+  const seqEl = document.getElementById('results-seq');
+  seqEl.innerHTML = trialLog.map(t=>`<div class="seq-dot ${t.result}"></div>`).join('');
+}
+</script>
+</body>
+</html>

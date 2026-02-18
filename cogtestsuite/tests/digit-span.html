@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digit Span – CognitiveLab</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="page-header">
+  <div class="container">
+    <a href="/" class="back-btn">← Home</a>
+    <h2>Digit Span</h2>
+  </div>
+</header>
+
+<main class="test-page">
+<div class="test-content">
+
+  <!-- Instructions -->
+  <div id="instructions" class="panel">
+    <h2>Digit Span Test</h2>
+    <p style="margin-bottom:1.25rem;">This test measures your verbal working-memory span.</p>
+
+    <div class="mode-selector">
+      <button class="mode-btn active" id="btn-forward" onclick="setMode('forward')">Forward</button>
+      <button class="mode-btn" id="btn-backward" onclick="setMode('backward')">Backward</button>
+    </div>
+
+    <ul>
+      <li>Digits will appear one at a time on screen.</li>
+      <li><strong>Forward:</strong> Type them back in the same order.</li>
+      <li><strong>Backward:</strong> Type them back in reverse order.</li>
+      <li>Sequences start at 3 digits and grow longer.</li>
+      <li>Two trials per length; the test ends after both trials at a length fail.</li>
+    </ul>
+    <button class="btn btn-primary btn-full" onclick="startTest()">Begin Test</button>
+  </div>
+
+  <!-- Test area -->
+  <div id="test-area" class="panel hidden" style="text-align:center;">
+    <div class="trial-info">
+      <span id="info-span">Span: 3</span>
+      <span id="info-trial">Trial 1 / 2</span>
+      <span id="info-mode">Forward</span>
+    </div>
+
+    <div id="digit-display" class="stimulus">·</div>
+    <p id="hint" class="hidden" style="margin-bottom:.75rem;"></p>
+
+    <input id="answer-input" class="input-field hidden" type="text"
+           inputmode="numeric" placeholder="Type digits then press Enter"
+           onkeydown="handleKey(event)">
+
+    <div id="feedback-box" class="feedback hidden"></div>
+
+    <button id="next-btn" class="btn btn-primary btn-full mt-2 hidden" onclick="nextTrial()">Next →</button>
+  </div>
+
+  <!-- Results -->
+  <div id="results" class="panel hidden" style="text-align:center;">
+    <h2 style="margin-bottom:1.5rem;">Results</h2>
+    <div class="score-display">
+      <div class="score-number" id="final-span">-</div>
+      <div class="score-label" id="final-label">Final Span</div>
+    </div>
+    <table class="stats-table mt-3">
+      <thead><tr><th>Level</th><th>Trial 1</th><th>Trial 2</th></tr></thead>
+      <tbody id="results-body"></tbody>
+    </table>
+    <div style="display:flex;gap:.75rem;margin-top:1.5rem;">
+      <button class="btn btn-secondary" style="flex:1" onclick="location.href='/'">Home</button>
+      <button class="btn btn-primary"   style="flex:1" onclick="restart()">Try Again</button>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<script>
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+let mode = 'forward';
+let span = 3, trialNum = 0, sequence = [];
+let results = []; // [{span, t1, t2}]
+let currentRow = null;
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('btn-forward').classList.toggle('active', m === 'forward');
+  document.getElementById('btn-backward').classList.toggle('active', m === 'backward');
+}
+
+function startTest() {
+  span = 3; trialNum = 0; results = [];
+  document.getElementById('instructions').classList.add('hidden');
+  document.getElementById('test-area').classList.remove('hidden');
+  runTrial();
+}
+
+function restart() {
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('instructions').classList.remove('hidden');
+}
+
+function generateSeq(len) {
+  const seq = [];
+  for (let i = 0; i < len; i++) {
+    let d;
+    do { d = Math.floor(Math.random() * 9) + 1; }
+    while (seq.length > 0 && d === seq[seq.length - 1]);
+    seq.push(d);
+  }
+  return seq;
+}
+
+async function runTrial() {
+  trialNum++;
+  if (trialNum > 2) { trialNum = 1; }
+
+  sequence = generateSeq(span);
+
+  document.getElementById('info-span').textContent  = `Span: ${span}`;
+  document.getElementById('info-trial').textContent = `Trial ${trialNum} / 2`;
+  document.getElementById('info-mode').textContent  = mode === 'forward' ? 'Forward' : 'Backward';
+
+  const display = document.getElementById('digit-display');
+  const input   = document.getElementById('answer-input');
+  const hint    = document.getElementById('hint');
+  const fb      = document.getElementById('feedback-box');
+  const nxt     = document.getElementById('next-btn');
+
+  input.classList.add('hidden');
+  hint.classList.add('hidden');
+  fb.classList.add('hidden');
+  nxt.classList.add('hidden');
+  input.value = '';
+
+  display.textContent = '·';
+  await sleep(700);
+
+  for (const digit of sequence) {
+    display.textContent = digit;
+    await sleep(800);
+    display.textContent = '·';
+    await sleep(350);
+  }
+
+  display.textContent = '?';
+  hint.textContent = mode === 'forward'
+    ? 'Type digits in the order they appeared.'
+    : 'Type digits in REVERSE order.';
+  hint.classList.remove('hidden');
+  input.classList.remove('hidden');
+  input.focus();
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter') submitAnswer();
+}
+
+function submitAnswer() {
+  const input  = document.getElementById('answer-input');
+  const answer = input.value.trim();
+  if (!answer) return;
+
+  const expected = mode === 'forward'
+    ? sequence.join('')
+    : [...sequence].reverse().join('');
+
+  const correct = answer === expected;
+  showFeedback(correct, expected);
+  recordResult(correct);
+}
+
+function showFeedback(correct, expected) {
+  const fb = document.getElementById('feedback-box');
+  fb.className = 'feedback ' + (correct ? 'feedback-correct' : 'feedback-wrong');
+  fb.textContent = correct
+    ? '✓ Correct!'
+    : `✗ Incorrect – answer was: ${expected}`;
+  fb.classList.remove('hidden');
+
+  document.getElementById('answer-input').classList.add('hidden');
+  document.getElementById('hint').classList.add('hidden');
+  document.getElementById('next-btn').classList.remove('hidden');
+}
+
+function recordResult(correct) {
+  if (trialNum === 1) {
+    currentRow = { span, t1: correct, t2: null };
+  } else {
+    currentRow.t2 = correct;
+  }
+}
+
+function nextTrial() {
+  if (trialNum === 1) {
+    // Run second trial at same span
+    runTrial();
+  } else {
+    // Evaluate after 2 trials
+    results.push(currentRow);
+    const passed = currentRow.t1 || currentRow.t2;
+    if (!passed) {
+      showResults();
+    } else {
+      span++;
+      trialNum = 0;
+      runTrial();
+    }
+  }
+}
+
+function showResults() {
+  document.getElementById('test-area').classList.add('hidden');
+  document.getElementById('results').classList.remove('hidden');
+
+  const lastPassed = results.filter(r => r.t1 || r.t2);
+  const finalSpan = lastPassed.length > 0 ? lastPassed[lastPassed.length - 1].span : 0;
+
+  document.getElementById('final-span').textContent = finalSpan;
+  document.getElementById('final-label').textContent = `${mode === 'forward' ? 'Forward' : 'Backward'} Digit Span`;
+
+  const tbody = document.getElementById('results-body');
+  tbody.innerHTML = results.map(r => `
+    <tr>
+      <td>${r.span} digits</td>
+      <td style="color:${r.t1 ? 'var(--success)' : 'var(--danger)'}">${r.t1 ? '✓' : '✗'}</td>
+      <td style="color:${r.t2 ? 'var(--success)' : 'var(--danger)'}">${r.t2 ? '✓' : '✗'}</td>
+    </tr>
+  `).join('');
+}
+</script>
+</body>
+</html>

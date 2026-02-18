@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recognition Memory – CognitiveLab</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .study-word { font-size:3rem; font-weight:800; color:var(--text);
+                  text-align:center; padding:1.5rem;
+                  background:var(--surface-3); border-radius:var(--r); }
+    .test-word  { font-size:2.5rem; font-weight:700; color:var(--text);
+                  text-align:center; padding:1.25rem;
+                  background:var(--surface-3); border-radius:var(--r); }
+    .test-counter { font-size:.8rem; color:var(--text-muted); text-align:center; margin-top:.35rem; }
+    .on-buttons { display:flex; gap:1rem; justify-content:center; }
+    .btn-old { padding:.9rem 2.5rem; font-size:1.05rem; font-weight:700;
+               background:var(--accent); color:#fff; border:none;
+               border-radius:var(--r-sm); cursor:pointer; font-family:inherit; transition:all .15s; }
+    .btn-new { padding:.9rem 2.5rem; font-size:1.05rem; font-weight:700;
+               background:var(--surface-3); color:var(--text); border:2px solid var(--border);
+               border-radius:var(--r-sm); cursor:pointer; font-family:inherit; transition:all .15s; }
+    .btn-old:hover { opacity:.88; transform:scale(1.03); }
+    .btn-new:hover { border-color:var(--accent); transform:scale(1.03); }
+    .study-timer { font-size:1.5rem; font-weight:700; color:var(--warning); text-align:center; }
+    .dprime-score { font-size:1.8rem; font-weight:800; color:var(--accent); }
+    .phase-header { font-size:.8rem; text-transform:uppercase; letter-spacing:.08em;
+                    color:var(--accent); font-weight:600; text-align:center; margin-bottom:1rem; }
+  </style>
+</head>
+<body>
+<header class="page-header">
+  <div class="container">
+    <a href="/" class="back-btn">← Home</a>
+    <h2>Recognition Memory</h2>
+  </div>
+</header>
+
+<main class="test-page">
+<div class="test-content">
+
+  <div id="instructions" class="panel">
+    <h2>Recognition Memory Task</h2>
+    <p style="margin-bottom:1.25rem;">Tests explicit long-term memory using a study-test paradigm.</p>
+    <ul>
+      <li><strong>Study phase:</strong> 15 words appear one at a time — memorise them.</li>
+      <li>A short distractor period follows.</li>
+      <li><strong>Test phase:</strong> 30 words appear (15 old + 15 new).</li>
+      <li>Click <strong>OLD</strong> if you saw it in the study phase, <strong>NEW</strong> if not.</li>
+      <li>Accuracy and signal-detection sensitivity (d′) are computed.</li>
+    </ul>
+    <button class="btn btn-primary btn-full mt-2" onclick="startTest()">Begin Test</button>
+  </div>
+
+  <!-- Study phase -->
+  <div id="phase-study" class="panel hidden" style="text-align:center;">
+    <div class="phase-header">📚 Study Phase</div>
+    <p style="color:var(--text-muted);margin-bottom:.75rem;">
+      Word <span id="study-idx">1</span> of <span id="study-total">15</span>
+    </p>
+    <div class="progress-bar" style="margin-bottom:1rem;">
+      <div class="progress-fill" id="study-prog" style="width:0%"></div>
+    </div>
+    <div class="study-word" id="study-word"></div>
+    <div class="study-timer" id="study-timer" style="margin-top:.75rem;"></div>
+  </div>
+
+  <!-- Distractor phase -->
+  <div id="phase-distractor" class="panel hidden" style="text-align:center;">
+    <div class="phase-header">🧮 Distractor Phase</div>
+    <p style="color:var(--text-muted);margin-bottom:1rem;">Solve these arithmetic problems while we shuffle the test list:</p>
+    <div style="font-size:1.5rem;font-weight:700;margin-bottom:.75rem;" id="dist-q"></div>
+    <input id="dist-input" class="input-field" type="number" placeholder="Answer"
+           style="max-width:180px;margin:0 auto .5rem;"
+           onkeydown="if(event.key==='Enter') submitDist()">
+    <div id="dist-fb" style="font-size:.85rem;color:var(--text-muted);min-height:1.2rem;margin-bottom:.5rem;"></div>
+    <div class="study-timer" id="dist-timer"></div>
+    <button class="btn btn-primary mt-2" onclick="submitDist()">Submit</button>
+  </div>
+
+  <!-- Test phase -->
+  <div id="phase-test" class="panel hidden" style="text-align:center;">
+    <div class="phase-header">🔍 Test Phase</div>
+    <div class="test-counter" id="test-counter">1 / 30</div>
+    <div class="progress-bar" style="margin:.5rem auto 1rem;max-width:400px;">
+      <div class="progress-fill" id="test-prog" style="width:0%"></div>
+    </div>
+    <div class="test-word" id="test-word"></div>
+    <div id="test-fb" class="feedback hidden" style="margin-top:.75rem;max-width:300px;margin-left:auto;margin-right:auto;"></div>
+    <div class="on-buttons mt-3">
+      <button class="btn-old" onclick="respondTest(true)">OLD</button>
+      <button class="btn-new" onclick="respondTest(false)">NEW</button>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div id="results" class="panel hidden" style="text-align:center;">
+    <h2 style="margin-bottom:1.5rem;">Results</h2>
+    <table class="stats-table" style="margin-bottom:1.5rem;">
+      <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+      <tbody id="results-body"></tbody>
+    </table>
+    <p style="font-size:.8rem;color:var(--text-dim);margin-bottom:1.5rem;">
+      d′ (d-prime) measures sensitivity: how well you distinguish old from new items.<br>
+      d′ &gt; 2 = excellent, 1–2 = good, 0–1 = moderate, &lt; 0 = chance.
+    </p>
+    <div style="display:flex;gap:.75rem;">
+      <button class="btn btn-secondary" style="flex:1" onclick="location.href='/'">Home</button>
+      <button class="btn btn-primary"   style="flex:1" onclick="restart()">Try Again</button>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<script>
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+const WORD_POOL = [
+  'apple','mountain','freedom','candle','thunder','mirror','garden','silver',
+  'journey','crystal','dragon','horizon','melody','ancient','whisper','ladder',
+  'copper','shadow','forest','lantern','puzzle','violet','marble','falcon',
+  'temple','glacier','harmony','feather','cobalt','prism','anchor','beacon',
+  'clover','dagger','ember','famine','gravel','hunter','island','jasper',
+  'kettle','laurel','mosaic','nectar','oyster','parcel','quartz','riddle',
+  'sentry','tangle'
+];
+const STUDY_N = 15;
+const FOIL_N  = 15;
+const STUDY_ISI = 1800; // ms per word
+
+let studyWords = [], foilWords = [], testList = [];
+let studyIdx = 0, testIdx = 0;
+let testLog = []; // {word, isOld, pressed}
+let distInterval = null, distMath = null;
+let studyTimer = null;
+
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function startTest(){
+  const pool = shuffle([...WORD_POOL]);
+  studyWords = pool.slice(0, STUDY_N);
+  foilWords  = pool.slice(STUDY_N, STUDY_N+FOIL_N);
+  studyIdx = 0; testIdx = 0; testLog = [];
+  document.getElementById('instructions').classList.add('hidden');
+  document.getElementById('study-total').textContent = STUDY_N;
+  runStudy();
+}
+
+function restart(){
+  clearTimeout(studyTimer);
+  clearInterval(distInterval);
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('instructions').classList.remove('hidden');
+}
+
+async function runStudy(){
+  const ph = document.getElementById('phase-study');
+  ph.classList.remove('hidden');
+
+  for(let i=0; i<studyWords.length; i++){
+    document.getElementById('study-idx').textContent  = i+1;
+    document.getElementById('study-word').textContent = studyWords[i].toUpperCase();
+    document.getElementById('study-prog').style.width = ((i+1)/STUDY_N*100)+'%';
+
+    let t = Math.round(STUDY_ISI/1000);
+    document.getElementById('study-timer').textContent = t+'s';
+    const tInterval = setInterval(()=>{
+      t--;
+      document.getElementById('study-timer').textContent=Math.max(0,t)+'s';
+      if(t<=0) clearInterval(tInterval);
+    },1000);
+
+    await sleep(STUDY_ISI);
+    clearInterval(tInterval);
+  }
+  ph.classList.add('hidden');
+  startDistractor();
+}
+
+function startDistractor(){
+  const ph = document.getElementById('phase-distractor');
+  ph.classList.remove('hidden');
+  nextDistMath();
+
+  let t = 15;
+  document.getElementById('dist-timer').textContent = t+'s';
+  distInterval = setInterval(()=>{
+    t--;
+    document.getElementById('dist-timer').textContent=Math.max(0,t)+'s';
+    if(t<=0){
+      clearInterval(distInterval);
+      ph.classList.add('hidden');
+      startTestPhase();
+    }
+  },1000);
+}
+
+function nextDistMath(){
+  const a=Math.floor(Math.random()*15)+3;
+  const b=Math.floor(Math.random()*10)+2;
+  const op=Math.random()>0.5?'+':'-';
+  distMath={ q:`${a} ${op} ${b} = ?`, ans: op==='+'?a+b:a-b };
+  document.getElementById('dist-q').textContent = distMath.q;
+  document.getElementById('dist-input').value='';
+  document.getElementById('dist-input').focus();
+}
+
+function submitDist(){
+  const val=parseInt(document.getElementById('dist-input').value,10);
+  const ok=val===distMath.ans;
+  const fb=document.getElementById('dist-fb');
+  fb.textContent=ok?'✓':('✗ '+distMath.ans);
+  fb.style.color=ok?'var(--success)':'var(--danger)';
+  setTimeout(nextDistMath,300);
+}
+
+function startTestPhase(){
+  testList = shuffle([
+    ...studyWords.map(w=>({word:w,isOld:true})),
+    ...foilWords.map(w=>({word:w,isOld:false}))
+  ]);
+  testIdx=0;
+  document.getElementById('phase-test').classList.remove('hidden');
+  showTestWord();
+}
+
+function showTestWord(){
+  const item=testList[testIdx];
+  document.getElementById('test-word').textContent=item.word.toUpperCase();
+  document.getElementById('test-counter').textContent=`${testIdx+1} / ${testList.length}`;
+  document.getElementById('test-prog').style.width=(testIdx/testList.length*100)+'%';
+  document.getElementById('test-fb').classList.add('hidden');
+}
+
+function respondTest(sayOld){
+  const item=testList[testIdx];
+  const correct=(sayOld===item.isOld);
+  testLog.push({word:item.word, isOld:item.isOld, pressed:sayOld, correct});
+
+  const fb=document.getElementById('test-fb');
+  fb.className='feedback '+(correct?'feedback-correct':'feedback-wrong');
+  if(correct) fb.textContent='✓';
+  else fb.textContent=item.isOld?'✗ This was in the study list':'✗ This was a new word';
+  fb.classList.remove('hidden');
+
+  testIdx++;
+  setTimeout(()=>{
+    if(testIdx<testList.length) showTestWord();
+    else {
+      document.getElementById('phase-test').classList.add('hidden');
+      showResults();
+    }
+  },500);
+}
+
+function normCDF(z){
+  // Approximation
+  const a1=0.254829592, a2=-0.284496736, a3=1.421413741,
+        a4=-1.453152027, a5=1.061405429, p=0.3275911;
+  const sign = z<0?-1:1;
+  z=Math.abs(z)/Math.sqrt(2);
+  const t=1/(1+p*z);
+  const y=1-(((((a5*t+a4)*t)+a3)*t+a2)*t+a1)*t*Math.exp(-z*z);
+  return 0.5*(1+sign*y);
+}
+
+function zScore(p){
+  // Simple inverse normal approximation (Peter Acklam)
+  p=Math.max(0.001,Math.min(0.999,p));
+  const a=[-3.969683028665376e+01,2.209460984245205e+02,-2.759285104469687e+02,
+            1.383577518672690e+02,-3.066479806614716e+01,2.506628277459239e+00];
+  const b=[-5.447609879822406e+01,1.615858368580409e+02,-1.556989798598866e+02,
+            6.680131188771972e+01,-1.328068155288572e+01];
+  const c=[-7.784894002430293e-03,-3.223964580411365e-01,-2.400758277161838e+00,
+            -2.549732539343734e+00,4.374664141464968e+00,2.938163982698783e+00];
+  const d=[7.784695709041462e-03,3.224671290700398e-01,2.445134137142996e+00,3.754408661907416e+00];
+  const plo=0.02425, phi=1-plo;
+  let q,r;
+  if(p<plo){q=Math.sqrt(-2*Math.log(p));return(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+  if(p<=phi){q=p-0.5;r=q*q;return(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);}
+  q=Math.sqrt(-2*Math.log(1-p));return-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+}
+
+function showResults(){
+  document.getElementById('results').classList.remove('hidden');
+
+  const hits   = testLog.filter(t=> t.isOld &&  t.pressed).length;
+  const misses = testLog.filter(t=> t.isOld && !t.pressed).length;
+  const fas    = testLog.filter(t=>!t.isOld &&  t.pressed).length;
+  const crs    = testLog.filter(t=>!t.isOld && !t.pressed).length;
+  const overall= testLog.filter(t=>t.correct).length;
+
+  const hitRate = (hits+misses)>0 ? hits/(hits+misses) : 0;
+  const faRate  = (fas+crs)>0    ? fas/(fas+crs)       : 0;
+
+  // d-prime with correction to avoid infinity
+  const hrC = Math.max(0.01, Math.min(0.99, hitRate));
+  const frC = Math.max(0.01, Math.min(0.99, faRate));
+  const dPrime = (zScore(hrC)-zScore(frC)).toFixed(2);
+
+  document.getElementById('results-body').innerHTML = [
+    ['Hits (old said OLD)',          `${hits} / ${hits+misses}`, `${(hitRate*100).toFixed(0)}%`],
+    ['Misses (old said NEW)',        misses, ''],
+    ['False Alarms (new said OLD)',  fas, `${(faRate*100).toFixed(0)}%`],
+    ['Correct Rejections',          crs, ''],
+    ['Overall Accuracy',            overall, `${(overall/testLog.length*100).toFixed(0)}%`],
+    ['Sensitivity (d′)',            dPrime, ''],
+  ].map(([l,v,p])=>`<tr><td>${l}</td><td><strong>${v}</strong>${p?' <span style="color:var(--text-muted)">'+p+'</span>':''}</td></tr>`).join('');
+}
+</script>
+</body>
+</html>
