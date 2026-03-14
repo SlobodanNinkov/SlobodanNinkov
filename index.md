@@ -82,7 +82,8 @@ href="/articles/few-lessons-from-failed-startup/">[Lessons learned]</a></p>
             <span class="experience-role">Software Architect</span>
             <span class="experience-company">State Lottery of Serbia</span>
         </div>
-        <p>High-throughput transaction systems, fraud detection, and regulatory compliance.</p>
+        <p>High-throughput transaction systems, fraud detection, and regulatory compliance.<a 
+href="/articles/evolution-of-itsystem/">[System evolution]</a></p>
     </div>
 </section>
 
