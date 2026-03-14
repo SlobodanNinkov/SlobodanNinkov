@@ -19,9 +19,9 @@ author: Slobodan Ninkov
 # --- List of links in the navigation bar --- #
 ###############################################
 collections:
-  labs:
-    output: true
-    permalink: /labs/:title/
+#  labs:
+#    output: true
+#    permalink: /labs/:title/
   articles:
     output: true
     permalink: /articles/:title/
