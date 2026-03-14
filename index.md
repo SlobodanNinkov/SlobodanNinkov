@@ -22,8 +22,8 @@ layout: portfolio
             <p>CNN-based RF classification, autonomous agents, and simulation-driven testing and product development.</p>
         </div>
         <div>
-            <h3>Decision Systems Under Uncertainty</h3>
-            <p>Adaptive decision systems, cognitive architectures, and ML for signal intelligence.</p>
+            <h3>Decision Systems Under Uncertainty (MSc, 2026)</h3>
+            <p>Bayesian detection frameworks, ML classifiers for noisy sensor data, and decision-making under operational uncertainty.</p>
         </div>
     </div>
 </section>
