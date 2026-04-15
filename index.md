@@ -3,7 +3,6 @@ layout: portfolio
 ---
 
 <header class="hero">
-    <span class="subtitle">Senior Technical Product Manager | Software Engineer | Systems Architect</span>
     <h1>Slobodan Ninkov</h1>
     <p class="bio">
         I take high-stakes technical products from concept to field-validated deployment — embedded systems, real-time platforms, mission-critical infrastructure.
