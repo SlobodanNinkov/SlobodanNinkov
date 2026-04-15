@@ -6,14 +6,8 @@ layout: portfolio
     <span class="subtitle">Senior Technical Product Manager | Software Engineer | Systems Architect</span>
     <h1>Slobodan Ninkov</h1>
     <p class="bio">
-        Team leadership. <br/>
-        System architecture. <br/>
-        Product architecture. <br/>
-        Prototyping. <br/>
-        Field testing validation & verification. <br/>
-        Presentations. <br/>
-        Customer communication. <br/><br/>
-        Ensure that product is task ready and up to the challenge from product and engineering points of view.
+        I take high-stakes technical products from concept to field-validated deployment — embedded systems, real-time platforms, mission-critical infrastructure.
+        Currently focused on integrating autonomous decision-making into mission-critical systems — where AI mistakes have real consequences.
     </p>
     <div style="margin-top: 1.5rem;">
         <a href="mailto:ninkovslobodan@gmail.com" style="margin-right: 1.5rem; font-family: var(--font-mono);">Email Me</a>
