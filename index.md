@@ -3,7 +3,7 @@ layout: portfolio
 ---
 
 <header class="hero">
-    <span class="subtitle">Senior Technical Product Manager | AI Systems for the Physical World</span>
+    <span class="subtitle">Senior Technical Product Manager | Software Engineer | Systems Architect</span>
     <h1>Slobodan Ninkov</h1>
     <p class="bio">
         I take AI systems from prototype to field deployment — sensor fusion, edge inference, simulation-driven validation. 23 years shipping production systems across IoT, RF intelligence, and autonomous platforms. Two patents. Based in Berlin.
@@ -15,21 +15,7 @@ layout: portfolio
 </header>
 
 <section>
-    <h2>Current Focus</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
-        <div>
-            <h3>Autonomous Systems & Sensor Fusion</h3>
-            <p>CNN-based RF classification, autonomous agents, and simulation-driven testing and product development.</p>
-        </div>
-        <div>
-            <h3>Decision Systems Under Uncertainty (MSc, 2026)</h3>
-            <p>Bayesian detection frameworks, ML classifiers for noisy sensor data, and decision-making under operational uncertainty.</p>
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2>What I Build</h2>
+    <h2>Highlights</h2>
     <div class="grid">
         <div class="card">
             <h3>Digital Twins</h3>
@@ -44,13 +30,6 @@ layout: portfolio
             <p>Architected high-throughput systems handling €50M+ annual volume and 1M+ daily transactions, with integrated anomaly detection.</p>
         </div>
     </div>
-</section>
-
-<section>
-    <h2>How I Work</h2>
-    <p style="margin-top: 1.5rem;">
-        Field performance is the only honest metric. I prototype before I PowerPoint. I design for the failure modes nobody wants to discuss. Process theater is someone else's job—I build things that work under stress, then hand them off running.
-    </p>
 </section>
 
 <section>
@@ -79,12 +58,27 @@ href="/articles/few-lessons-from-failed-startup/">[Lessons learned]</a></p>
     </div>
     <div class="experience-item">
         <div class="experience-header">
-            <span class="experience-role">Software Architect</span>
+            <span class="experience-role">Software Engineer</span>
+            <span class="experience-company">Questys</span>
+        </div>
+        <p>Documentation system, Legislative application, Virtual file system</p>
+    </div>
+    <div class="experience-item">
+        <div class="experience-header">
+            <span class="experience-role">Senior Software Engineer & Software Architect</span>
             <span class="experience-company">State Lottery of Serbia</span>
         </div>
         <p>High-throughput transaction systems, fraud detection, and regulatory compliance.<a 
 href="/articles/evolution-of-itsystem/">[System evolution]</a></p>
     </div>
+    <div class="experience-item">
+        <div class="experience-header">
+            <span class="experience-role">Software Engineer</span>
+            <span class="experience-company">different companies</span>
+        </div>
+        <p>Measurement equipment, banking, accounting software.</p>
+    </div>
+
 </section>
 
 <footer>
