@@ -75,7 +75,7 @@ href="/articles/evolution-of-itsystem/">[System evolution]</a></p>
     <div class="experience-item">
         <div class="experience-header">
             <span class="experience-role">Software Engineer</span>
-            <span class="experience-company">different companies</span>
+            <span class="experience-company">Freelance</span>
         </div>
         <p>Measurement equipment, banking, accounting software.</p>
     </div>
