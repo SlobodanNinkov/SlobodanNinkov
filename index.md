@@ -13,7 +13,6 @@ layout: portfolio
         Field testing validation & verification. <br/>
         Presentations. <br/>
         Customer communication. <br/><br/>
-
         Ensure that product is task ready and up to the challenge from product and engineering points of view.
     </p>
     <div style="margin-top: 1.5rem;">
