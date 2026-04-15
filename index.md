@@ -6,7 +6,15 @@ layout: portfolio
     <span class="subtitle">Senior Technical Product Manager | Software Engineer | Systems Architect</span>
     <h1>Slobodan Ninkov</h1>
     <p class="bio">
-        I take AI systems from prototype to field deployment — sensor fusion, edge inference, simulation-driven validation. 23 years shipping production systems across IoT, RF intelligence, and autonomous platforms. Two patents. Based in Berlin.
+        Team leadership. <br/>
+        System architecture. <br/>
+        Product architecture. <br/>
+        Prototyping. <br/>
+        Field testing validation & verification. <br/>
+        Presentations. <br/>
+        Customer communication. <br/><br/>
+
+        Ensure that product is task ready and up to the challenge from product and engineering points of view.
     </p>
     <div style="margin-top: 1.5rem;">
         <a href="mailto:ninkovslobodan@gmail.com" style="margin-right: 1.5rem; font-family: var(--font-mono);">Email Me</a>
